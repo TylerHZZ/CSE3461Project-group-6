@@ -1,4 +1,4 @@
-# CSE 3461 Chat Application
+# CSE 3461 Project1
 
 ## Project Overview
 
