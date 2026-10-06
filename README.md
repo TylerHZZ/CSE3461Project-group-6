@@ -68,20 +68,7 @@ The server and clients will run on different devices connected through a real ne
 
 ## Project Structure
 
-```text
-CSE3461-Chat-Application/
-│
-├── README.md
-├── src/
-│   ├── server.py
-│   └── client.py
-│
-├── experiments/
-│
-├── docs/
-│
-└── CONTRIBUTIONS.md
-```
+
 
 ## Development Workflow
 
