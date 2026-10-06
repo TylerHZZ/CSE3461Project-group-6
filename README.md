@@ -70,36 +70,6 @@ The server and clients will run on different devices connected through a real ne
 
 
 
-## Development Workflow
-
-Each team member will work on a separate Git branch.
-
-Example branches:
-
-```text
-feature/broadcast
-feature/private-message
-feature/network-enhancement
-feature/integration-testing
-```
-
-Completed features will be reviewed and merged into the `main` branch.
-
-## Running the Application
-
-Instructions for running the server and clients will be added as development progresses.
-
-Example:
-
-```bash
-python server.py
-```
-
-In another terminal:
-
-```bash
-python client.py
-```
 
 ## Contributions
 
