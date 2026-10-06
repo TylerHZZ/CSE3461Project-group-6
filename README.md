@@ -15,9 +15,9 @@ The goal of the project is to build a multi-client chat application using socket
 
 ## Team Roles
 
-- **Luca Sivilotti** — Feature 1: Broadcast Communication
-- **Tianrun Lin** — Feature 2: One-to-One Private Messaging
-- **Aaditya Gupta** — Feature 3: Networking Enhancement and Performance Testing
+- **Luca Sivilotti** — Feature 
+- **Tianrun Lin** — Feature 
+- **Aaditya Gupta** — Feature 
 - **Tyler Zhuangzhuang He** — Integration, Debugging, Localhost Testing, and Over-the-Air Testing
 
 ## Features
