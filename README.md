@@ -1,5 +1,7 @@
 # CSE 3461 Project 1 — Framework with Private Messaging
 
+See the [repository guide](REPOSITORY_GUIDE.md) for feature numbers, branch naming, archived code and document navigation.
+
 A Python standard-library, threaded TCP client/server with **Feature 2 private messaging integrated**. It provides registration, strict protocol validation, bounded queues, correlated results, logging and cleanup. **F1 broadcast and F3 A remain unimplemented.** This is an F2 implementation and localhost delivery, not completion of the whole course project.
 
 ## Run locally
@@ -93,7 +95,7 @@ The wire format remains four-byte unsigned big-endian length plus strict UTF-8 J
 
 See the [integration brief](outputs/CSE3461_F1_F2_INTEGRATION_BRIEF.md) and [architecture baseline](outputs/CSE3461_ARCHITECTURE_PROPOSAL.md) for exact contracts.
 
-**The standalone `origin/one-one` branch at `1069ff5` is historical reference and still contains the demonstrated framing bugs. It was not repaired or merged.** Its bare-string `server.py` / `client.py` protocol is incompatible with this package. Use only the package entry points above for the integrated product; no duplicate legacy entry point is shipped here.
+**The standalone `origin/archive/f2-standalone` branch at `1069ff5` is historical reference and still contains the demonstrated framing bugs. It was not repaired or merged.** Its bare-string `server.py` / `client.py` protocol is incompatible with this package. Use only the package entry points above for the integrated product; no duplicate legacy entry point is shipped here.
 
 For future real-device checks, bind the server to its reachable IPv4 address (or `0.0.0.0`) and set each client's `--host` to the server's actual LAN address. Remote clients must not use their own loopback address or `0.0.0.0`. Real-device over-the-air testing, team demonstrations/video, F1/F3, the report and course submission are still pending. No authentication, encryption, persistent history or public deployment is included.
 

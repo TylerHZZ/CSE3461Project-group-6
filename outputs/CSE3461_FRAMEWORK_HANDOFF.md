@@ -32,6 +32,6 @@ Only the connection writer sends frames. Recipient identity is captured by sessi
 
 The original skeleton was committed as `8881b8064e6e11005a5a2a9e7a70b5dedd3b161a`. Its [49-test acceptance](CSE3461_FRAMEWORK_ACCEPTANCE.md), [review/fixes](framework_work/final-review.md), [repository import](framework_work/repository-import.md), and [supervised run](runs/skeleton-smoke-20261021-01/smoke-summary.json) are retained as historical evidence. Statements in those records that F2/publication are unavailable describe that earlier stage.
 
-This integration derives from that actual repository commit; it does not overwrite the repository with the older project copy. The separate `origin/one-one` raw-string branch remains unfixed historical reference and is not the recommended runtime. Its incompatible protocol was not merged.
+This integration derives from that actual repository commit; it does not overwrite the repository with the older project copy. The separate `origin/archive/f2-standalone` raw-string branch remains unfixed historical reference and is not the recommended runtime. Its incompatible protocol was not merged.
 
 Real-device over-the-air verification, other OS/Python-version checks, F1/F3, team contributions, video, report, sharing and course submission remain separate. No external communication, push or course upload is part of this delivery. The coordinator retains independent acceptance responsibility.

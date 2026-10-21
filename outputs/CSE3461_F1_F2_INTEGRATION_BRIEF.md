@@ -103,7 +103,7 @@ Validation order: frame/JSON → envelope/version/ID → direction/type → fiel
 
 **The current delivered stage is F2 plus the existing framework.** F2 advertises `{implemented:true, enabled:<startup setting>, variant:null}`. F1/F3 advertise `{implemented:false, enabled:false, variant:null}` and still return `FEATURE_NOT_IMPLEMENTED`. Disabled F2 returns `FEATURE_DISABLED`. `build_handlers(config.features)` is the CLI binding; hello, registration and server metadata derive their capability snapshot from those descriptors.
 
-F2 performs exact directory lookup and returns one captured session. Shared publication and actual socket/CLI tests are included. F1 remains an independent handler task. No wire/schema change or standalone protocol adapter was introduced. The old `origin/one-one` branch remains unfixed reference only, never a supported entry point for this delivery.
+F2 performs exact directory lookup and returns one captured session. Shared publication and actual socket/CLI tests are included. F1 remains an independent handler task. No wire/schema change or standalone protocol adapter was introduced. The old `origin/archive/f2-standalone` branch remains unfixed reference only, never a supported entry point for this delivery.
 
 | Acceptance level | Required evidence |
 | --- | --- |
