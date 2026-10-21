@@ -6,9 +6,9 @@ Feature numbers follow the course assignment: **F1 = broadcast**, **F2 = private
 
 | Branch | Purpose | Status |
 | --- | --- | --- |
-| `main` | Integrated shared framework and F2 private messaging | F2 implementation baseline: `64a0459`; F3 is not merged here |
+| `main` | Integrated shared framework, F2 private messaging and F3 delay/jitter | F2 baseline `64a0459` and F3 baseline `7fbdbbb`; independently accepted and integrated |
 | `feature/f2-private-chat` | Clearly named branch for the integrated F2 delivery | Created from the documented F2 baseline; no separate reimplementation or pending F2 merge |
-| `feature/f3-delay-jitter` | F3 implementation and experiment delivery | F3 implementation baseline: `7fbdbbb`; remains separate from main |
+| `feature/f3-delay-jitter` | F3 implementation and experiment delivery | F3 implementation baseline: `7fbdbbb`; retained after integration into main |
 | `archive/f2-standalone` | Original standalone private messaging prototype | Same original commit `1069ff5`; contains known framing bugs; reference only |
 
 `archive/f2-standalone` replaces remote `one-one` and local `f1-one-one`. All original commits are retained. Use the integrated package, not the prototype, for demonstrations and further development.
@@ -33,7 +33,7 @@ Before development, inspect `git status` and switch to the intended branch. Do n
 | `cse3461_chat/features/private_chat.py` | F2 recipient selection |
 | `cse3461_chat/dispatch.py` | Shared message publication and send results |
 | `tests/` | Automated tests and reproducible smoke checks |
-| `experiments/` | F3 experiment tooling, available on the F3 branch |
+| `experiments/` | F3 experiment tooling, integrated into main |
 | `outputs/` | Architecture, plans, acceptance reports and handoffs |
 | `outputs/runs/` | Captured execution evidence; preserve recorded runs |
 | `outputs/framework_work/` | Historical framework development evidence |
@@ -48,7 +48,7 @@ Historical evidence and its recorded hashes are not renamed or rewritten during 
 - [Shared F1/F2 interface contract](outputs/CSE3461_F1_F2_INTEGRATION_BRIEF.md)
 - [Architecture baseline](outputs/CSE3461_ARCHITECTURE_PROPOSAL.md)
 
-On `feature/f3-delay-jitter`, also read `outputs/CSE3461_F3_PLAN.md`, `outputs/CSE3461_F3_ACCEPTANCE.md`, `outputs/CSE3461_F3_ANALYSIS.md` and `outputs/CSE3461_F3_HANDOFF.md`. These files are intentionally not promised on main before F3 integration.
+On main and `feature/f3-delay-jitter`, also read `outputs/CSE3461_F3_PLAN.md`, `outputs/CSE3461_F3_ACCEPTANCE.md`, `outputs/CSE3461_F3_ANALYSIS.md` and `outputs/CSE3461_F3_HANDOFF.md`. These files are now included on main following independent acceptance.
 
 ## Updating an older local checkout
 
@@ -66,3 +66,7 @@ git branch --set-upstream-to=origin/archive/f2-standalone archive/f2-standalone
 ```
 
 If it is instead named `one-one`, substitute that old local name. Check existing local branches first; do not overwrite an existing archive branch. To work on the corrected F2 version, use `feature/f2-private-chat`, not the archived prototype.
+
+## Independent acceptance
+
+See [the coordinator acceptance record](outputs/CSE3461_COORDINATOR_ACCEPTANCE.md) for fresh tests, experiments, scope and remaining course requirements. Feature branches are retained for traceability.

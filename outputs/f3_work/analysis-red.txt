@@ -1,0 +1,94 @@
+test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) ... 
+  test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) (change='gap') ... FAIL
+  test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) (change='invalid') ... FAIL
+  test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) (change='exit') ... FAIL
+test_duplicates_do_not_inflate_delivery (tests.test_delay_analysis.DelayAnalysisTests.test_duplicates_do_not_inflate_delivery) ... FAIL
+test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured (tests.test_delay_analysis.DelayAnalysisTests.test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured) ... FAIL
+test_missing_log_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_missing_log_invalidates_evidence) ... FAIL
+test_throughput_uses_only_one_recipient_clock (tests.test_delay_analysis.DelayAnalysisTests.test_throughput_uses_only_one_recipient_clock) ... FAIL
+
+======================================================================
+FAIL: test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) (change='gap')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 59, in test_broken_sequence_or_unclean_stop_invalidates_evidence
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 33, in analyze
+    self.assertIsNotNone(importlib.util.find_spec('experiments.analyze_delay'), 'Analyzer missing')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Analyzer missing
+
+======================================================================
+FAIL: test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) (change='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 59, in test_broken_sequence_or_unclean_stop_invalidates_evidence
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 33, in analyze
+    self.assertIsNotNone(importlib.util.find_spec('experiments.analyze_delay'), 'Analyzer missing')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Analyzer missing
+
+======================================================================
+FAIL: test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) (change='exit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 59, in test_broken_sequence_or_unclean_stop_invalidates_evidence
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 33, in analyze
+    self.assertIsNotNone(importlib.util.find_spec('experiments.analyze_delay'), 'Analyzer missing')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Analyzer missing
+
+======================================================================
+FAIL: test_duplicates_do_not_inflate_delivery (tests.test_delay_analysis.DelayAnalysisTests.test_duplicates_do_not_inflate_delivery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 65, in test_duplicates_do_not_inflate_delivery
+    result = self.analyze(manifest, logs)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 33, in analyze
+    self.assertIsNotNone(importlib.util.find_spec('experiments.analyze_delay'), 'Analyzer missing')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Analyzer missing
+
+======================================================================
+FAIL: test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured (tests.test_delay_analysis.DelayAnalysisTests.test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 38, in test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured
+    result = self.analyze(*fixture())
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 33, in analyze
+    self.assertIsNotNone(importlib.util.find_spec('experiments.analyze_delay'), 'Analyzer missing')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Analyzer missing
+
+======================================================================
+FAIL: test_missing_log_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_missing_log_invalidates_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 51, in test_missing_log_invalidates_evidence
+    with self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                        ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 33, in analyze
+    self.assertIsNotNone(importlib.util.find_spec('experiments.analyze_delay'), 'Analyzer missing')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Analyzer missing
+
+======================================================================
+FAIL: test_throughput_uses_only_one_recipient_clock (tests.test_delay_analysis.DelayAnalysisTests.test_throughput_uses_only_one_recipient_clock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 74, in test_throughput_uses_only_one_recipient_clock
+    result = self.analyze(manifest, logs)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 33, in analyze
+    self.assertIsNotNone(importlib.util.find_spec('experiments.analyze_delay'), 'Analyzer missing')
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Analyzer missing
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+FAILED (failures=7)

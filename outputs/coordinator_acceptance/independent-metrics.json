@@ -1,0 +1,32 @@
+{
+  "baseline": {
+    "samples": 180,
+    "actual_wait_mean_ms": 0.00022089444444444443,
+    "queue_mean_ms": 0.07259448333333333,
+    "queue_p95_ms": 0.102459,
+    "recipient_mps_min": 250.09315538843123,
+    "recipient_mps_max": 250.3037976031754,
+    "selected": 180,
+    "received": 180
+  },
+  "fixed": {
+    "samples": 180,
+    "actual_wait_mean_ms": 23.795396766666666,
+    "queue_mean_ms": 291.2426382277778,
+    "queue_p95_ms": 565.344208,
+    "recipient_mps_min": 40.52644313591454,
+    "recipient_mps_max": 41.972588643122094,
+    "selected": 180,
+    "received": 180
+  },
+  "jitter": {
+    "samples": 180,
+    "actual_wait_mean_ms": 22.376696783333333,
+    "queue_mean_ms": 272.87490297222223,
+    "queue_p95_ms": 517.82875,
+    "recipient_mps_min": 39.38899294313865,
+    "recipient_mps_max": 50.18184794232828,
+    "selected": 180,
+    "received": 180
+  }
+}

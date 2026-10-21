@@ -1,0 +1,32 @@
+usage: python3 -m cse3461_chat.server [-h] [--host HOST] [--port PORT]
+                                      [--run-id RUN_ID] [--log-file LOG_FILE]
+                                      [--max-clients MAX_CLIENTS]
+                                      [--features FEATURES]
+                                      [--delay-mode DELAY_MODE]
+                                      [--delay-ms DELAY_MS]
+                                      [--jitter-ms JITTER_MS]
+                                      [--delay-seed DELAY_SEED]
+
+CSE3461 framed TCP chat; F2 private chat and F3 A delay/jitter available; F1
+unimplemented.
+
+options:
+  -h, --help            show this help message and exit
+  --host HOST
+  --port PORT
+  --run-id RUN_ID
+  --log-file LOG_FILE   New per-process JSONL file; parent directory must
+                        exist.
+  --max-clients MAX_CLIENTS
+  --features FEATURES   none (default), f2, f3 or f2,f3; F3 requires
+                        fixed/jitter mode.
+  --delay-mode DELAY_MODE
+                        off, fixed or jitter; chat frames only, FIFO controls
+                        can queue behind chat.
+  --delay-ms DELAY_MS   Fixed delay or jitter center in ms, 0..1000.
+  --jitter-ms JITTER_MS
+                        Uniform half-width in ms: [delay-jitter, delay+jitter]
+                        within 0..1000.
+  --delay-seed DELAY_SEED
+                        0..4294967295; independent sequence per recipient
+                        username.

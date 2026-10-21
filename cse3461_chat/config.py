@@ -1,5 +1,6 @@
 """Immutable startup configuration; only implemented features can be enabled."""
 import argparse
+import math
 import socket
 from dataclasses import dataclass
 
@@ -23,6 +24,10 @@ class ServerConfig:
     port: int = 3461
     max_clients: int = 16
     features: str = 'none'
+    delay_mode: str = 'off'
+    delay_ms: float = 0.0
+    jitter_ms: float = 0.0
+    delay_seed: int = 0
     run_id: str | None = None
     log_file: str | None = None
 
@@ -46,8 +51,22 @@ def validate_config(config):
     if isinstance(config, ServerConfig):
         if type(config.max_clients) is not int or config.max_clients <= 0:
             raise ValueError('max-clients must be positive.')
-        if config.features not in ('none', 'f2'):
-            raise ValueError('Use --features none or --features f2; F1/F3 are not implemented.')
+        if config.features not in ('none', 'f2', 'f3', 'f2,f3'):
+            raise ValueError('Use --features none, f2, f3 or f2,f3; F1 is not implemented.')
+        if config.delay_mode not in ('off', 'fixed', 'jitter'):
+            raise ValueError('delay-mode must be off, fixed or jitter.')
+        if any(type(v) not in (int, float) or not math.isfinite(v) for v in (config.delay_ms, config.jitter_ms)):
+            raise ValueError('Delays must be finite numbers.')
+        if not 0 <= config.jitter_ms <= config.delay_ms or config.delay_ms + config.jitter_ms > 1000:
+            raise ValueError('Require 0 <= jitter-ms <= delay-ms and delay-ms + jitter-ms <= 1000.')
+        if type(config.delay_seed) is not int or not 0 <= config.delay_seed < 2**32:
+            raise ValueError('delay-seed must be an integer from 0 to 4294967295.')
+        if ('f3' in config.features.split(',')) != (config.delay_mode != 'off'):
+            raise ValueError('Enabling f3 requires fixed/jitter mode; delay modes require f3.')
+        if config.delay_mode == 'fixed' and config.jitter_ms != 0:
+            raise ValueError('Fixed mode requires jitter-ms=0.')
+        if config.delay_mode == 'off' and (config.delay_ms != 0 or config.jitter_ms != 0):
+            raise ValueError('Off mode requires zero delay-ms and jitter-ms.')
     else:
         if any(row[4][0] == '0.0.0.0' for row in addresses):
             raise ValueError('Use the actual server address, not 0.0.0.0.')
@@ -56,14 +75,18 @@ def validate_config(config):
 
 
 def _parse(argv, server):
-    parser = argparse.ArgumentParser(description='CSE3461 framed TCP chat; F2 available, F1/F3 unimplemented.')
+    parser = argparse.ArgumentParser(description='CSE3461 framed TCP chat; F2 private chat and F3 A delay/jitter available; F1 unimplemented.')
     parser.add_argument('--host', default='127.0.0.1')
     parser.add_argument('--port', type=int, default=3461)
     parser.add_argument('--run-id')
     parser.add_argument('--log-file', help='New per-process JSONL file; parent directory must exist.')
     if server:
         parser.add_argument('--max-clients', type=int, default=16)
-        parser.add_argument('--features', default='none', help='none (default) disables chat; f2 enables private messaging.')
+        parser.add_argument('--features', default='none', help='none (default), f2, f3 or f2,f3; F3 requires fixed/jitter mode.')
+        parser.add_argument('--delay-mode', default='off', help='off, fixed or jitter; chat frames only, FIFO controls can queue behind chat.')
+        parser.add_argument('--delay-ms', type=float, default=0.0, help='Fixed delay or jitter center in ms, 0..1000.')
+        parser.add_argument('--jitter-ms', type=float, default=0.0, help='Uniform half-width in ms: [delay-jitter, delay+jitter] within 0..1000.')
+        parser.add_argument('--delay-seed', type=int, default=0, help='0..4294967295; independent sequence per recipient username.')
     else:
         parser.add_argument('--username')
     config = (ServerConfig if server else ClientConfig)(**vars(parser.parse_args(argv)))

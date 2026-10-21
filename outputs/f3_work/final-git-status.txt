@@ -1,0 +1,33 @@
+HEAD 64a0459bbb2a79745574be629093b82d83dcf7ae
+Index empty; implementation is unstaged/uncommitted.
+## feature/f3-delay-jitter...origin/feature/f3-delay-jitter
+ M README.md
+ M cse3461_chat/client.py
+ M cse3461_chat/commands.py
+ M cse3461_chat/config.py
+ M cse3461_chat/features/__init__.py
+ M cse3461_chat/features/enhancement.py
+ M cse3461_chat/server.py
+ M cse3461_chat/sessions.py
+ M outputs/CSE3461_ARCHITECTURE_PROPOSAL.md
+ M outputs/CSE3461_F1_F2_INTEGRATION_BRIEF.md
+ M outputs/CSE3461_F2_ACCEPTANCE.md
+ M outputs/CSE3461_F2_HANDOFF.md
+ M outputs/CSE3461_FRAMEWORK_HANDOFF.md
+ M tests/run_private_smoke.py
+ M tests/support.py
+ M tests/test_client.py
+ M tests/test_features.py
+ M tests/test_skeleton.py
+?? experiments/
+?? outputs/CSE3461_F3_ACCEPTANCE.md
+?? outputs/CSE3461_F3_ANALYSIS.md
+?? outputs/CSE3461_F3_HANDOFF.md
+?? outputs/CSE3461_F3_PLAN.md
+?? outputs/f3_work/
+?? outputs/runs/f3-f2-regression-20261021-01/
+?? outputs/runs/f3-finalrepo-20261021-01/
+?? outputs/runs/f3-finalrepo-20261021-02/
+?? tests/test_delay.py
+?? tests/test_delay_analysis.py
+?? tests/test_delay_writer.py

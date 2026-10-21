@@ -74,7 +74,7 @@ class ServerRuntime:
     def run(self, config, handlers, events) -> int:
         code = 0
         listener = None
-        self.manager = SessionManager(config.max_clients, events)
+        self.manager = SessionManager(config.max_clients, events, config)
         dispatcher = Dispatcher(self.manager, handlers, events)
         try:
             validate_config(config)
@@ -86,7 +86,7 @@ class ServerRuntime:
             listener.settimeout(.05)
             self.address = listener.getsockname()
             self.output(f'Listening on {self.address[0]}:{self.address[1]}; '
-                        f'F2={"enabled" if dispatcher.capabilities["f2"]["enabled"] else "disabled"}; F1/F3 not implemented.')
+                        f'F2={"enabled" if dispatcher.capabilities["f2"]["enabled"] else "disabled"}; F3 A={config.delay_mode} ({config.delay_ms} +/- {config.jitter_ms} ms); F1 not implemented.')
             self.ready.set()
             while not self._stop.is_set():
                 self.manager.maintain()

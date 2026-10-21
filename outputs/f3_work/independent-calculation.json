@@ -1,0 +1,50 @@
+[
+  {
+    "condition": "baseline",
+    "n": 180,
+    "wait_mean_ms": 0.0002229277777777778,
+    "wait_min_ms": 8.3e-05,
+    "wait_max_ms": 0.000458,
+    "selected_mean_ms": 0.0,
+    "selected_min_ms": 0.0,
+    "selected_max_ms": 0.0,
+    "queue_mean_ms": 0.07449071111111111,
+    "queue_p95_ms": 0.102958,
+    "prewrite_mean_ms": 0.1306659388888889,
+    "recipient_rate_min_mps": 249.94864417254132,
+    "recipient_rate_max_mps": 250.21138548083727,
+    "source_hashes_match": true
+  },
+  {
+    "condition": "fixed",
+    "n": 180,
+    "wait_mean_ms": 23.88190442222222,
+    "wait_min_ms": 20.043708,
+    "wait_max_ms": 25.372541,
+    "selected_mean_ms": 20.0,
+    "selected_min_ms": 20.0,
+    "selected_max_ms": 20.0,
+    "queue_mean_ms": 292.4776490111111,
+    "queue_p95_ms": 572.860875,
+    "prewrite_mean_ms": 316.6150183,
+    "recipient_rate_min_mps": 40.248597544557974,
+    "recipient_rate_max_mps": 41.336150645718284,
+    "source_hashes_match": true
+  },
+  {
+    "condition": "jitter",
+    "n": 180,
+    "wait_mean_ms": 22.12911293333333,
+    "wait_min_ms": 5.785958,
+    "wait_max_ms": 39.978541,
+    "selected_mean_ms": 19.345004977082304,
+    "selected_min_ms": 5.005529491140769,
+    "selected_max_ms": 34.928523512713504,
+    "queue_mean_ms": 268.82363731111116,
+    "queue_p95_ms": 517.181333,
+    "prewrite_mean_ms": 291.15568501666667,
+    "recipient_rate_min_mps": 38.987518766978255,
+    "recipient_rate_max_mps": 50.36884322306754,
+    "source_hashes_match": true
+  }
+]

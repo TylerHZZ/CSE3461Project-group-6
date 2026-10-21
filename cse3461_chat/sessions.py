@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from uuid import uuid4
 
 from . import config
+from .features.enhancement import DelayPolicy
 from .protocol import AppError, EnqueueResult, WireMessage, DeliveryMeta, valid_username
 from .telemetry import EventSink, TelemetryError
 from .transport import FramedConnection, encode_frame
@@ -37,7 +38,7 @@ class Directory:
                          if s.state == 'registered' and s.session_id != origin_session_id)
 
 
-@dataclass(frozen=True)
+@dataclass
 class _Outbound:
     message: WireMessage
     meta: DeliveryMeta | None
@@ -60,11 +61,14 @@ class _Session:
     reason: str | None = None
     reader: threading.Thread | None = None
     writer: threading.Thread | None = None
+    cancel_delay: threading.Event = field(default_factory=threading.Event)
+    delay_policy: DelayPolicy | None = None
 
 
 class SessionManager:
-    def __init__(self, max_clients: int, events: EventSink):
+    def __init__(self, max_clients: int, events: EventSink, delay_config=None):
         self.max_clients, self.events = max_clients, events
+        self.delay_config = delay_config or config.ServerConfig()
         self._lock = threading.Lock()
         self._sessions: dict[str, _Session] = {}
         self._names: dict[str, str] = {}
@@ -124,6 +128,7 @@ class SessionManager:
     @staticmethod
     def _put_locked(s, item):
         try:
+            item.enqueued_ns = time.monotonic_ns()
             s.outbound.put_nowait(item)
             return EnqueueResult(True)
         except queue.Full:
@@ -198,6 +203,7 @@ class SessionManager:
             if s.username and self._names.get(s.username) == session_id:
                 del self._names[s.username]
             s.state, s.reason = 'closing', reason
+            s.cancel_delay.set()
             s.close_deadline_ns = time.monotonic_ns() + int(config.DRAIN_S*1e9) if drain else None
             if item:
                 admission = self._put_locked(s, item)
@@ -213,6 +219,7 @@ class SessionManager:
             if s.state == 'closed':
                 return
             s.state = 'closed'
+            s.cancel_delay.set()
             if s.username and self._names.get(s.username) == s.session_id:
                 del self._names[s.username]
             while True:
@@ -241,8 +248,28 @@ class SessionManager:
                     item = s.outbound.get(timeout=.05)
                 except queue.Empty:
                     continue
-                started = time.monotonic_ns()
+                dequeued = time.monotonic_ns()
                 fields = self._fields(s.session_id, item)
+                if item.message.type == 'chat_message':
+                    if s.delay_policy is None:
+                        cfg = self.delay_config
+                        s.delay_policy = DelayPolicy(cfg.delay_mode, cfg.delay_ms, cfg.jitter_ms,
+                                                     cfg.delay_seed, s.username)
+                    self._emit('chat_dequeued', dict(fields, dequeued_ns=dequeued))
+                    # The writer owns its RNG; no directory/log lock is held here.
+                    observation = s.delay_policy.before_chat_write(s.cancel_delay)
+                    self._emit('chat_delay_completed', dict(fields, mode=s.delay_policy.mode,
+                        dequeued_ns=dequeued, queue_only_ns=dequeued-item.enqueued_ns,
+                        selected_ms=observation.selected_ms, wait_started_ns=observation.started_ns,
+                        wait_ended_ns=observation.ended_ns,
+                        actual_wait_ns=observation.ended_ns-observation.started_ns,
+                        cancelled=observation.cancelled))
+                    if observation.cancelled:
+                        with self._lock:
+                            self.discarded += 1
+                        self._emit('outbound_discarded', dict(fields, reason='delay_cancelled'))
+                        continue
+                started = time.monotonic_ns()
                 try:
                     s.channel.write(item.message)
                 except OSError as exc:

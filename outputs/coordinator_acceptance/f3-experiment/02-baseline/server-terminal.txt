@@ -1,0 +1,1 @@
+Listening on 127.0.0.1:53997; F2=enabled; F3 A=off (0.0 +/- 0.0 ms); F1 not implemented.

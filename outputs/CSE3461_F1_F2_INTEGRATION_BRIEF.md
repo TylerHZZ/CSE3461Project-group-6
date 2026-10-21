@@ -1,8 +1,8 @@
 # CSE3461 | Feature 1 / Feature 2 Integration Brief
 
-Version 1.2 (F2 integrated; protocol unchanged) | 2026-10-21 | Based on `CSE3461_ARCHITECTURE_PROPOSAL.md` v0.2; wire protocol v1.
+Version 1.3 (F2/F3 integrated; protocol unchanged) | 2026-10-21 | Based on `CSE3461_ARCHITECTURE_PROPOSAL.md` v0.2; wire protocol v1.
 
-**Current status: F2 and shared publication are implemented and locally verified. F1 and F3 A remain unimplemented.** Use `--features f2`; default `none` disables F2. See [F2 acceptance](CSE3461_F2_ACCEPTANCE.md) and [F2 handoff](CSE3461_F2_HANDOFF.md). Earlier skeleton evidence is historical.
+**Current status: F2 and shared publication are implemented and locally verified. F1 remains unimplemented; F3 A is available through startup delay configuration. See [F3 handoff](CSE3461_F3_HANDOFF.md).** Use `--features f2`; default `none` disables F2. See [F2 acceptance](CSE3461_F2_ACCEPTANCE.md) and [F2 handoff](CSE3461_F2_HANDOFF.md). Earlier skeleton evidence is historical.
 
 ## 1. Architecture and ownership
 
@@ -16,7 +16,7 @@ Baseline: Python 3.12+ standard library, IPv4 TCP, one receiver thread and one w
 | F1 | Broadcast handler in `cse3461_chat/features/broadcast.py` and its tests; select recipients or return an error |
 | F2 | Private-message handler in `cse3461_chat/features/private_chat.py` and its tests; select one recipient or return an error |
 
-F1/F2 **must not access sockets, maintain separate online-user maps, create I/O threads, generate message IDs, or send responses**. If an existing independent application uses different interfaces, report the differences and coordinate an adapter. Do not merge incompatible private protocols. F3 A will later introduce delay/jitter in the shared sending path; F1/F2 must not add their own waits or change message formats.
+F1/F2 **must not access sockets, maintain separate online-user maps, create I/O threads, generate message IDs, or send responses**. If an existing independent application uses different interfaces, report the differences and coordinate an adapter. Do not merge incompatible private protocols. F3 A now introduces configured delay/jitter in the shared writer path; F1/F2 must not add their own waits or change message formats.
 
 ## 2. F1/F2 function contracts
 
@@ -101,7 +101,7 @@ Validation order: frame/JSON → envelope/version/ID → direction/type → fiel
 
 ## 5. Integration stages and acceptance
 
-**The current delivered stage is F2 plus the existing framework.** F2 advertises `{implemented:true, enabled:<startup setting>, variant:null}`. F1/F3 advertise `{implemented:false, enabled:false, variant:null}` and still return `FEATURE_NOT_IMPLEMENTED`. Disabled F2 returns `FEATURE_DISABLED`. `build_handlers(config.features)` is the CLI binding; hello, registration and server metadata derive their capability snapshot from those descriptors.
+**The current delivered stage is F2 plus F3 A in the existing framework.** F2 advertises `{implemented:true, enabled:<startup setting>, variant:null}`; F3 advertises `{implemented:true, enabled:<startup setting>, variant:"A"}`. F1 remains unimplemented and returns `FEATURE_NOT_IMPLEMENTED`. Disabled F2/F3 return `FEATURE_DISABLED`; enabled `/enhance` explains `STARTUP_CONFIG_ONLY`. `build_handlers(config.features)` is the CLI binding; hello, registration and server metadata derive their capability snapshot from those descriptors.
 
 F2 performs exact directory lookup and returns one captured session. Shared publication and actual socket/CLI tests are included. F1 remains an independent handler task. No wire/schema change or standalone protocol adapter was introduced. The old `origin/archive/f2-standalone` branch remains unfixed reference only, never a supported entry point for this delivery.
 
@@ -110,6 +110,6 @@ F2 performs exact directory lookup and returns one captured session. Shared publ
 | Historical skeleton | Real concurrent connections/registration, duplicate names, fragmented/coalesced frames and multibyte text, invalid requests, concurrency/cleanup, logs; explicit unavailable responses, zero chat events and zero successful send results |
 | Later F1 | Alice sends; Bob and Carol receive; Alice receives no echo. Explicit no-recipient error; disconnected/slow recipients do not stall healthy connections |
 | Current F2 | Alice → Bob reaches only Bob; Carol sees no private event. Missing/self targets, malformed input, and same-name reconnection follow the contract |
-| Course evidence | Separate localhost and real-device results for both F1 and F2. F3 A implementation and actual measurements remain separate; skeleton tests cannot substitute for them |
+| Course evidence | Separate localhost and real-device results for both F1 and F2. F3 A localhost implementation/measurements are in its linked acceptance record; skeleton tests cannot substitute for them |
 
 **Future feature developers should return:** existing language/interface compatibility, adapter needs or deviations, owned functions/files, actual validation environment/results, and untested cases. Coordinate any shared message, field, or function-contract change with the foundation owner and coordinator before changing it. Do not independently modify registration or delivery semantics. This brief does not expand baseline v0.2.

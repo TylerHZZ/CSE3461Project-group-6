@@ -1,0 +1,706 @@
+test_quit_and_eof_during_registration_exit_cleanly (tests.test_client.ClientQuitTests.test_quit_and_eof_during_registration_exit_cleanly) ... 
+  test_quit_and_eof_during_registration_exit_cleanly (tests.test_client.ClientQuitTests.test_quit_and_eof_during_registration_exit_cleanly) (use_eof=False) ... ERROR
+/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py:156: ResourceWarning: unclosed <socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 0)>
+  with self.subTest(use_eof=use_eof):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+  test_quit_and_eof_during_registration_exit_cleanly (tests.test_client.ClientQuitTests.test_quit_and_eof_during_registration_exit_cleanly) (use_eof=True) ... ERROR
+test_quit_before_hello_closes_promptly (tests.test_client.ClientQuitTests.test_quit_before_hello_closes_promptly) ... ERROR
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/case.py:668: ResourceWarning: unclosed <socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 0)>
+  with outcome.testPartExecutor(self):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_quit_with_full_pending_table (tests.test_client.ClientQuitTests.test_quit_with_full_pending_table) ... ERROR
+test_client_handshake_and_request_state (tests.test_client.ClientTests.test_client_handshake_and_request_state) ... ERROR
+test_hello_deadline (tests.test_client.ClientTests.test_hello_deadline) ... ERROR
+test_invalid_server_traffic_closes_locally (tests.test_client.ClientTests.test_invalid_server_traffic_closes_locally) ... ERROR
+test_registration_reply_while_closing_preserves_graceful_quit (tests.test_client.ClientTests.test_registration_reply_while_closing_preserves_graceful_quit) ... ERROR
+test_terminal_failure_survives_full_event_queue (tests.test_client.ClientTests.test_terminal_failure_survives_full_event_queue) ... ERROR
+test_timeout_and_late_response (tests.test_client.ClientTests.test_timeout_and_late_response) ... ERROR
+test_command_grammar (tests.test_commands.CommandTests.test_command_grammar) ... ok
+test_untrusted_display_is_escaped (tests.test_commands.CommandTests.test_untrusted_display_is_escaped) ... ok
+test_config_defaults_and_rejections (tests.test_config.ConfigTests.test_config_defaults_and_rejections) ... ok
+test_disabled_gate_is_distinct (tests.test_dispatch.DispatchTests.test_disabled_gate_is_distinct) ... ERROR
+test_dispatch_validation_order (tests.test_dispatch.DispatchTests.test_dispatch_validation_order) ... ERROR
+test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) ... 
+  test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=None) ... ERROR
+  test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=True) ... ERROR
+  test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=0) ... ERROR
+  test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=-1) ... ERROR
+  test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=9007199254740992) ... ERROR
+test_rejected_body_consumes_id (tests.test_dispatch.DispatchTests.test_rejected_body_consumes_id) ... ERROR
+test_rejected_registration_logs_only_valid_username_metadata (tests.test_dispatch.DispatchTests.test_rejected_registration_logs_only_valid_username_metadata) ... ERROR
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/case.py:668: ResourceWarning: unclosed file <_io.TextIOWrapper name='/var/folders/zd/n6xsk_7s345ghf5tdzvxgt0h0000gn/T/tmph8_k4pn4/server.jsonl' mode='x' encoding='utf-8'>
+  with outcome.testPartExecutor(self):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_spoofed_sender_never_dispatches (tests.test_dispatch.DispatchTests.test_spoofed_sender_never_dispatches) ... ERROR
+test_f1_f3_stubs_remain_unavailable_and_f2_binding_is_explicit (tests.test_features.FeatureTests.test_f1_f3_stubs_remain_unavailable_and_f2_binding_is_explicit) ... ok
+test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private) ... ERROR
+test_bidirectional_errors_and_unavailable_features (tests.test_private.PrivateWireTests.test_bidirectional_errors_and_unavailable_features) ... ERROR
+test_concurrent_senders_preserve_each_sender_order (tests.test_private.PrivateWireTests.test_concurrent_senders_preserve_each_sender_order) ... ERROR
+test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame) ... ERROR
+test_real_cli_send_receive_errors_and_quit (tests.test_private.PrivateWireTests.test_real_cli_send_receive_errors_and_quit) ... ERROR
+test_reconnect_cannot_receive_old_captured_route (tests.test_private.PrivateWireTests.test_reconnect_cannot_receive_old_captured_route) ... ERROR
+test_split_headers_utf8_and_coalesced_frames (tests.test_private.PrivateWireTests.test_split_headers_utf8_and_coalesced_frames) ... ERROR
+test_utf8_byte_limit_and_oversized_frame_rejection (tests.test_private.PrivateWireTests.test_utf8_byte_limit_and_oversized_frame_rejection) ... ERROR
+test_full_recipient_queue_does_not_stall_healthy_private_delivery (tests.test_private_faults.PrivateFaultTests.test_full_recipient_queue_does_not_stall_healthy_private_delivery) ... ERROR
+test_write_failure_after_admission_is_logged_and_isolated (tests.test_private_faults.PrivateFaultTests.test_write_failure_after_admission_is_logged_and_isolated) ... ERROR
+test_message_schemas_and_direction (tests.test_protocol.ProtocolTests.test_message_schemas_and_direction) ... ok
+test_server_schemas_and_immutable_payload (tests.test_protocol.ProtocolTests.test_server_schemas_and_immutable_payload) ... ok
+test_strict_envelope_and_json (tests.test_protocol.ProtocolTests.test_strict_envelope_and_json) ... ok
+test_full_queue_closes_target_and_continues_shared_plan (tests.test_publisher.PublisherTests.test_full_queue_closes_target_and_continues_shared_plan) ... ok
+test_handler_exact_target_self_missing_and_snapshot (tests.test_publisher.PublisherTests.test_handler_exact_target_self_missing_and_snapshot) ... ok
+test_invalid_plan_never_leaks_private_text (tests.test_publisher.PublisherTests.test_invalid_plan_never_leaks_private_text) ... ok
+test_private_publication_metadata_and_no_bystander_event (tests.test_publisher.PublisherTests.test_private_publication_metadata_and_no_bystander_event) ... ok
+test_sender_control_queue_failure_closes_only_sender (tests.test_publisher.PublisherTests.test_sender_control_queue_failure_closes_only_sender) ... ok
+test_stale_route_reports_not_queued_without_name_relookup (tests.test_publisher.PublisherTests.test_stale_route_reports_not_queued_without_name_relookup) ... ok
+test_atomic_registration_and_deadline (tests.test_sessions.SessionTests.test_atomic_registration_and_deadline) ... ok
+test_capacity_counts_unregistered (tests.test_sessions.SessionTests.test_capacity_counts_unregistered) ... ok
+test_concurrent_control_frames (tests.test_sessions.SessionTests.test_concurrent_control_frames) ... ok
+test_directory_snapshots (tests.test_sessions.SessionTests.test_directory_snapshots) ... ok
+test_full_queue_isolates_connection (tests.test_sessions.SessionTests.test_full_queue_isolates_connection) ... ok
+test_registered_reply_precedes_visibility (tests.test_sessions.SessionTests.test_registered_reply_precedes_visibility) ... ok
+test_stale_cleanup_preserves_replacement (tests.test_sessions.SessionTests.test_stale_cleanup_preserves_replacement) ... ok
+test_capacity_rejection_before_workers (tests.test_skeleton.SkeletonTests.test_capacity_rejection_before_workers) ... ERROR
+test_cli_f2_disabled_and_other_features_unimplemented (tests.test_skeleton.SkeletonTests.test_cli_f2_disabled_and_other_features_unimplemented) ... ERROR
+test_listener_failures (tests.test_skeleton.SkeletonTests.test_listener_failures) ... ERROR
+test_logs_omit_message_bodies (tests.test_skeleton.SkeletonTests.test_logs_omit_message_bodies) ... ERROR
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/case.py:668: ResourceWarning: unclosed file <_io.TextIOWrapper name='/var/folders/zd/n6xsk_7s345ghf5tdzvxgt0h0000gn/T/tmps3avsca8/server.jsonl' mode='x' encoding='utf-8'>
+  with outcome.testPartExecutor(self):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_malformed_peers_and_reset_leave_server_healthy (tests.test_skeleton.SkeletonTests.test_malformed_peers_and_reset_leave_server_healthy) ... ERROR
+test_multi_session_shutdown_budget (tests.test_skeleton.SkeletonTests.test_multi_session_shutdown_budget) ... ERROR
+test_registration_deadline_and_retry_on_wire (tests.test_skeleton.SkeletonTests.test_registration_deadline_and_retry_on_wire) ... ERROR
+test_requested_log_open_failure_starts_no_network (tests.test_skeleton.SkeletonTests.test_requested_log_open_failure_starts_no_network) ... ok
+test_runtime_logging_failure_stops_process (tests.test_skeleton.SkeletonTests.test_runtime_logging_failure_stops_process) ... FAIL
+/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/case.py:668: ResourceWarning: unclosed file <_io.TextIOWrapper name='/var/folders/zd/n6xsk_7s345ghf5tdzvxgt0h0000gn/T/tmpy4i6h5e8/server.jsonl' mode='x' encoding='utf-8'>
+  with outcome.testPartExecutor(self):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_server_stop_with_blocked_stdin (tests.test_skeleton.SkeletonTests.test_server_stop_with_blocked_stdin) ... ERROR
+test_three_clients_with_one_unregistered (tests.test_skeleton.SkeletonTests.test_three_clients_with_one_unregistered) ... ERROR
+test_jsonl_sequence_and_metadata (tests.test_telemetry.TelemetryTests.test_jsonl_sequence_and_metadata) ... ok
+test_log_open_failure_precedes_network (tests.test_telemetry.TelemetryTests.test_log_open_failure_precedes_network) ... ok
+test_runtime_log_failure_is_visible (tests.test_telemetry.TelemetryTests.test_runtime_log_failure_is_visible) ... ok
+test_close_unblocks_read (tests.test_transport.TransportTests.test_close_unblocks_read) ... ok
+test_coalesced_frames (tests.test_transport.TransportTests.test_coalesced_frames) ... ok
+test_eof_boundaries (tests.test_transport.TransportTests.test_eof_boundaries) ... ok
+test_fragmented_multibyte_frame (tests.test_transport.TransportTests.test_fragmented_multibyte_frame) ... ok
+test_idle_and_partial_deadlines (tests.test_transport.TransportTests.test_idle_and_partial_deadlines) ... ok
+test_length_and_failed_write (tests.test_transport.TransportTests.test_length_and_failed_write) ... ok
+
+======================================================================
+ERROR: test_quit_and_eof_during_registration_exit_cleanly (tests.test_client.ClientQuitTests.test_quit_and_eof_during_registration_exit_cleanly) (use_eof=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 157, in test_quit_and_eof_during_registration_exit_cleanly
+    client,peer=self.cli_peer()
+                ~~~~~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 138, in cli_peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_quit_and_eof_during_registration_exit_cleanly (tests.test_client.ClientQuitTests.test_quit_and_eof_during_registration_exit_cleanly) (use_eof=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 157, in test_quit_and_eof_during_registration_exit_cleanly
+    client,peer=self.cli_peer()
+                ~~~~~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 138, in cli_peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_quit_before_hello_closes_promptly (tests.test_client.ClientQuitTests.test_quit_before_hello_closes_promptly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 150, in test_quit_before_hello_closes_promptly
+    client,peer=self.cli_peer()
+                ~~~~~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 138, in cli_peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_quit_with_full_pending_table (tests.test_client.ClientQuitTests.test_quit_with_full_pending_table)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 175, in test_quit_with_full_pending_table
+    client,peer=self.cli_peer()
+                ~~~~~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 138, in cli_peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_client_handshake_and_request_state (tests.test_client.ClientTests.test_client_handshake_and_request_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 39, in test_client_handshake_and_request_state
+    client,peer,info=self.peer()
+                     ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 19, in peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_hello_deadline (tests.test_client.ClientTests.test_hello_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 67, in test_hello_deadline
+    client,peer,_=self.peer(hello=False)
+                  ~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 19, in peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_invalid_server_traffic_closes_locally (tests.test_client.ClientTests.test_invalid_server_traffic_closes_locally)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 128, in test_invalid_server_traffic_closes_locally
+    client,peer,_=self.peer()
+                  ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 19, in peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_registration_reply_while_closing_preserves_graceful_quit (tests.test_client.ClientTests.test_registration_reply_while_closing_preserves_graceful_quit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 74, in test_registration_reply_while_closing_preserves_graceful_quit
+    client,peer,_=self.peer()
+                  ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 19, in peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_terminal_failure_survives_full_event_queue (tests.test_client.ClientTests.test_terminal_failure_survives_full_event_queue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 112, in test_terminal_failure_survives_full_event_queue
+    client,peer,_=self.peer(registered=True)
+                  ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 19, in peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_timeout_and_late_response (tests.test_client.ClientTests.test_timeout_and_late_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 91, in test_timeout_and_late_response
+    client,peer,_=self.peer(registered=True)
+                  ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 19, in peer
+    listener.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_disabled_gate_is_distinct (tests.test_dispatch.DispatchTests.test_disabled_gate_is_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 82, in test_disabled_gate_is_distinct
+    with running_server(handlers=handlers) as (_,connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_dispatch_validation_order (tests.test_dispatch.DispatchTests.test_dispatch_validation_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 37, in test_dispatch_validation_order
+    with running_server() as (_, connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 89, in test_invalid_request_ids
+    with self.subTest(rid=rid),running_server() as (_,connect):
+                               ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 89, in test_invalid_request_ids
+    with self.subTest(rid=rid),running_server() as (_,connect):
+                               ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 89, in test_invalid_request_ids
+    with self.subTest(rid=rid),running_server() as (_,connect):
+                               ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 89, in test_invalid_request_ids
+    with self.subTest(rid=rid),running_server() as (_,connect):
+                               ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_invalid_request_ids (tests.test_dispatch.DispatchTests.test_invalid_request_ids) (rid=9007199254740992)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 89, in test_invalid_request_ids
+    with self.subTest(rid=rid),running_server() as (_,connect):
+                               ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_rejected_body_consumes_id (tests.test_dispatch.DispatchTests.test_rejected_body_consumes_id)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 55, in test_rejected_body_consumes_id
+    with running_server() as (_,connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_rejected_registration_logs_only_valid_username_metadata (tests.test_dispatch.DispatchTests.test_rejected_registration_logs_only_valid_username_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 19, in test_rejected_registration_logs_only_valid_username_metadata
+    with running_server(events=sink) as (_,connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_spoofed_sender_never_dispatches (tests.test_dispatch.DispatchTests.test_spoofed_sender_never_dispatches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_dispatch.py", line 70, in test_spoofed_sender_never_dispatches
+    with running_server(handlers=handlers) as (_,connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 58, in test_300_byte_body_is_complete_and_private
+    with running_server(handlers=enabled_handlers()) as (_, connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_bidirectional_errors_and_unavailable_features (tests.test_private.PrivateWireTests.test_bidirectional_errors_and_unavailable_features)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 123, in test_bidirectional_errors_and_unavailable_features
+    with running_server(handlers=enabled_handlers()) as (_, connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_concurrent_senders_preserve_each_sender_order (tests.test_private.PrivateWireTests.test_concurrent_senders_preserve_each_sender_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 185, in test_concurrent_senders_preserve_each_sender_order
+    with running_server(handlers=enabled_handlers()) as (_,connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 68, in test_fragmented_body_waits_for_complete_frame
+    with running_server(handlers=enabled_handlers()) as (_, connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_real_cli_send_receive_errors_and_quit (tests.test_private.PrivateWireTests.test_real_cli_send_receive_errors_and_quit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 218, in test_real_cli_send_receive_errors_and_quit
+    with running_server(handlers=enabled_handlers()) as (server,connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_reconnect_cannot_receive_old_captured_route (tests.test_private.PrivateWireTests.test_reconnect_cannot_receive_old_captured_route)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 163, in test_reconnect_cannot_receive_old_captured_route
+    with running_server(handlers=enabled_handlers(private=pause_after_lookup)) as (server,connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_split_headers_utf8_and_coalesced_frames (tests.test_private.PrivateWireTests.test_split_headers_utf8_and_coalesced_frames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 82, in test_split_headers_utf8_and_coalesced_frames
+    with running_server(handlers=enabled_handlers()) as (_, connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_utf8_byte_limit_and_oversized_frame_rejection (tests.test_private.PrivateWireTests.test_utf8_byte_limit_and_oversized_frame_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 102, in test_utf8_byte_limit_and_oversized_frame_rejection
+    with running_server(handlers=enabled_handlers()) as (_, connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_full_recipient_queue_does_not_stall_healthy_private_delivery (tests.test_private_faults.PrivateFaultTests.test_full_recipient_queue_does_not_stall_healthy_private_delivery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private_faults.py", line 26, in test_full_recipient_queue_does_not_stall_healthy_private_delivery
+    with patch.object(FramedConnection,'write',slow_write), running_server(events=sink,handlers=enabled_handlers()) as (server,connect):
+                                                            ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_write_failure_after_admission_is_logged_and_isolated (tests.test_private_faults.PrivateFaultTests.test_write_failure_after_admission_is_logged_and_isolated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private_faults.py", line 67, in test_write_failure_after_admission_is_logged_and_isolated
+    with patch.object(FramedConnection,'write',hold_write), running_server(events=sink,handlers=enabled_handlers()) as (server,connect):
+                                                            ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_capacity_rejection_before_workers (tests.test_skeleton.SkeletonTests.test_capacity_rejection_before_workers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 42, in test_capacity_rejection_before_workers
+    with running_server() as (server,connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_cli_f2_disabled_and_other_features_unimplemented (tests.test_skeleton.SkeletonTests.test_cli_f2_disabled_and_other_features_unimplemented)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 129, in test_cli_f2_disabled_and_other_features_unimplemented
+    with running_server() as (server,connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_listener_failures (tests.test_skeleton.SkeletonTests.test_listener_failures)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 54, in test_listener_failures
+    blocker.bind(('127.0.0.1',0))
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_logs_omit_message_bodies (tests.test_skeleton.SkeletonTests.test_logs_omit_message_bodies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 115, in test_logs_omit_message_bodies
+    with running_server(events=sink) as (_,connect):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_malformed_peers_and_reset_leave_server_healthy (tests.test_skeleton.SkeletonTests.test_malformed_peers_and_reset_leave_server_healthy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 153, in test_malformed_peers_and_reset_leave_server_healthy
+    with running_server() as (_,connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_multi_session_shutdown_budget (tests.test_skeleton.SkeletonTests.test_multi_session_shutdown_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 84, in test_multi_session_shutdown_budget
+    with running_server() as (server,connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_registration_deadline_and_retry_on_wire (tests.test_skeleton.SkeletonTests.test_registration_deadline_and_retry_on_wire)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 175, in test_registration_deadline_and_retry_on_wire
+    with patch('cse3461_chat.config.REGISTRATION_S',.18),running_server(max_clients=1) as (server,connect):
+                                                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_server_stop_with_blocked_stdin (tests.test_skeleton.SkeletonTests.test_server_stop_with_blocked_stdin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 72, in test_server_stop_with_blocked_stdin
+    with running_server() as (server,connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_three_clients_with_one_unregistered (tests.test_skeleton.SkeletonTests.test_three_clients_with_one_unregistered)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 24, in test_three_clients_with_one_unregistered
+    with running_server() as (server,connect):
+         ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 89, in running_server
+    config = ServerConfig(port=free_port(), max_clients=max_clients)
+                               ~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/support.py", line 21, in free_port
+    sock.bind(('127.0.0.1', 0))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+FAIL: test_runtime_logging_failure_stops_process (tests.test_skeleton.SkeletonTests.test_runtime_logging_failure_stops_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_skeleton.py", line 99, in test_runtime_logging_failure_stops_process
+    self.assertTrue(server.ready.wait(3))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 65 tests in 4.279s
+
+FAILED (failures=1, errors=39)

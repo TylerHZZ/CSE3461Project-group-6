@@ -1,8 +1,10 @@
-# CSE 3461 Project 1 — Framework with Private Messaging
+# CSE 3461 Project 1 — Private Messaging and Controlled Delay/Jitter
 
 See the [repository guide](REPOSITORY_GUIDE.md) for feature numbers, branch naming, archived code and document navigation.
 
-A Python standard-library, threaded TCP client/server with **Feature 2 private messaging integrated**. It provides registration, strict protocol validation, bounded queues, correlated results, logging and cleanup. **F1 broadcast and F3 A remain unimplemented.** This is an F2 implementation and localhost delivery, not completion of the whole course project.
+A Python standard-library, threaded TCP client/server with **Feature 2 private messaging integrated**. It provides registration, strict protocol validation, bounded queues, correlated results, logging and cleanup. **F3 A adds measured application delay/jitter; F1 broadcast remains unimplemented.** This is a scoped F2/F3 localhost delivery, not completion of the whole course project.
+
+Independent coordinator acceptance: [F2/F3 verification and integration record](outputs/CSE3461_COORDINATOR_ACCEPTANCE.md).
 
 ## Run locally
 
@@ -31,11 +33,11 @@ Wait for `[registered]`. In Alice's terminal type `@bob Hello Bob`; only Bob rec
 | `@alice <text>` from Alice | `SELF_TARGET` |
 | Malformed `@...` or unknown slash command | Local usage error; no request sent |
 | Plain text or `/all <text>` | F1 `FEATURE_NOT_IMPLEMENTED` |
-| `/enhance` | F3 `FEATURE_NOT_IMPLEMENTED` |
+| `/enhance` | `FEATURE_DISABLED` when F3 is off; `STARTUP_CONFIG_ONLY` when enabled (no live mutation) |
 | `/help` | Commands and advertised capabilities |
 | `/quit` or stdin EOF | Bounded disconnect/close |
 
-The default server option remains `--features none`: F2 is implemented but disabled and returns `FEATURE_DISABLED`. `--features f2` enables it. Requests to enable F1/F3 are rejected at startup. Hello, registration replies and server startup metadata use the actual handler capability snapshot. F1/F3 advertise `implemented=false, enabled=false`; F2 advertises `implemented=true` and its configured enablement. All variants remain null.
+The default server option remains `--features none`: F2 is implemented but disabled and returns `FEATURE_DISABLED`. `--features f2` enables it. F3 requires `--features f2,f3 --delay-mode fixed` or `jitter`; F1 cannot be enabled. Hello, registration replies and server startup metadata use the actual handler capability snapshot. F1 advertises `implemented=false, enabled=false`; F2/F3 advertise `implemented=true` and configured enablement. F3 has `variant="A"`; others remain null.
 
 Usernames are case-sensitive ASCII letters, digits and underscores, 1–24 characters. The first whitespace after a private target separates target and body; the rest is preserved. Text must contain 1–4,096 **UTF-8 bytes**, cannot be all whitespace and cannot contain unsafe terminal controls. A 300-byte message or a message split across TCP reads is delivered intact. There is no fixed 200-byte message buffer.
 
@@ -43,7 +45,7 @@ Usernames are case-sensitive ASCII letters, digits and underscores, 1–24 chara
 
 ## Configuration, logs and limits
 
-Both programs accept `--host`, `--port`, `--run-id`, and `--log-file`. The server also accepts `--max-clients` (16 by default, including unregistered connections) and `--features none|f2`; the client accepts `--username`. Run either module with `--help` for all options.
+Both programs accept `--host`, `--port`, `--run-id`, and `--log-file`. The server also accepts `--max-clients` (16 by default, including unregistered connections) and `--features none|f2|f3|f2,f3`; the client accepts `--username`. Run either module with `--help` for all options.
 
 For recorded runs, use a new path for each process:
 
@@ -79,6 +81,36 @@ The full suite covers protocol, security, lifecycle, F2 routing and real sockets
 
 See [F2 acceptance](outputs/CSE3461_F2_ACCEPTANCE.md) and [F2 handoff](outputs/CSE3461_F2_HANDOFF.md) for the actual results, commands, changed files and remaining manual work. [Original framework acceptance](outputs/CSE3461_FRAMEWORK_ACCEPTANCE.md) remains historical evidence for the earlier 49-test skeleton.
 
+## Feature 3 A: controlled application delay/jitter
+
+The server delays each outgoing **chat** frame in its recipient's sole writer. FIFO and the 64-frame queue remain intact. No wait is directly injected into control replies, but an earlier delayed chat can block later controls on the same connection. F2 queue results still mean admission, never delivery.
+
+```sh
+# Zero-delay baseline (F3 disabled)
+python3 -m cse3461_chat.server --features f2
+# Fixed 20 ms; actual OS elapsed wait may exceed this
+python3 -m cse3461_chat.server --features f2,f3 --delay-mode fixed --delay-ms 20
+# Uniform selected delay in [5,35] ms
+python3 -m cse3461_chat.server --features f2,f3 --delay-mode jitter --delay-ms 20 --jitter-ms 15 --delay-seed 20261021
+# Enabled zero-wait control
+python3 -m cse3461_chat.server --features f2,f3 --delay-mode fixed --delay-ms 0
+```
+
+`delay-ms` is the fixed value or jitter center; `jitter-ms` is the uniform half-width. Both must be finite, with `0 <= jitter <= delay` and `delay+jitter <= 1000` ms. Fixed requires zero jitter; off requires zero delay/jitter. F3 selection requires a fixed/jitter mode and vice versa. Seed is an integer 0..4294967295, default 0. Each recipient has an independent seeded sequence based on username; a reconnect restarts it. Seeds reproduce selected values, not scheduler timing. `--features f3` alone is legal but F2 must also be enabled to generate private traffic. Invalid settings exit 2 before listening.
+
+Closing a session interrupts F3 waits. Interrupted and queued chats are counted as discarded while graceful closure can drain controls/bye. Disabled F3 retains the original drain behavior. Use baseline configuration to turn F3 off; no runtime `/enhance` reconfiguration exists.
+
+Reproduce the nine-run experiment (new directory required):
+
+```sh
+python3 -m experiments.run_delay --output outputs/runs/my-new-f3-run
+python3 -m experiments.analyze_delay --input outputs/runs/my-new-f3-run
+```
+
+The runner starts a real server CLI, a sender using the production client controller, two actual recipient CLIs and an observer CLI. Each condition has 60 private messages of 256 UTF-8 bytes, alternating recipients with target 2 ms spacing, repeated three times. It saves every process log, commands, source hashes, exit statuses and collection outcomes. Analysis checks log completeness before computing rates and failure-inclusive delivery fractions. This measures application scheduling and queueing on localhost, not Wi-Fi propagation or cross-device one-way latency.
+
+See [F3 plan](outputs/CSE3461_F3_PLAN.md), [acceptance](outputs/CSE3461_F3_ACCEPTANCE.md), [measured analysis](outputs/CSE3461_F3_ANALYSIS.md), and [handoff / AI disclosure](outputs/CSE3461_F3_HANDOFF.md).
+
 ## Architecture and branch compatibility
 
 `Terminal → client controller → length-prefixed TCP → validation/registration/feature gate → F2 route plan → shared publisher → bounded recipient queue → sole connection writer → client receiver/display`.
@@ -91,13 +123,14 @@ The wire format remains four-byte unsigned big-endian length plus strict UTF-8 J
 | `dispatch.py` | Shared `Publisher` and correlated `send_result` |
 | `features/__init__.py` | Explicit binding and capability flags |
 | `protocol.py`, `transport.py`, `sessions.py` | Shared types/validation, framing, directory/queue/lifecycle |
-| `features/broadcast.py`, `features/enhancement.py` | F1/F3 extension stubs |
+| `features/broadcast.py` | F1 extension stub |
+| `features/enhancement.py`, `sessions.py` | F3 writer-local policy, interruptible waits and evidence |
 
 See the [integration brief](outputs/CSE3461_F1_F2_INTEGRATION_BRIEF.md) and [architecture baseline](outputs/CSE3461_ARCHITECTURE_PROPOSAL.md) for exact contracts.
 
 **The standalone `origin/archive/f2-standalone` branch at `1069ff5` is historical reference and still contains the demonstrated framing bugs. It was not repaired or merged.** Its bare-string `server.py` / `client.py` protocol is incompatible with this package. Use only the package entry points above for the integrated product; no duplicate legacy entry point is shipped here.
 
-For future real-device checks, bind the server to its reachable IPv4 address (or `0.0.0.0`) and set each client's `--host` to the server's actual LAN address. Remote clients must not use their own loopback address or `0.0.0.0`. Real-device over-the-air testing, team demonstrations/video, F1/F3, the report and course submission are still pending. No authentication, encryption, persistent history or public deployment is included.
+For future real-device checks, bind the server to its reachable IPv4 address (or `0.0.0.0`) and set each client's `--host` to the server's actual LAN address. Remote clients must not use their own loopback address or `0.0.0.0`. Real-device over-the-air testing, team demonstrations/video, F1, the report and course submission are still pending. No authentication, encryption, persistent history or public deployment is included.
 
 ## Course and team
 

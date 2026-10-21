@@ -45,7 +45,7 @@ def safe_display(value) -> str:
 def help_text(features) -> str:
     states = ', '.join(f'{name.upper()}={"enabled" if state["enabled"] else "unavailable"}' for name,state in features.items())
     return ('Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. '
-            'Use /all @literal for literal leading @. '+states+'. Submitted is not delivered.')
+            'Use /all @literal for literal leading @. F3 A is configured at server startup; /enhance cannot change it. '+states+'. Submitted is not delivered.')
 
 
 def render_event(message) -> str:

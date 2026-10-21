@@ -1,8 +1,8 @@
-# CSE3461 Framework Handoff — Current F2 Integration
+# CSE3461 Framework Handoff — Current F2/F3 Integration
 
 2026-10-21 | Protocol v1 / architecture contract v0.2 retained
 
-The framework now supports **F2 private messages** through its existing length-prefixed TCP connection, directory and bounded queues. The shared publisher creates message IDs and chat events, records routing/admission metadata, handles unavailable/full recipients and returns queue counts. The dispatcher sends correlated `send_result` replies. F1 broadcast and F3 A are still unimplemented.
+The framework now supports **F2 private messages** through its existing length-prefixed TCP connection, directory and bounded queues. The shared publisher creates message IDs and chat events, records routing/admission metadata, handles unavailable/full recipients and returns queue counts. The dispatcher sends correlated `send_result` replies. F3 A controlled delay/jitter is now implemented; F1 broadcast remains unimplemented. See [F3 handoff](CSE3461_F3_HANDOFF.md) for configuration, measured evidence and closure semantics.
 
 Use Python 3.12+ with no dependencies, in separate terminals:
 
@@ -20,11 +20,11 @@ The F2 implementation and its limits are documented in [F2 handoff](CSE3461_F2_H
 ## Integration surfaces
 
 - `features.private_chat.handle_private(ctx, request) -> RoutePlan | AppError`: exact read-only lookup and one captured session.
-- `features.broadcast.handle_broadcast` and `features.enhancement.handle_enhancement`: unchanged stubs.
+- `features.broadcast.handle_broadcast`: unchanged F1 stub. F3 is a writer policy; `handle_enhancement` explains startup-only operation when enabled.
 - `dispatch.Publisher(manager).publish(ctx, request, plan) -> PublishResult | AppError`: shared publication for private and future broadcast plans; no new routing handler or socket thread.
 - `features.build_handlers(features='none')`: immutable implementation/enablement bindings. CLI passes the validated startup choice.
 - `protocol.capabilities(descriptors=None)`: actual server descriptors when supplied; an unknown/all-unavailable initial state for clients before hello when omitted.
-- `SessionManager`, `Directory.find`, `Directory.others`, `FramedConnection` and wire field definitions: unchanged.
+- `SessionManager` gains optional delay configuration, per-session cancellation and timing events. Directory and wire contracts remain unchanged.
 
 Only the connection writer sends frames. Recipient identity is captured by session ID, not re-resolved by name during publication. A queue-full recipient closes independently of healthy recipients. Queue admission does not promise a later write or receipt. Per-sender FIFO is preserved; no global order is promised.
 
@@ -34,4 +34,4 @@ The original skeleton was committed as `8881b8064e6e11005a5a2a9e7a70b5dedd3b161a
 
 This integration derives from that actual repository commit; it does not overwrite the repository with the older project copy. The separate `origin/archive/f2-standalone` raw-string branch remains unfixed historical reference and is not the recommended runtime. Its incompatible protocol was not merged.
 
-Real-device over-the-air verification, other OS/Python-version checks, F1/F3, team contributions, video, report, sharing and course submission remain separate. No external communication, push or course upload is part of this delivery. The coordinator retains independent acceptance responsibility.
+Real-device over-the-air verification, other OS/Python-version checks, F1, team contributions, video, report, sharing and course submission remain separate. No external communication, push or course upload is part of this delivery. The coordinator retains independent acceptance responsibility.

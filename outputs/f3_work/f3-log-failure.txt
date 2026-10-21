@@ -1,0 +1,8 @@
+test_requested_logging_failure_during_wait_stops_server (tests.test_delay_writer.DelayWriterTests.test_requested_logging_failure_during_wait_stops_server) ... Server error: Requested telemetry failed; evidence is invalid.
+Telemetry invalid; final evidence record could not be written.
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.067s
+
+OK

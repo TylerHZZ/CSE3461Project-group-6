@@ -1,5 +1,7 @@
 # CSE3461 Unified Chat Platform: Architecture and Interface Baseline
 
+> Current F3 update (2026-10-21): F3 A implementation was subsequently authorized and completed in the dedicated `feature/f3-delay-jitter` working branch. Earlier skeleton/F2-only restrictions and unimplemented-F3 statements below are historical. See [F3 plan](CSE3461_F3_PLAN.md) and [F3 acceptance](CSE3461_F3_ACCEPTANCE.md) for the current scope and evidence.
+
 > **Historical baseline:** this document records the earlier skeleton stage. Current F2 implementation, publisher and capability status supersede its unavailable-feature statements; see [F2 acceptance](CSE3461_F2_ACCEPTANCE.md) and [F2 handoff](CSE3461_F2_HANDOFF.md). Protocol v1 and the shared contracts are unchanged.
 
 **Execution update, 2026-10-21:** The user subsequently confirmed final coordinator agreement and authorized Native skeleton development. This v0.2 document preserves the original design-stage statements below; current implementation and acceptance status are in [the framework handoff](CSE3461_FRAMEWORK_HANDOFF.md). Wire/interface semantics remain v0.2 / protocol v1.
