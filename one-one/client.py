@@ -17,7 +17,11 @@ def receive(rec_socket: socket):
         except OSError:
             break # connection was broken
         message = rec_socket.recv(buff_size).decode()
+        print()
         print(message)
+        if len(message) == 0:
+            print("Server closed connection, press ENTER to exit")
+            break
 
 # input must be of given format
 if (len(sys.argv) < 3):
@@ -37,19 +41,26 @@ data = client_socket.recv(buff_size).decode()
 # prompt for username
 username = input(data)
 # send username to server
-client_socket.send(username.encode())
+try:
+    client_socket.send(username.encode())
+except BrokenPipeError:
+    print("Connection failed")
+    sys.exit(1)
 # create receiving thread
 receiving = threading.Thread(target=receive, args=(client_socket,))
 # start receiving
 receiving.start()
 # handles sending messages
-still_open = 1
-while(still_open != 0):
+while(True):
     message = input()
     if len(message) == 0: #empty message closes connection (and potentially server)
         print("Exiting")
         break
-    still_open = client_socket.send(message.encode())
+    try:
+        client_socket.send(message.encode())
+    except BrokenPipeError:
+        print("Connection failed")
+        break
 client_socket.close()
 # close receiving thread
 receiving.join()
