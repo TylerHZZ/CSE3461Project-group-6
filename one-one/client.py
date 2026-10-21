@@ -46,7 +46,7 @@ receiving.start()
 still_open = 1
 while(still_open != 0):
     message = input()
-    if len(message) == 0:
+    if len(message) == 0: #empty message closes connection (and potentially server)
         print("Exiting")
         break
     still_open = client_socket.send(message.encode())
