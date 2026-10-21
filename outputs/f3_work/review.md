@@ -1,0 +1,13 @@
+# Independent F3 implementation review and disposition
+
+Reviewer: fresh-context `f3_review` agent under requesting-code-review; read-only review of final repository working branch against 64a0459. Coordinator acceptance remains independent.
+
+Findings: analyzer initially accepted missing admission/dequeue/wait/write stages, duplicate origin request IDs, wrong treatment/wait data, and unaccounted terminal outcomes. A subsequent scoped check identified incomplete business identity joins (attempt target, result message ID, delivery origin metadata and receipt sender/mode). These were P2 correctness issues in evidence acceptance, not discovered failures in the actual captured workload.
+
+Disposition: added failing regressions first, implemented stage/terminal/config/time and full business identity validation, reran ten analyzer tests and reanalyzed all original raw logs successfully. Final reviewer recheck rejected six in-memory mutations (delivery identity, result ID, target, receipt sender, receipt mode, result status). No remaining important finding in reviewed production or analysis paths. The reviewer did not modify files.
+
+Reviewer independently verified all original nine real runs: 60 attempt/sent/result/route pairs per run, matching enqueued/dequeued/wait/write key sets, correct sender/request/session/enqueue identity, valid server-local arithmetic, both recipient FIFO streams of 30, no sender/observer delivery, and repeatable seeded jitter selection. This was `f3-finalrepo-20261021-01`, not the later final `…-02`; the implementer separately reran and checked the latter.
+
+Additional reviewer evidence (reported separately from the final 89-test suite): 83-test suite at the earlier snapshot passed in 10.514 seconds after normal loopback permission. A 120-iteration SessionManager/real-writer/socketpair closure-interleaving probe passed in approximately 1.54 seconds, without lingering writers and with exact once-only write/fail/discard accounting. It is not a full CLI or physical-device test.
+
+Probe reproduction outline: for trials 0..119, construct EventSink/StringIO and SessionManager with features=f3/fixed=25ms; attach a socketpair channel; fixture establishes bob's registered state; start writer; enqueue ten legitimate private messages with unique UUIDs/DeliveryMeta; optionally wait .0001*(trial%7) seconds; close with drain=True and bye on even trials or immediately on odd trials; join writer within one second; require each message exactly once among write-completed/write-failed/discarded and manager.discarded == discard event count == 10; close peer. This outline records reviewer scope, not an invented checked-in CLI trace.

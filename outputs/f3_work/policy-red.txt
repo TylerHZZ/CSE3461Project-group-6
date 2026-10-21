@@ -1,0 +1,71 @@
+test_config_enablement_zero_and_capabilities (tests.test_delay.DelayPolicyTests.test_config_enablement_zero_and_capabilities) ... FAIL
+test_fixed_zero_off_and_cancelled_wait (tests.test_delay.DelayPolicyTests.test_fixed_zero_off_and_cancelled_wait) ... FAIL
+test_invalid_configs_fail_before_listening (tests.test_delay.DelayPolicyTests.test_invalid_configs_fail_before_listening) ... FAIL
+test_seed_repeats_per_recipient_without_shared_draw_order (tests.test_delay.DelayPolicyTests.test_seed_repeats_per_recipient_without_shared_draw_order) ... FAIL
+
+======================================================================
+FAIL: test_config_enablement_zero_and_capabilities (tests.test_delay.DelayPolicyTests.test_config_enablement_zero_and_capabilities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay.py", line 46, in test_config_enablement_zero_and_capabilities
+    cfg = config.parse_server_args(['--features','f2,f3','--delay-mode','fixed'])
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 78, in parse_server_args
+    return _parse(argv, True)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 69, in _parse
+    config = (ServerConfig if server else ClientConfig)(**vars(parser.parse_args(argv)))
+                                                               ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay.py", line 48, in test_config_enablement_zero_and_capabilities
+    self.fail('F3 configuration is not supported')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: F3 configuration is not supported
+
+======================================================================
+FAIL: test_fixed_zero_off_and_cancelled_wait (tests.test_delay.DelayPolicyTests.test_fixed_zero_off_and_cancelled_wait)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay.py", line 30, in test_fixed_zero_off_and_cancelled_wait
+    policy = self.policy(mode, delay, 0)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay.py", line 12, in policy
+    self.assertTrue(hasattr(enhancement, 'DelayPolicy'), 'F3 delay policy is missing')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : F3 delay policy is missing
+
+======================================================================
+FAIL: test_invalid_configs_fail_before_listening (tests.test_delay.DelayPolicyTests.test_invalid_configs_fail_before_listening)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay.py", line 58, in test_invalid_configs_fail_before_listening
+    self.assertTrue(hasattr(config.ServerConfig(), 'delay_mode'), 'F3 fields missing')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : F3 fields missing
+
+======================================================================
+FAIL: test_seed_repeats_per_recipient_without_shared_draw_order (tests.test_delay.DelayPolicyTests.test_seed_repeats_per_recipient_without_shared_draw_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay.py", line 16, in test_seed_repeats_per_recipient_without_shared_draw_order
+    a, b = self.policy(), self.policy()
+           ~~~~~~~~~~~^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay.py", line 12, in policy
+    self.assertTrue(hasattr(enhancement, 'DelayPolicy'), 'F3 delay policy is missing')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : F3 delay policy is missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+FAILED (failures=4)

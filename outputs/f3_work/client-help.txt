@@ -1,0 +1,15 @@
+usage: python3 -m cse3461_chat.client [-h] [--host HOST] [--port PORT]
+                                      [--run-id RUN_ID] [--log-file LOG_FILE]
+                                      [--username USERNAME]
+
+CSE3461 framed TCP chat; F2 private chat and F3 A delay/jitter available; F1
+unimplemented.
+
+options:
+  -h, --help           show this help message and exit
+  --host HOST
+  --port PORT
+  --run-id RUN_ID
+  --log-file LOG_FILE  New per-process JSONL file; parent directory must
+                       exist.
+  --username USERNAME

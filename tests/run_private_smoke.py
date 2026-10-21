@@ -70,7 +70,7 @@ def main():
         check('reverse Unicode private message in actual CLI',True)
         for command,expected in [('@missing hello','USER_NOT_FOUND'),('@alice hello','SELF_TARGET'),
                                   ('@broken','[usage]'),('broadcast remains unavailable','FEATURE_NOT_IMPLEMENTED'),
-                                  ('/enhance','FEATURE_NOT_IMPLEMENTED')]:
+                                  ('/enhance','FEATURE_DISABLED')]:
             send('alice',command)
             alice.wait_for(expected)
             check(command.split()[0]+' -> '+expected,True)

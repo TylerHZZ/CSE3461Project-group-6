@@ -1,0 +1,14 @@
+test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) ... ok
+test_clean_process_with_unaccounted_admitted_pair_is_invalid (tests.test_delay_analysis.DelayAnalysisTests.test_clean_process_with_unaccounted_admitted_pair_is_invalid) ... ok
+test_duplicates_do_not_inflate_delivery (tests.test_delay_analysis.DelayAnalysisTests.test_duplicates_do_not_inflate_delivery) ... ok
+test_fixed_mode_cannot_report_zero_wait_or_inconsistent_arithmetic (tests.test_delay_analysis.DelayAnalysisTests.test_fixed_mode_cannot_report_zero_wait_or_inconsistent_arithmetic) ... ok
+test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured (tests.test_delay_analysis.DelayAnalysisTests.test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured) ... ok
+test_missing_log_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_missing_log_invalidates_evidence) ... ok
+test_missing_server_measurements_cannot_pass_as_success (tests.test_delay_analysis.DelayAnalysisTests.test_missing_server_measurements_cannot_pass_as_success) ... ok
+test_repeated_origin_request_cannot_masquerade_as_multiple_sends (tests.test_delay_analysis.DelayAnalysisTests.test_repeated_origin_request_cannot_masquerade_as_multiple_sends) ... ok
+test_throughput_uses_only_one_recipient_clock (tests.test_delay_analysis.DelayAnalysisTests.test_throughput_uses_only_one_recipient_clock) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.012s
+
+OK

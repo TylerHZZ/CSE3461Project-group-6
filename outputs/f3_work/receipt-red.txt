@@ -1,0 +1,15 @@
+test_chat_receipt_log_uses_receiver_timestamp_and_omits_body (tests.test_client.ClientTests.test_chat_receipt_log_uses_receiver_timestamp_and_omits_body) ... FAIL
+
+======================================================================
+FAIL: test_chat_receipt_log_uses_receiver_timestamp_and_omits_body (tests.test_client.ClientTests.test_chat_receipt_log_uses_receiver_timestamp_and_omits_body)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_client.py", line 50, in test_chat_receipt_log_uses_receiver_timestamp_and_omits_body
+    self.assertEqual(len(chats), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.046s
+
+FAILED (failures=1)

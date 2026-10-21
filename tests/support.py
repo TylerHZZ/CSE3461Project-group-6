@@ -83,11 +83,11 @@ class ProcessClient:
 
 
 @contextlib.contextmanager
-def running_server(max_clients=16, events=None, handlers=None):
+def running_server(max_clients=16, events=None, handlers=None, server_config=None):
     server = ServerRuntime(output=lambda text: None)
     result = []
-    config = ServerConfig(port=free_port(), max_clients=max_clients)
-    worker = threading.Thread(target=lambda: result.append(server.run(config, handlers or build_handlers(), events or EventSink('server'))))
+    config = server_config or ServerConfig(port=free_port(), max_clients=max_clients)
+    worker = threading.Thread(target=lambda: result.append(server.run(config, handlers or build_handlers(config.features), events or EventSink('server'))))
     worker.start()
     if not server.ready.wait(3):
         server.stop('test_setup_failed')

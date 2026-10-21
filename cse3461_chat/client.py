@@ -193,7 +193,13 @@ class ClientRuntime:
         try:
             self.events.emit('client_response_received',dict(request_id=message.request_id,type=message.type,
                               occurred_ns=occurred_ns,message_id=message.data.get('message_id')))
-            return self._apply(message)
+            result = self._apply(message)
+            if message.type == 'chat_message':
+                self.events.emit('chat_received', dict(message_id=message.data['message_id'],
+                    receiver_session_id=self.session_id, sender=message.data['sender'],
+                    mode=message.data['mode'], text_bytes=len(message.data['text'].encode('utf-8')),
+                    received_ns=occurred_ns))
+            return result
         except TelemetryError:
             return self._disconnect('telemetry_failure')
         except ProtocolError as exc:

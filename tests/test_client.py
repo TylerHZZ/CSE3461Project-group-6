@@ -1,3 +1,5 @@
+import io
+import json
 import socket
 import time
 import unittest
@@ -34,6 +36,23 @@ class ClientTests(unittest.TestCase):
             peer.write(make_message('registered',rid,dict(session_id=SID,username='alice',features=capabilities())))
             self.assertEqual(client.next_event(1).type,'registered')
         return client,peer,info
+
+    def test_chat_receipt_log_uses_receiver_timestamp_and_omits_body(self):
+        client, peer, _ = self.peer(registered=True)
+        stream = io.StringIO()
+        client.events = EventSink('client', stream=stream)
+        mid = '98311d34-a0c9-4417-aeee-2b58a840c001'
+        peer.write(make_message('chat_message', None, dict(message_id=mid, mode='private',
+            sender='bob', recipient='alice', text='秘密正文')))
+        self.assertEqual(client.next_event(1).type, 'chat_message')
+        rows = [json.loads(line) for line in stream.getvalue().splitlines()]
+        chats = [r['fields'] for r in rows if r['event']=='chat_received']
+        self.assertEqual(len(chats), 1)
+        self.assertEqual(chats[0]['message_id'], mid)
+        self.assertEqual(chats[0]['receiver_session_id'], SID)
+        self.assertEqual(chats[0]['text_bytes'], 12)
+        self.assertEqual(chats[0]['received_ns'], client.channel.last_receive.received_ns)
+        self.assertNotIn('秘密正文', stream.getvalue())
 
     def test_client_handshake_and_request_state(self):
         client,peer,info=self.peer()

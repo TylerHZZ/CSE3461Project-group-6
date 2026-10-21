@@ -1,0 +1,11 @@
+test_config_enablement_zero_and_capabilities (tests.test_delay.DelayPolicyTests.test_config_enablement_zero_and_capabilities) ... ok
+test_fixed_zero_off_and_cancelled_wait (tests.test_delay.DelayPolicyTests.test_fixed_zero_off_and_cancelled_wait) ... ok
+test_invalid_configs_fail_before_listening (tests.test_delay.DelayPolicyTests.test_invalid_configs_fail_before_listening) ... ok
+test_seed_repeats_per_recipient_without_shared_draw_order (tests.test_delay.DelayPolicyTests.test_seed_repeats_per_recipient_without_shared_draw_order) ... ok
+test_f1_stub_and_explicit_f2_f3_bindings (tests.test_features.FeatureTests.test_f1_stub_and_explicit_f2_f3_bindings) ... ok
+test_config_defaults_and_rejections (tests.test_config.ConfigTests.test_config_defaults_and_rejections) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.040s
+
+OK

@@ -28,14 +28,14 @@ class SkeletonTests(unittest.TestCase):
             self.assertTrue(hello.data['registration_required'])
             self.assertEqual(len(server.manager.directory.others('none')),2)
             for name,state in hello.data['features'].items():
-                self.assertEqual(state,dict(implemented=name == 'f2',enabled=False,variant=None))
+                self.assertEqual(state,dict(implemented=name in ('f2','f3'),enabled=False,variant='A' if name == 'f3' else None))
             for rid,kind,data,feature in [(2,'broadcast_send',{'text':'hello'},'f1'),
                                           (3,'private_send',{'to':'bob','text':'hi'},'f2'),
                                           (4,'enhancement_request',{},'f3')]:
                 raw_send(alice,kind,rid,data)
                 reply=receive(alice)
                 self.assertEqual((reply.type,reply.request_id,reply.data['code'],reply.data['feature']),
-                                 ('error',rid,'FEATURE_DISABLED' if feature == 'f2' else 'FEATURE_NOT_IMPLEMENTED',feature))
+                                 ('error',rid,'FEATURE_DISABLED' if feature in ('f2', 'f3') else 'FEATURE_NOT_IMPLEMENTED',feature))
             self.assertFalse(select.select([bob.socket,waiting.socket,alice.socket],[],[],.05)[0])
 
     def test_capacity_rejection_before_workers(self):
@@ -133,7 +133,7 @@ class SkeletonTests(unittest.TestCase):
             client.wait_for('[registered]')
             for command,feature in [('hello','f1'),('@bob secret','f2'),('/enhance','f3')]:
                 client.send(command)
-                line=client.wait_for('FEATURE_DISABLED' if feature == 'f2' else 'FEATURE_NOT_IMPLEMENTED')
+                line=client.wait_for('FEATURE_DISABLED' if feature in ('f2', 'f3') else 'FEATURE_NOT_IMPLEMENTED')
                 self.assertIn('feature='+feature,line)
             client.send('@broken')
             client.wait_for('[usage]')

@@ -1,0 +1,65 @@
+test_broken_sequence_or_unclean_stop_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_broken_sequence_or_unclean_stop_invalidates_evidence) ... ok
+test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) ... 
+  test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='target') ... FAIL
+  test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='result') ... FAIL
+  test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='origin') ... FAIL
+  test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='sender') ... FAIL
+  test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='mode') ... FAIL
+test_clean_process_with_unaccounted_admitted_pair_is_invalid (tests.test_delay_analysis.DelayAnalysisTests.test_clean_process_with_unaccounted_admitted_pair_is_invalid) ... ok
+test_duplicates_do_not_inflate_delivery (tests.test_delay_analysis.DelayAnalysisTests.test_duplicates_do_not_inflate_delivery) ... ok
+test_fixed_mode_cannot_report_zero_wait_or_inconsistent_arithmetic (tests.test_delay_analysis.DelayAnalysisTests.test_fixed_mode_cannot_report_zero_wait_or_inconsistent_arithmetic) ... ok
+test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured (tests.test_delay_analysis.DelayAnalysisTests.test_full_queue_loss_remains_in_denominator_and_actual_wait_is_measured) ... ok
+test_missing_log_invalidates_evidence (tests.test_delay_analysis.DelayAnalysisTests.test_missing_log_invalidates_evidence) ... ok
+test_missing_server_measurements_cannot_pass_as_success (tests.test_delay_analysis.DelayAnalysisTests.test_missing_server_measurements_cannot_pass_as_success) ... ok
+test_repeated_origin_request_cannot_masquerade_as_multiple_sends (tests.test_delay_analysis.DelayAnalysisTests.test_repeated_origin_request_cannot_masquerade_as_multiple_sends) ... ok
+test_throughput_uses_only_one_recipient_clock (tests.test_delay_analysis.DelayAnalysisTests.test_throughput_uses_only_one_recipient_clock) ... ok
+
+======================================================================
+FAIL: test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='target')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 131, in test_business_identity_chain_rejects_wrong_target_result_origin_or_sender
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='result')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 131, in test_business_identity_chain_rejects_wrong_target_result_origin_or_sender
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='origin')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 131, in test_business_identity_chain_rejects_wrong_target_result_origin_or_sender
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='sender')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 131, in test_business_identity_chain_rejects_wrong_target_result_origin_or_sender
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_business_identity_chain_rejects_wrong_target_result_origin_or_sender (tests.test_delay_analysis.DelayAnalysisTests.test_business_identity_chain_rejects_wrong_target_result_origin_or_sender) (change='mode')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_delay_analysis.py", line 131, in test_business_identity_chain_rejects_wrong_target_result_origin_or_sender
+    with self.subTest(change=change), self.assertRaises(ValueError): self.analyze(manifest, logs)
+                                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.011s
+
+FAILED (failures=5)

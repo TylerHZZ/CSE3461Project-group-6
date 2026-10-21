@@ -1,5 +1,7 @@
 # CSE3461 F2 Local Acceptance Evidence
 
+> Current F3 update (2026-10-21): F3 A implementation was subsequently authorized and completed in the dedicated `feature/f3-delay-jitter` working branch. Earlier skeleton/F2-only restrictions and unimplemented-F3 statements below are historical. See [F3 plan](CSE3461_F3_PLAN.md) and [F3 acceptance](CSE3461_F3_ACCEPTANCE.md) for the current scope and evidence.
+
 2026-10-21 | Implementer verification complete; coordinator independent acceptance pending
 
 Scope: Feature 2 private messaging and required shared publication in the existing framework. **65 automated tests passed**, including all previous protocol/security/lifecycle coverage with obsolete F2-stub expectations updated. A separate actual-server/three-CLI-client localhost demonstration passed **32 checks**. This does not establish real-device over-the-air acceptance or whole-project completion.
