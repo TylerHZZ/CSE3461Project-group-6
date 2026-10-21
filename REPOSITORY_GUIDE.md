@@ -11,7 +11,7 @@ Feature numbers follow the course assignment: **F1 = broadcast**, **F2 = private
 | `feature/f3-delay-jitter` | F3 implementation and experiment delivery | F3 implementation baseline: `7fbdbbb`; remains separate from main |
 | `archive/f2-standalone` | Original standalone private messaging prototype | Same original commit `1069ff5`; contains known framing bugs; reference only |
 
-`archive/f2-standalone` is the canonical archive name; remote `one-one` is temporarily retained as a compatibility alias pending approval to remove it. The incorrectly numbered local `f1-one-one` is renamed to the archive name. All original commits are retained. Use the integrated package, not the prototype, for demonstrations and further development.
+`archive/f2-standalone` replaces remote `one-one` and local `f1-one-one`. All original commits are retained. Use the integrated package, not the prototype, for demonstrations and further development.
 
 The F2 branch was created after integration to clarify repository navigation. Its name does not imply F2 still needs merging. Feature completion and course acceptance are separate: physical-device verification and other course deliverables must retain their own evidence.
 
@@ -52,7 +52,7 @@ On `feature/f3-delay-jitter`, also read `outputs/CSE3461_F3_PLAN.md`, `outputs/C
 
 ## Updating an older local checkout
 
-Fetch the canonical branch names (the old remote alias remains until its removal is approved):
+After the remote rename, fetch current branch names:
 
 ```sh
 git fetch origin --prune
@@ -66,7 +66,3 @@ git branch --set-upstream-to=origin/archive/f2-standalone archive/f2-standalone
 ```
 
 If it is instead named `one-one`, substitute that old local name. Check existing local branches first; do not overwrite an existing archive branch. To work on the corrected F2 version, use `feature/f2-private-chat`, not the archived prototype.
-
-## Organization rollout
-
-This branch contains the navigation update. Applying the corresponding documentation-only changes to main and the F3 branch, and removing the old remote alias, remains pending approval. Their product code is unchanged by this cleanup.
