@@ -1,0 +1,44 @@
+test_dispatch (unittest.loader._FailedTest.test_dispatch) ... ERROR
+test_features (unittest.loader._FailedTest.test_features) ... ERROR
+test_skeleton (unittest.loader._FailedTest.test_skeleton) ... ERROR
+
+======================================================================
+ERROR: test_dispatch (unittest.loader._FailedTest.test_dispatch)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dispatch
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/tests/test_dispatch.py", line 5, in <module>
+    from cse3461_chat.features import build_handlers
+ModuleNotFoundError: No module named 'cse3461_chat.features'
+
+
+======================================================================
+ERROR: test_features (unittest.loader._FailedTest.test_features)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_features
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/tests/test_features.py", line 2, in <module>
+    from cse3461_chat.features import build_handlers
+ModuleNotFoundError: No module named 'cse3461_chat.features'
+
+
+======================================================================
+ERROR: test_skeleton (unittest.loader._FailedTest.test_skeleton)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_skeleton
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/tests/test_skeleton.py", line 6, in <module>
+    from cse3461_chat.server import ServerRuntime
+ModuleNotFoundError: No module named 'cse3461_chat.server'
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (errors=3)

@@ -1,0 +1,8 @@
+test_registration_reply_while_closing_preserves_graceful_quit (tests.test_client.ClientTests.test_registration_reply_while_closing_preserves_graceful_quit) ... ok
+test_quit_and_eof_during_registration_exit_cleanly (tests.test_client.ClientQuitTests.test_quit_and_eof_during_registration_exit_cleanly) ... ok
+test_rejected_registration_logs_only_valid_username_metadata (tests.test_dispatch.DispatchTests.test_rejected_registration_logs_only_valid_username_metadata) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.382s
+
+OK

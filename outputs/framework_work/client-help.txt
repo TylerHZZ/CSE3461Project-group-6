@@ -1,0 +1,14 @@
+usage: python3 -m cse3461_chat.client [-h] [--host HOST] [--port PORT]
+                                      [--run-id RUN_ID] [--log-file LOG_FILE]
+                                      [--username USERNAME]
+
+CSE3461 connectable skeleton; F1/F2/F3 unavailable.
+
+options:
+  -h, --help           show this help message and exit
+  --host HOST
+  --port PORT
+  --run-id RUN_ID
+  --log-file LOG_FILE  New per-process JSONL file; parent directory must
+                       exist.
+  --username USERNAME

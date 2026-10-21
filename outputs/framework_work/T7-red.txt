@@ -1,0 +1,51 @@
+test_capacity_rejection_before_workers (tests.test_skeleton.SkeletonTests.test_capacity_rejection_before_workers) ... ok
+test_cli_and_raw_features_remain_unavailable (tests.test_skeleton.SkeletonTests.test_cli_and_raw_features_remain_unavailable) ... ok
+test_listener_failures (tests.test_skeleton.SkeletonTests.test_listener_failures) ... Server error: [Errno 48] Address already in use
+ok
+test_logs_omit_message_bodies (tests.test_skeleton.SkeletonTests.test_logs_omit_message_bodies) ... ok
+test_malformed_peers_and_reset_leave_server_healthy (tests.test_skeleton.SkeletonTests.test_malformed_peers_and_reset_leave_server_healthy) ... ok
+test_multi_session_shutdown_budget (tests.test_skeleton.SkeletonTests.test_multi_session_shutdown_budget) ... ok
+test_registration_deadline_and_retry_on_wire (tests.test_skeleton.SkeletonTests.test_registration_deadline_and_retry_on_wire) ... ok
+test_requested_log_open_failure_starts_no_network (tests.test_skeleton.SkeletonTests.test_requested_log_open_failure_starts_no_network) ... ok
+test_runtime_logging_failure_stops_process (tests.test_skeleton.SkeletonTests.test_runtime_logging_failure_stops_process) ... ok
+test_server_stop_with_blocked_stdin (tests.test_skeleton.SkeletonTests.test_server_stop_with_blocked_stdin) ... ok
+test_three_clients_with_one_unregistered (tests.test_skeleton.SkeletonTests.test_three_clients_with_one_unregistered) ... ok
+test_quit_before_hello_closes_promptly (tests.test_client.ClientQuitTests.test_quit_before_hello_closes_promptly) ... ERROR
+test_quit_with_full_pending_table (tests.test_client.ClientQuitTests.test_quit_with_full_pending_table) ... ERROR
+
+======================================================================
+ERROR: test_quit_before_hello_closes_promptly (tests.test_client.ClientQuitTests.test_quit_before_hello_closes_promptly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/tests/test_client.py", line 135, in test_quit_before_hello_closes_promptly
+    self.assertEqual(client.finish(1),0)
+                     ~~~~~~~~~~~~~^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/tests/support.py", line 67, in finish
+    code=self.process.wait(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1279, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2076, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/Library/Frameworks/Python.framework/Versions/3.14/bin/python3', '-u', '-m', 'cse3461_chat.client', '--port', '53486', '--username', 'alice']' timed out after 1 seconds
+
+======================================================================
+ERROR: test_quit_with_full_pending_table (tests.test_client.ClientQuitTests.test_quit_with_full_pending_table)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/tests/test_client.py", line 149, in test_quit_with_full_pending_table
+    self.assertEqual(client.finish(1),0)
+                     ~~~~~~~~~~~~~^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/tests/support.py", line 67, in finish
+    code=self.process.wait(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1279, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2076, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/Library/Frameworks/Python.framework/Versions/3.14/bin/python3', '-u', '-m', 'cse3461_chat.client', '--port', '53489', '--username', 'alice']' timed out after 1 seconds
+
+----------------------------------------------------------------------
+Ran 13 tests in 5.186s
+
+FAILED (errors=2)

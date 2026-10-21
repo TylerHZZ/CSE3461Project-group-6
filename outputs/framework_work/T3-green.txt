@@ -1,0 +1,18 @@
+test_config_defaults_and_rejections (tests.test_config.ConfigTests.test_config_defaults_and_rejections) ... ok
+test_message_schemas_and_direction (tests.test_protocol.ProtocolTests.test_message_schemas_and_direction) ... ok
+test_server_schemas_and_immutable_payload (tests.test_protocol.ProtocolTests.test_server_schemas_and_immutable_payload) ... ok
+test_strict_envelope_and_json (tests.test_protocol.ProtocolTests.test_strict_envelope_and_json) ... ok
+test_jsonl_sequence_and_metadata (tests.test_telemetry.TelemetryTests.test_jsonl_sequence_and_metadata) ... ok
+test_log_open_failure_precedes_network (tests.test_telemetry.TelemetryTests.test_log_open_failure_precedes_network) ... ok
+test_runtime_log_failure_is_visible (tests.test_telemetry.TelemetryTests.test_runtime_log_failure_is_visible) ... ok
+test_close_unblocks_read (tests.test_transport.TransportTests.test_close_unblocks_read) ... ok
+test_coalesced_frames (tests.test_transport.TransportTests.test_coalesced_frames) ... ok
+test_eof_boundaries (tests.test_transport.TransportTests.test_eof_boundaries) ... ok
+test_fragmented_multibyte_frame (tests.test_transport.TransportTests.test_fragmented_multibyte_frame) ... ok
+test_idle_and_partial_deadlines (tests.test_transport.TransportTests.test_idle_and_partial_deadlines) ... ok
+test_length_and_failed_write (tests.test_transport.TransportTests.test_length_and_failed_write) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.183s
+
+OK

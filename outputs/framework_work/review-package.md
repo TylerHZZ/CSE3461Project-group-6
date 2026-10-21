@@ -1,0 +1,40 @@
+# Final review package
+
+No Git repository exists. Baseline was documentation only; review the complete source and tests in this workspace.
+
+Scope: connectable skeleton only. F1/F2 selection, chat publisher and F3 A remain unavailable.
+
+Plan: outputs/CSE3461_FRAMEWORK_IMPLEMENTATION_PLAN.md
+Spec: outputs/CSE3461_ARCHITECTURE_PROPOSAL.md
+Rulings: outputs/framework_work/progress.md
+Functional evidence: outputs/framework_work/T7-green.txt (46 passing tests); outputs/runs/skeleton-smoke-20261021-01/ (actual supervised terminal run).
+Acceptance/handoff: outputs/CSE3461_FRAMEWORK_ACCEPTANCE.md and outputs/CSE3461_FRAMEWORK_HANDOFF.md.
+
+Source inventory:
+- cse3461_chat/__init__.py SHA256 a5c01278d17635b88b725d2880dbc777b7674028c921a6aef39da6e9a22dba16
+- cse3461_chat/client.py SHA256 eba68b3362b4897e6654313230a746456e6cbcff27c03a01f2c194bd45fc4542
+- cse3461_chat/commands.py SHA256 c34998474237c91f1e240bad6f1eefe3189db9e13bf2a1063a8b7ff7a04aa882
+- cse3461_chat/config.py SHA256 687e6aed6b0a568cbeb67ba15d50d555038d1f302ef84a71be4d6994ebd91fca
+- cse3461_chat/dispatch.py SHA256 1532bb70bf6fea0c61fed1908b644ed003456216e0581580febab4d97f5ad832
+- cse3461_chat/features/__init__.py SHA256 2b2d7bbb922fb240b1b3eb3fd285da91adb7391b814f41241355c6696247cad8
+- cse3461_chat/features/broadcast.py SHA256 dfc84f7f80635988cdb7c8459666c36bb1a78fe816a0e22865044f5c13340f5b
+- cse3461_chat/features/enhancement.py SHA256 b368ce66d94ae39d1b2f4562a7b59fb66b592f12b8ffd8e8fb70fe4db6872505
+- cse3461_chat/features/private_chat.py SHA256 b22d9df804947bad19bbdcfbbed43d454ef6c56e1a32fcdff55e79775cd3deaf
+- cse3461_chat/protocol.py SHA256 11b573c9d0ad1a53cd812c2c0d99e4f4924b8914eab4cde48a9ce3b9ac5d1c23
+- cse3461_chat/server.py SHA256 5606ce3a2aafff9c4b7f0b102442006583fe4dfdd543517db0168de7980a16a4
+- cse3461_chat/sessions.py SHA256 d82d7503c76e409e805f8ec36293a2a3fc1b2fc28abc95a9f16fb0f98be15879
+- cse3461_chat/telemetry.py SHA256 ad3850fefbea2f9e0bfb42500be45eae87cda6de145140ea053d7e71700630f6
+- cse3461_chat/transport.py SHA256 7d7f65e08f80f78b5b706cecf8b070c786899bc510a7e96ab702ad213826fa6d
+- tests/__init__.py SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- tests/support.py SHA256 3c42d48718d9cd4641344535f0d4a295bec87c6b1d758f46fbe6c128cd591ac7
+- tests/test_client.py SHA256 9573d3297a591bfab8b59656f419f4d4e93b1aa2d9af324b834abe839f17f9cd
+- tests/test_commands.py SHA256 2fbb41f510732455ada31b17c46e665dd8dc6b611bb157d092c3b3db6a5dd6fd
+- tests/test_config.py SHA256 67349c9a12dc4f366c97d0dd6eef5fc12bbe3ee0b4816a4bbeeaa6b50802e5f8
+- tests/test_dispatch.py SHA256 dc50ce9b1df009479918311971b18dc881d09d2b926e970109d73f473f284d4a
+- tests/test_features.py SHA256 1d0e720bb940f525df3dd2feb29ec364736aaf9c72452907d672d23a69dba85a
+- tests/test_protocol.py SHA256 8e96600fcc6786d2c69a79abb4b4b898f89ea3a910953ca52d3cdc4edcd7cde2
+- tests/test_sessions.py SHA256 0bbb3ca6a42e06103cbebd1263e51ff049730fff5762ba142e44ce0e0bd359f5
+- tests/test_skeleton.py SHA256 fe43b1c2d29b67cc5be1f28b33002c8a73dbdd4426e27cd23f9c23e012f75297
+- tests/test_telemetry.py SHA256 75b2bb45b7111d2a9db463dc629d19ece6ce680071e24481eee3956260c43767
+- tests/test_transport.py SHA256 18616dc688d7abab5d960a3fa282f336d8468f6ec66229712c35e26418c3b8b1
+- README.md SHA256 cf730bbd8ea6c8ff421814cf3701d463a88aa33bde0b3d8d4d51e4c7a725ab25

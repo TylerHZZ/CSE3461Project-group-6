@@ -1,0 +1,32 @@
+{
+  "run_id": "skeleton-smoke-20261021-01",
+  "mode": "supervised localhost terminal smoke",
+  "process_logs": {
+    "alice.jsonl": 16,
+    "bob-reconnected.jsonl": 8,
+    "bob.jsonl": 9,
+    "server.jsonl": 64,
+    "waiting.jsonl": 10
+  },
+  "registered_users": [
+    "bob",
+    "alice",
+    "carol",
+    "bob"
+  ],
+  "rejections": {
+    "USERNAME_TAKEN": 1,
+    "FEATURE_NOT_IMPLEMENTED": 4
+  },
+  "feature_rejections": {
+    "f1": 2,
+    "f2": 1,
+    "f3": 1
+  },
+  "chat_events": 0,
+  "send_results": 0,
+  "message_bodies_in_jsonl": false,
+  "all_logs_valid": true,
+  "shutdown_drain_to_stopped_ms": 1.357,
+  "timing_definition": "Server-local first shutdown bye enqueue to process_stopped; excludes delay between signal and first enqueue."
+}

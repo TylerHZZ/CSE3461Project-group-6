@@ -1,0 +1,8 @@
+test_message_schemas_and_direction (tests.test_protocol.ProtocolTests.test_message_schemas_and_direction) ... ok
+test_server_schemas_and_immutable_payload (tests.test_protocol.ProtocolTests.test_server_schemas_and_immutable_payload) ... ok
+test_strict_envelope_and_json (tests.test_protocol.ProtocolTests.test_strict_envelope_and_json) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

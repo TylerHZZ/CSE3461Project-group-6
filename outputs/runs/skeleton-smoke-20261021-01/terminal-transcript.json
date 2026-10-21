@@ -1,0 +1,111 @@
+[
+  {
+    "role": "server",
+    "chunk_id": "5d85d7",
+    "wall_time_seconds": 1.001804792,
+    "session_id": 11937,
+    "original_token_count": 14,
+    "output": "Listening on 127.0.0.1:3461; F1/F2/F3 not implemented.\r\n"
+  },
+  {
+    "role": "waiting",
+    "chunk_id": "5a57da",
+    "wall_time_seconds": 1.001639709,
+    "session_id": 57593,
+    "original_token_count": 37,
+    "output": "Connected: local=127.0.0.1:53740 server=127.0.0.1:3461\r\n[hello] session=721c86f3-bfe8-4e8d-bf55-64c8783e41eb; registration required.\r\nUsername:\r\n"
+  },
+  {
+    "role": "alice",
+    "chunk_id": "f979c4",
+    "wall_time_seconds": 1.002119417,
+    "session_id": 47644,
+    "original_token_count": 98,
+    "output": "Connected: local=127.0.0.1:53735 server=127.0.0.1:3461\r\n[hello] session=2c541c58-6a1d-40d6-9222-418592310ffb; registration required.\r\n[registered] alice; session=2c541c58-6a1d-40d6-9222-418592310ffb; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=unavailable, F3=unavailable. Submitted is not delivered.\r\n"
+  },
+  {
+    "role": "bob",
+    "chunk_id": "85dbb8",
+    "wall_time_seconds": 1.0013495,
+    "session_id": 3950,
+    "original_token_count": 98,
+    "output": "Connected: local=127.0.0.1:53730 server=127.0.0.1:3461\r\n[hello] session=4dc8f2c0-e7a6-4622-a775-dfa09084b948; registration required.\r\n[registered] bob; session=4dc8f2c0-e7a6-4622-a775-dfa09084b948; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=unavailable, F3=unavailable. Submitted is not delivered.\r\n"
+  },
+  {
+    "role": "waiting",
+    "input": "alice",
+    "chunk_id": "056e4a",
+    "wall_time_seconds": 0.251440542,
+    "session_id": 57593,
+    "original_token_count": 26,
+    "output": "alice\r\n[error] request=1 USERNAME_TAKEN feature=None: Username is already in use.\r\nUsername (retry):\r\n"
+  },
+  {
+    "role": "waiting",
+    "input": "carol",
+    "chunk_id": "4372a2",
+    "wall_time_seconds": 0.250465916,
+    "session_id": 57593,
+    "original_token_count": 66,
+    "output": "carol\r\n[registered] carol; session=721c86f3-bfe8-4e8d-bf55-64c8783e41eb; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=unavailable, F3=unavailable. Submitted is not delivered.\r\n"
+  },
+  {
+    "role": "alice",
+    "input": "Hello skeleton; @bob Only for Bob; /enhance; @broken; /unknown; /all @literal; /help",
+    "chunk_id": "0b8811",
+    "wall_time_seconds": 1.002246958,
+    "session_id": 47644,
+    "original_token_count": 237,
+    "output": "Hello skeleton\r\n@bob Only for Bob\r\n/enhance\r\n@broken\r\n/unknown\r\n/all @literal\r\n/help\r\n[submitted] request=2; pending, not delivered.\r\n[error] request=2 FEATURE_NOT_IMPLEMENTED feature=f1: This feature is not implemented.\r\n[submitted] request=3; pending, not delivered.\r\n[error] request=3 FEATURE_NOT_IMPLEMENTED feature=f2: This feature is not implemented.\r\n[submitted] request=4; pending, not delivered.\r\n[error] request=4 FEATURE_NOT_IMPLEMENTED feature=f3: This feature is not implemented.\r\n[usage] Use @username <text>; invalid private input is never broadcast.\r\n[usage] Unknown or incomplete command. Use /help.\r\n[submitted] request=5; pending, not delivered.\r\n[error] request=5 FEATURE_NOT_IMPLEMENTED feature=f1: This feature is not implemented.\r\nCommands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=unavailable, F3=unavailable. Submitted is not delivered.\r\n"
+  },
+  {
+    "role": "bob",
+    "input": "/quit",
+    "chunk_id": "049495",
+    "wall_time_seconds": 0.000033042,
+    "exit_code": 0,
+    "original_token_count": 8,
+    "output": "/quit\r\n[bye] client_request\r\n"
+  },
+  {
+    "role": "bob-reconnected",
+    "chunk_id": "d196ac",
+    "wall_time_seconds": 1.001605541,
+    "session_id": 87933,
+    "original_token_count": 98,
+    "output": "Connected: local=127.0.0.1:53785 server=127.0.0.1:3461\r\n[hello] session=27c73407-84b2-4464-8930-315a22ae3698; registration required.\r\n[registered] bob; session=27c73407-84b2-4464-8930-315a22ae3698; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=unavailable, F3=unavailable. Submitted is not delivered.\r\n"
+  },
+  {
+    "role": "server",
+    "input": "Ctrl-C",
+    "chunk_id": "88dd66",
+    "wall_time_seconds": 0.000055959,
+    "exit_code": 0,
+    "original_token_count": 1,
+    "output": "^C"
+  },
+  {
+    "role": "alice",
+    "chunk_id": "2532e7",
+    "wall_time_seconds": 0.000007041,
+    "exit_code": 0,
+    "original_token_count": 6,
+    "output": "[bye] server_shutdown\r\n"
+  },
+  {
+    "role": "waiting",
+    "chunk_id": "8571e7",
+    "wall_time_seconds": 0.000013208,
+    "exit_code": 0,
+    "original_token_count": 6,
+    "output": "[bye] server_shutdown\r\n"
+  },
+  {
+    "role": "bob-new",
+    "chunk_id": "a4024b",
+    "wall_time_seconds": 0.000005125,
+    "exit_code": 0,
+    "original_token_count": 6,
+    "output": "[bye] server_shutdown\r\n"
+  }
+]
