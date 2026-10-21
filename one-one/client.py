@@ -39,7 +39,7 @@ username = input(data)
 # send username to server
 client_socket.send(username.encode())
 # create receiving thread
-receiving = threading.Thread(target=receive, args=client_socket)
+receiving = threading.Thread(target=receive, args=(client_socket,))
 # start receiving
 receiving.start()
 # handles sending messages
