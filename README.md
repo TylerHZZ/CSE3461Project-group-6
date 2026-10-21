@@ -6,6 +6,8 @@ A Python standard-library, threaded TCP client/server with **Feature 2 private m
 
 Independent coordinator acceptance: [F2/F3 verification and integration record](outputs/CSE3461_COORDINATOR_ACCEPTANCE.md).
 
+**Ownership:** Feature 1 broadcast is assigned to another team member. This workstream delivers the shared framework, F2 and F3; it leaves the F1 handler and integration contract available for that member and does not implement F1.
+
 ## Run locally
 
 Use Python **3.12+** from the repository root; no dependency installation is needed. Actual verification used Python 3.14.5 on macOS. Other versions/devices need their own checks.

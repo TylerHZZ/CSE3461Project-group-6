@@ -15,6 +15,10 @@ Feature numbers follow the course assignment: **F1 = broadcast**, **F2 = private
 
 The F2 branch was created after integration to clarify repository navigation. Its name does not imply F2 still needs merging. Feature completion and course acceptance are separate: physical-device verification and other course deliverables must retain their own evidence.
 
+## Work ownership
+
+Feature 1 broadcast belongs to another team member. This workstream has completed the shared framework and independently accepted F2/F3 localhost integration. Keep the F1 extension interface available; further F1 implementation and integration are separate work. Do not interpret the F1 placeholder as a task assigned to this workstream.
+
 ## Naming convention
 
 - `feature/f<number>-<short-description>` for feature work, such as `feature/f2-private-chat`.
