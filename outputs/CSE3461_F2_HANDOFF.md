@@ -12,7 +12,7 @@ The supported package now sends complete private messages only to the selected r
 
 Final repository: `/Users/nira_def/Documents/GitHub/CSE3461Project-group-6`.
 Baseline: `main` and local `origin/main` at `8881b8064e6e11005a5a2a9e7a70b5dedd3b161a`.
-Reference only: local `origin/one-one` at `1069ff5a35e4eca1b34ec9d59f63fdaf487ac3fe`.
+Reference only: local `origin/archive/f2-standalone` at `1069ff5a35e4eca1b34ec9d59f63fdaf487ac3fe`.
 
 Implementation was prepared from a clean export of that final baseline. The older project workspace was not used as the code source. Final import only replaces reviewed changed files after rechecking original file hashes and repository state; the [integration receipt](f2_work/repository-integration.md) lists the resulting status. Final verification from this repository passed 65/65 tests and a fresh 32-check CLI smoke; its source hashes match the reviewed version. Changes remain unstaged and uncommitted. No stage, commit, push, remote merge or course upload is performed by this workflow.
 
@@ -52,7 +52,7 @@ python3 -m tests.check_private_mutations
 
 ## Standalone branch status
 
-The old bare-string `origin/one-one` implementation is incompatible with the framework. It remains **unmodified and defective historical reference**. Do not use its root `server.py`/`client.py` as the corrected product and do not mechanically merge that branch into this framed implementation. No legacy endpoint is copied here; run `python3 -m cse3461_chat.server` / `.client` as above. The two demonstrated failure classes are fixed in this integrated product by reusing framing and are protected by executable regressions.
+The old bare-string `origin/archive/f2-standalone` implementation is incompatible with the framework. It remains **unmodified and defective historical reference**. Do not use its root `server.py`/`client.py` as the corrected product and do not mechanically merge that branch into this framed implementation. No legacy endpoint is copied here; run `python3 -m cse3461_chat.server` / `.client` as above. The two demonstrated failure classes are fixed in this integrated product by reusing framing and are protected by executable regressions.
 
 ## Remaining human actions and limits
 
