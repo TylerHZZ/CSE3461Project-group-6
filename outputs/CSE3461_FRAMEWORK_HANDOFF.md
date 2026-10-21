@@ -1,76 +1,37 @@
-# CSE3461 Framework Handoff
+# CSE3461 Framework Handoff — Current F2 Integration
 
-2026-10-21 | Plan v1.1, Native | Skeleton accepted: S01–S14 passed
+2026-10-21 | Protocol v1 / architecture contract v0.2 retained
 
-The connectable framework is implemented and has passed 49 automated tests and a supervised localhost run with three concurrent terminal clients. The delivered scope is real TCP connection/registration, protocol validation, threaded control-message exchange, bounded queues, logging, and cleanup. **F1, F2, shared chat publication, and F3 A remain unimplemented.** Independent review found two Important issues; both were reproduced, fixed and verified by the final full suite. No unresolved acceptance finding remains.
+The framework now supports **F2 private messages** through its existing length-prefixed TCP connection, directory and bounded queues. The shared publisher creates message IDs and chat events, records routing/admission metadata, handles unavailable/full recipients and returns queue counts. The dispatcher sends correlated `send_result` replies. F1 broadcast and F3 A are still unimplemented.
 
-## Run and verify
-
-From the project root, use Python 3.12+ with no third-party dependencies:
+Use Python 3.12+ with no dependencies, in separate terminals:
 
 ```sh
-python3 -m cse3461_chat.server --features none
+python3 -m cse3461_chat.server --features f2
 python3 -m cse3461_chat.client --username alice
 python3 -m cse3461_chat.client --username bob
-python3 -m unittest discover -s tests -t . -v
+python3 -m cse3461_chat.client --username carol
 ```
 
-Run server/client commands in separate terminals. Validation used Python 3.14.5 on macOS. See [README](../README.md) for commands, log paths and lifecycle behavior, and the [S01–S14 acceptance record](CSE3461_FRAMEWORK_ACCEPTANCE.md) for exact evidence and limitations.
+Alice enters `@bob Hello Bob`; Bob alone sees it. Default `--features none` disables F2 and returns `FEATURE_DISABLED`. Unknown/self targets return `USER_NOT_FOUND` / `SELF_TARGET`. Invalid private input never becomes a broadcast.
 
-## Architecture and ownership
+The F2 implementation and its limits are documented in [F2 handoff](CSE3461_F2_HANDOFF.md). [F2 acceptance](CSE3461_F2_ACCEPTANCE.md) links the full suite, mutation checks, real CLI demonstration and requirement mapping. [README](../README.md) provides a clean-environment walkthrough and the [integration brief](CSE3461_F1_F2_INTEGRATION_BRIEF.md) preserves all shared interfaces.
 
-**Terminal → client controller → framed IPv4 TCP → server receiver → dispatcher/registration/availability gate → bounded FIFO → single connection writer → client receiver/controller.**
+## Integration surfaces
 
-The foundation owns protocol/schema checks, sessions and usernames, threads/queues, IDs, responses, configuration and telemetry. Each server connection has one receiver and one writer; clients never connect directly to one another. The client controller owns state, pending requests, writes and output. F1/F2 remain independent handler modules and must not duplicate foundation responsibilities.
+- `features.private_chat.handle_private(ctx, request) -> RoutePlan | AppError`: exact read-only lookup and one captured session.
+- `features.broadcast.handle_broadcast` and `features.enhancement.handle_enhancement`: unchanged stubs.
+- `dispatch.Publisher(manager).publish(ctx, request, plan) -> PublishResult | AppError`: shared publication for private and future broadcast plans; no new routing handler or socket thread.
+- `features.build_handlers(features='none')`: immutable implementation/enablement bindings. CLI passes the validated startup choice.
+- `protocol.capabilities(descriptors=None)`: actual server descriptors when supplied; an unknown/all-unavailable initial state for clients before hello when omitted.
+- `SessionManager`, `Directory.find`, `Directory.others`, `FramedConnection` and wire field definitions: unchanged.
 
-| Integration surface | Import / contract |
-| --- | --- |
-| F1 | `cse3461_chat.features.broadcast.handle_broadcast(ctx: RequestContext, request: BroadcastRequest) -> FeatureOutcome` |
-| F2 | `cse3461_chat.features.private_chat.handle_private(ctx: RequestContext, request: PrivateRequest) -> FeatureOutcome` |
-| Shared types | `cse3461_chat.protocol`: `RequestContext`, `BroadcastRequest(text)`, `PrivateRequest(to, text)`, `RoutePlan(recipients)`, `FeatureOutcome`, `AppError(code, message, fatal, feature)` |
-| Immutable identity | `cse3461_chat.sessions.SessionView(session_id, username, peer_address)`; no socket |
-| Directory | `ctx.directory.find(username) -> SessionView or None`; `ctx.directory.others(origin_session_id) -> tuple[SessionView, ...]` |
-| Shared publisher | `cse3461_chat.dispatch.Publisher.publish(ctx, request, plan)` remains unavailable, even with a synthetic plan |
+Only the connection writer sends frames. Recipient identity is captured by session ID, not re-resolved by name during publication. A queue-full recipient closes independently of healthy recipients. Queue admission does not promise a later write or receipt. Per-sender FIFO is preserved; no global order is promised.
 
-`RequestContext` provides `sender`, `request_id`, `received_ns`, and `directory`. A `RoutePlan` is a nonempty tuple of unique session snapshots. Capture by session ID: disconnect/reuse of a username must not redirect an old request. F1/F2 must not access sockets, create I/O threads, assign message IDs, send responses, or mutate a separate online map.
+## Earlier framework history
 
-## Wire agreement for F1/F2
+The original skeleton was committed as `8881b8064e6e11005a5a2a9e7a70b5dedd3b161a`. Its [49-test acceptance](CSE3461_FRAMEWORK_ACCEPTANCE.md), [review/fixes](framework_work/final-review.md), [repository import](framework_work/repository-import.md), and [supervised run](runs/skeleton-smoke-20261021-01/smoke-summary.json) are retained as historical evidence. Statements in those records that F2/publication are unavailable describe that earlier stage.
 
-Architecture **v0.2 / wire protocol v1 remains unchanged**. Each frame has a four-byte unsigned big-endian payload length, followed by 1–65,536 UTF-8 JSON bytes. The envelope has exactly `v`, `type`, `request_id`, and `data`. Complete `hello → register → registered` before feature requests.
+This integration derives from that actual repository commit; it does not overwrite the repository with the older project copy. The separate `origin/one-one` raw-string branch remains unfixed historical reference and is not the recommended runtime. Its incompatible protocol was not merged.
 
-| Request | `data` | Current result |
-| --- | --- | --- |
-| `broadcast_send` | `{"text":"Hello"}` | Correlated `error`, `code="FEATURE_NOT_IMPLEMENTED"`, `feature="f1"`, `fatal=false` |
-| `private_send` | `{"to":"bob","text":"Hello"}` | Same error with `feature="f2"` |
-| `enhancement_request` | `{}` | Same error with `feature="f3"` |
-
-Request IDs strictly increase per connection. Usernames are case-sensitive `[A-Za-z0-9_]{1,24}`. Text is 1–4,096 UTF-8 bytes and is preserved after validation. Clients cannot supply sender identity. All three capability entries remain `implemented=false`, `enabled=false`, `variant=null`; CLI attempts to enable them fail at startup.
-
-Use the [F1/F2 integration brief](CSE3461_F1_F2_INTEGRATION_BRIEF.md) for the complete field/error contract and later routing semantics. For later F1, return other registered recipients or `NO_RECIPIENTS`. For later F2, return exactly the target session or `SELF_TARGET`/`USER_NOT_FOUND`. The foundation owner must implement and verify the common publisher in the same later integration stage. A handler unit test alone does not establish delivery.
-
-## Evidence and next stage
-
-- [Repository import record](framework_work/repository-import.md): preserved source/tests, portable links and fresh repository verification.
-- [Final test output](framework_work/final-suite.txt): 49 passing tests, including real CLI quit/EOF during registration and rejected-registration log sanitization.
-- [Independent review and fix evidence](framework_work/final-review.md): one review and one verified fix pass; no deferred Minor findings.
-- [Acceptance record](CSE3461_FRAMEWORK_ACCEPTANCE.md): S01–S14 with named tests and evidence.
-- [Supervised run summary](runs/skeleton-smoke-20261021-01/smoke-summary.json): duplicate-name retry, three clients, all features unavailable, same-name reconnection, and orderly shutdown.
-- [Execution ledger](framework_work/progress.md): task checkpoints, red/green outputs and recorded implementation rulings.
-
-Implementation and original acceptance took place in the approved non-Git workspace. The completed files have subsequently been copied into the existing `CSE3461Project-group-6` repository at the user’s request, ready for the user to commit. No commit, push, PR, deployment, third-party dependency or external message was created by this import. Log destinations use exclusive creation, so every process run requires a new path and prior evidence is preserved.
-
-The supervised terminal smoke preceded the two review fixes; the final full suite includes actual-process regressions for the changed lifecycle and TCP logging checks. Validation covers macOS/Python 3.14.5 and localhost only.
-
-## Recorded decisions and practical limits
-
-| Decision | Reason / cost if wrong |
-| --- | --- |
-| Implement in the approved non-Git workspace and retain file-based evidence | This was the original implementation environment; files are now imported into the existing repository. Git history for this development begins when the user commits. |
-| Require new log paths | Protect earlier evidence; repeated runs must select fresh filenames. |
-| Keep F1/F2, shared publication and F3 A unimplemented | Preserve the authorized boundary; users cannot exchange chat or run F3 yet. |
-| Exclude authentication, encryption, automatic reconnect, heartbeat and delivery receipts | Preserve baseline scope; those guarantees are absent and an idle partition may remain undetected. |
-| Claim only the exercised platform/version and localhost | No other environment was tested; compatibility issues may remain undiscovered. |
-| Return exit 0 on an orderly server-shutdown bye | Normal protocol termination; callers treating remote shutdown as failure must inspect the reason or adjust policy. |
-| Make no experiment/performance conclusion | No F3 experiment exists; workload, baseline/treatment and measurement validation remain necessary. |
-
-The next stage requires separate authorization. F1/F2 must implement their selection logic and the foundation publisher, then demonstrate actual broadcast/private behavior on localhost and real devices. F3 remains option A; its delay/jitter hook, parameters, workload and measurements still require the later design/implementation stage. Team device/Python-minor alignment, course demonstrations, report and submissions remain with the coordinator.
+Real-device over-the-air verification, other OS/Python-version checks, F1/F3, team contributions, video, report, sharing and course submission remain separate. No external communication, push or course upload is part of this delivery. The coordinator retains independent acceptance responsibility.

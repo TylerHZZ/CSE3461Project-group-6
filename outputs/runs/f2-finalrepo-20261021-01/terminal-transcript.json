@@ -1,0 +1,95 @@
+{
+  "commands": [
+    {
+      "client": "alice",
+      "input": "@bob xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "client": "bob",
+      "input": "@alice 中文回复"
+    },
+    {
+      "client": "alice",
+      "input": "@missing hello"
+    },
+    {
+      "client": "alice",
+      "input": "@alice hello"
+    },
+    {
+      "client": "alice",
+      "input": "@broken"
+    },
+    {
+      "client": "alice",
+      "input": "broadcast remains unavailable"
+    },
+    {
+      "client": "alice",
+      "input": "/enhance"
+    },
+    {
+      "client": "alice",
+      "input": "/help"
+    },
+    {
+      "client": "bob",
+      "input": "/quit"
+    },
+    {
+      "client": "alice",
+      "input": "@bob disconnected"
+    },
+    {
+      "client": "alice",
+      "input": "@bob new session"
+    }
+  ],
+  "output": {
+    "alice": [
+      "Connected: local=127.0.0.1:62640 server=127.0.0.1:62639\n",
+      "[hello] session=5d0cf7aa-eac6-4da2-80c3-38cdc15594f9; registration required.\n",
+      "[registered] alice; session=5d0cf7aa-eac6-4da2-80c3-38cdc15594f9; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[submitted] request=2; pending, not delivered.\n",
+      "[queue result] request=2 queued; queue admission is not receipt.\n",
+      "[private] bob: 中文回复\n",
+      "[submitted] request=3; pending, not delivered.\n",
+      "[error] request=3 USER_NOT_FOUND feature=f2: The target user is not connected.\n",
+      "[submitted] request=4; pending, not delivered.\n",
+      "[error] request=4 SELF_TARGET feature=f2: Choose another user for a private message.\n",
+      "[usage] Use @username <text>; invalid private input is never broadcast.\n",
+      "[submitted] request=5; pending, not delivered.\n",
+      "[error] request=5 FEATURE_NOT_IMPLEMENTED feature=f1: This feature is not implemented.\n",
+      "[submitted] request=6; pending, not delivered.\n",
+      "[error] request=6 FEATURE_NOT_IMPLEMENTED feature=f3: This feature is not implemented.\n",
+      "Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[submitted] request=7; pending, not delivered.\n",
+      "[error] request=7 USER_NOT_FOUND feature=f2: The target user is not connected.\n",
+      "[submitted] request=8; pending, not delivered.\n",
+      "[queue result] request=8 queued; queue admission is not receipt.\n",
+      "[bye] server_shutdown\n"
+    ],
+    "bob": [
+      "Connected: local=127.0.0.1:62641 server=127.0.0.1:62639\n",
+      "[hello] session=5af9ed47-c398-4a11-a99c-5667043bd13c; registration required.\n",
+      "[registered] bob; session=5af9ed47-c398-4a11-a99c-5667043bd13c; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[private] alice: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n",
+      "[submitted] request=2; pending, not delivered.\n",
+      "[queue result] request=2 queued; queue admission is not receipt.\n",
+      "[bye] client_request\n"
+    ],
+    "carol": [
+      "Connected: local=127.0.0.1:62642 server=127.0.0.1:62639\n",
+      "[hello] session=e4a8f3b9-536e-4e86-a420-193292f93e67; registration required.\n",
+      "[registered] carol; session=e4a8f3b9-536e-4e86-a420-193292f93e67; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[bye] server_shutdown\n"
+    ],
+    "bob-reconnected": [
+      "Connected: local=127.0.0.1:62645 server=127.0.0.1:62639\n",
+      "[hello] session=419300bf-0c66-4b87-b8f5-ea95576016bc; registration required.\n",
+      "[registered] bob; session=419300bf-0c66-4b87-b8f5-ea95576016bc; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[private] alice: new session\n",
+      "[bye] server_shutdown\n"
+    ]
+  }
+}

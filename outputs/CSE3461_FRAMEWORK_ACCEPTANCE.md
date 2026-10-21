@@ -1,5 +1,7 @@
 # CSE3461 Framework Acceptance Record
 
+> **Historical baseline:** this document records the earlier skeleton stage. Current F2 implementation, publisher and capability status supersede its unavailable-feature statements; see [F2 acceptance](CSE3461_F2_ACCEPTANCE.md) and [F2 handoff](CSE3461_F2_HANDOFF.md). Protocol v1 and the shared contracts are unchanged.
+
 2026-10-21 | Scope: connectable skeleton, plan v1.1 | Native implementation
 
 **S01–S14 passed. Independent final review completed; both Important findings were fixed and regression-tested.** F1/F2, chat publication, and F3 A remain unavailable. These results establish the framework only.

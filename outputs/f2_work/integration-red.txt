@@ -1,0 +1,230 @@
+test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private) ... FAIL
+test_bidirectional_errors_and_unavailable_features (tests.test_private.PrivateWireTests.test_bidirectional_errors_and_unavailable_features) ... FAIL
+test_concurrent_senders_preserve_each_sender_order (tests.test_private.PrivateWireTests.test_concurrent_senders_preserve_each_sender_order) ... ERROR
+test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame) ... FAIL
+test_real_cli_send_receive_errors_and_quit (tests.test_private.PrivateWireTests.test_real_cli_send_receive_errors_and_quit) ... FAIL
+test_reconnect_cannot_receive_old_captured_route (tests.test_private.PrivateWireTests.test_reconnect_cannot_receive_old_captured_route) ... FAIL
+test_split_headers_utf8_and_coalesced_frames (tests.test_private.PrivateWireTests.test_split_headers_utf8_and_coalesced_frames) ... FAIL
+test_utf8_byte_limit_and_oversized_frame_rejection (tests.test_private.PrivateWireTests.test_utf8_byte_limit_and_oversized_frame_rejection) ... FAIL
+test_full_queue_closes_target_and_continues_shared_plan (tests.test_publisher.PublisherTests.test_full_queue_closes_target_and_continues_shared_plan) ... ERROR
+test_handler_exact_target_self_missing_and_snapshot (tests.test_publisher.PublisherTests.test_handler_exact_target_self_missing_and_snapshot) ... FAIL
+test_invalid_plan_never_leaks_private_text (tests.test_publisher.PublisherTests.test_invalid_plan_never_leaks_private_text) ... ERROR
+test_private_publication_metadata_and_no_bystander_event (tests.test_publisher.PublisherTests.test_private_publication_metadata_and_no_bystander_event) ... ERROR
+test_stale_route_reports_not_queued_without_name_relookup (tests.test_publisher.PublisherTests.test_stale_route_reports_not_queued_without_name_relookup) ... ERROR
+test_config_defaults_and_rejections (tests.test_config.ConfigTests.test_config_defaults_and_rejections) ... usage: python3 -m unittest [-h] [--host HOST] [--port PORT] [--run-id RUN_ID]
+                           [--log-file LOG_FILE] [--max-clients MAX_CLIENTS]
+                           [--features FEATURES]
+python3 -m unittest: error: F1/F2/F3 are not implemented; use --features none.
+ERROR
+
+======================================================================
+ERROR: test_concurrent_senders_preserve_each_sender_order (tests.test_private.PrivateWireTests.test_concurrent_senders_preserve_each_sender_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 204, in test_concurrent_senders_preserve_each_sender_order
+    messages=[receive(bob) for _ in range(40)]
+              ~~~~~~~^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/support.py", line 31, in receive
+    return channel.receive(time.monotonic_ns()+int(seconds*1e9))
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/cse3461_chat/transport.py", line 65, in receive
+    raise ReadDeadline('Read deadline expired.')
+cse3461_chat.transport.ReadDeadline: Read deadline expired.
+
+======================================================================
+ERROR: test_full_queue_closes_target_and_continues_shared_plan (tests.test_publisher.PublisherTests.test_full_queue_closes_target_and_continues_shared_plan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_publisher.py", line 87, in test_full_queue_closes_target_and_continues_shared_plan
+    result=Publisher(self.manager).publish(self.ctx,BroadcastRequest('one shared message id'),plan)
+           ~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: Publisher() takes no arguments
+
+======================================================================
+ERROR: test_invalid_plan_never_leaks_private_text (tests.test_publisher.PublisherTests.test_invalid_plan_never_leaks_private_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_publisher.py", line 96, in test_invalid_plan_never_leaks_private_text
+    publisher=Publisher(self.manager)
+TypeError: Publisher() takes no arguments
+
+======================================================================
+ERROR: test_private_publication_metadata_and_no_bystander_event (tests.test_publisher.PublisherTests.test_private_publication_metadata_and_no_bystander_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_publisher.py", line 56, in test_private_publication_metadata_and_no_bystander_event
+    result=Publisher(self.manager).publish(self.ctx,PrivateRequest('bob','DISTINCTIVE_PRIVATE_BODY'),plan)
+           ~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: Publisher() takes no arguments
+
+======================================================================
+ERROR: test_stale_route_reports_not_queued_without_name_relookup (tests.test_publisher.PublisherTests.test_stale_route_reports_not_queued_without_name_relookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_publisher.py", line 77, in test_stale_route_reports_not_queued_without_name_relookup
+    result=Publisher(self.manager).publish(self.ctx,PrivateRequest('bob','old'),plan)
+           ~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: Publisher() takes no arguments
+
+======================================================================
+ERROR: test_config_defaults_and_rejections (tests.test_config.ConfigTests.test_config_defaults_and_rejections)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/cse3461_chat/config.py", line 71, in _parse
+    validate_config(config)
+    ~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/cse3461_chat/config.py", line 50, in validate_config
+    raise ValueError('F1/F2/F3 are not implemented; use --features none.')
+ValueError: F1/F2/F3 are not implemented; use --features none.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_config.py", line 12, in test_config_defaults_and_rejections
+    self.assertEqual(parse_server_args(['--features', 'f2']).features, 'f2')
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/cse3461_chat/config.py", line 78, in parse_server_args
+    return _parse(argv, True)
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/cse3461_chat/config.py", line 73, in _parse
+    parser.error(str(exc))
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+FAIL: test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 63, in test_300_byte_body_is_complete_and_private
+    self.message(bob, self.result(alice, 2), 'x'*300)
+                      ~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 44, in result
+    self.assertEqual((reply.type, reply.request_id), ('send_result', rid))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('error', 2) != ('send_result', 2)
+
+First differing element 0:
+'error'
+'send_result'
+
+- ('error', 2)
++ ('send_result', 2)
+
+======================================================================
+FAIL: test_bidirectional_errors_and_unavailable_features (tests.test_private.PrivateWireTests.test_bidirectional_errors_and_unavailable_features)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 127, in test_bidirectional_errors_and_unavailable_features
+    self.assertEqual(hello.data['features']['f2'],dict(implemented=True,enabled=True,variant=None))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'implemented': False, 'enabled': False, 'variant': None} != {'implemented': True, 'enabled': True, 'variant': None}
+- {'enabled': False, 'implemented': False, 'variant': None}
+?             ^^^^                  ^^^^
+
++ {'enabled': True, 'implemented': True, 'variant': None}
+?             ^^^                  ^^^
+
+
+======================================================================
+FAIL: test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 77, in test_fragmented_body_waits_for_complete_frame
+    self.message(bob, self.result(alice, 2), 'fragmented')
+                      ~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 44, in result
+    self.assertEqual((reply.type, reply.request_id), ('send_result', rid))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('error', 2) != ('send_result', 2)
+
+First differing element 0:
+'error'
+'send_result'
+
+- ('error', 2)
++ ('send_result', 2)
+
+======================================================================
+FAIL: test_real_cli_send_receive_errors_and_quit (tests.test_private.PrivateWireTests.test_real_cli_send_receive_errors_and_quit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 225, in test_real_cli_send_receive_errors_and_quit
+    client.wait_for('[queue result]')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/support.py", line 60, in wait_for
+    raise AssertionError(f'Missing {text!r}: '+''.join(self.lines))
+AssertionError: Missing '[queue result]': Connected: local=127.0.0.1:61627 server=127.0.0.1:61624
+[hello] session=4f46f6cb-82f6-422a-a3df-ccdfc2797ffa; registration required.
+[registered] alice; session=4f46f6cb-82f6-422a-a3df-ccdfc2797ffa; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F1=unavailable, F2=unavailable, F3=unavailable. Submitted is not delivered.
+[submitted] request=2; pending, not delivered.
+[error] request=2 FEATURE_NOT_IMPLEMENTED feature=f2: Private messaging is not implemented.
+
+
+======================================================================
+FAIL: test_reconnect_cannot_receive_old_captured_route (tests.test_private.PrivateWireTests.test_reconnect_cannot_receive_old_captured_route)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 174, in test_reconnect_cannot_receive_old_captured_route
+    self.assertEqual(receive(carol).data['code'],'USER_NOT_FOUND')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'FEATURE_NOT_IMPLEMENTED' != 'USER_NOT_FOUND'
+- FEATURE_NOT_IMPLEMENTED
++ USER_NOT_FOUND
+
+
+======================================================================
+FAIL: test_split_headers_utf8_and_coalesced_frames (tests.test_private.PrivateWireTests.test_split_headers_utf8_and_coalesced_frames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 93, in test_split_headers_utf8_and_coalesced_frames
+    self.message(bob, self.result(alice, 2), '你好🙂 split')
+                      ~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 44, in result
+    self.assertEqual((reply.type, reply.request_id), ('send_result', rid))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('error', 2) != ('send_result', 2)
+
+First differing element 0:
+'error'
+'send_result'
+
+- ('error', 2)
++ ('send_result', 2)
+
+======================================================================
+FAIL: test_utf8_byte_limit_and_oversized_frame_rejection (tests.test_private.PrivateWireTests.test_utf8_byte_limit_and_oversized_frame_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 108, in test_utf8_byte_limit_and_oversized_frame_rejection
+    self.message(bob,self.result(alice,rid),text)
+                     ~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 44, in result
+    self.assertEqual((reply.type, reply.request_id), ('send_result', rid))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('error', 2) != ('send_result', 2)
+
+First differing element 0:
+'error'
+'send_result'
+
+- ('error', 2)
++ ('send_result', 2)
+
+======================================================================
+FAIL: test_handler_exact_target_self_missing_and_snapshot (tests.test_publisher.PublisherTests.test_handler_exact_target_self_missing_and_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_publisher.py", line 43, in test_handler_exact_target_self_missing_and_snapshot
+    self.assertIsInstance(plan,RoutePlan)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: AppError(code='FEATURE_NOT_IMPLEMENTED', message='Private messaging is not implemented.', fatal=False, feature='f2') is not an instance of <class 'cse3461_chat.protocol.RoutePlan'>
+
+----------------------------------------------------------------------
+Ran 14 tests in 5.982s
+
+FAILED (failures=8, errors=6)

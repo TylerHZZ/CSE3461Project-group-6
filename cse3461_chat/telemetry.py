@@ -63,6 +63,6 @@ def open_event_sink(role, run_id, log_file) -> EventSink:
     return EventSink(role, run_id, stream)
 
 
-def process_metadata(config):
+def process_metadata(config, descriptors=None):
     return dict(config=asdict(config), protocol_version=1, python_version=platform.python_version(),
-                os=platform.platform(), capabilities=capabilities(), run_mode='unspecified')
+                os=platform.platform(), capabilities=capabilities(descriptors), run_mode='unspecified')

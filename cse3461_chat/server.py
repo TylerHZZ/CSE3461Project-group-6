@@ -1,4 +1,4 @@
-"""Threaded skeleton server. Run with python -m cse3461_chat.server."""
+"""Threaded chat server. Run with python -m cse3461_chat.server."""
 import signal
 import socket
 import sys
@@ -9,7 +9,7 @@ from . import config as limits
 from .config import parse_server_args, validate_config
 from .dispatch import Dispatcher
 from .features import build_handlers
-from .protocol import AppError, ProtocolError, capabilities, make_message
+from .protocol import AppError, ProtocolError, make_message
 from .sessions import SessionManager
 from .telemetry import TelemetryError, open_event_sink, process_metadata
 from .transport import FramedConnection, ReadDeadline
@@ -78,14 +78,15 @@ class ServerRuntime:
         dispatcher = Dispatcher(self.manager, handlers, events)
         try:
             validate_config(config)
-            events.emit('process_started', process_metadata(config))
+            events.emit('process_started', process_metadata(config, handlers.descriptors))
             listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             listener.bind((config.host, config.port))
             listener.listen(config.max_clients)
             listener.settimeout(.05)
             self.address = listener.getsockname()
-            self.output(f'Listening on {self.address[0]}:{self.address[1]}; F1/F2/F3 not implemented.')
+            self.output(f'Listening on {self.address[0]}:{self.address[1]}; '
+                        f'F2={"enabled" if dispatcher.capabilities["f2"]["enabled"] else "disabled"}; F1/F3 not implemented.')
             self.ready.set()
             while not self._stop.is_set():
                 self.manager.maintain()
@@ -105,7 +106,7 @@ class ServerRuntime:
                     continue
                 hello = make_message('hello', None, dict(session_id=s.session_id, registration_required=True,
                     max_frame_bytes=65536, max_text_bytes=4096, registration_timeout_s=limits.REGISTRATION_S,
-                    features=capabilities()))
+                    features=dispatcher.capabilities))
                 if not self.manager.enqueue(s.session_id, hello, None).queued:
                     self.manager.close(s.session_id, 'hello_queue_failed', None, False)
                     continue
@@ -151,7 +152,7 @@ def main(argv=None):
     runtime = ServerRuntime()
     for sig in (signal.SIGINT, signal.SIGTERM):
         signal.signal(sig, lambda signum, frame: runtime.stop('server_shutdown'))
-    return runtime.run(config, build_handlers(), events)
+    return runtime.run(config, build_handlers(config.features), events)
 
 
 if __name__ == '__main__':

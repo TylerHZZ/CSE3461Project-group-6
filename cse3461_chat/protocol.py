@@ -150,8 +150,12 @@ class FeatureDescriptor:
     variant: str | None = None
 
 
-def capabilities():
-    return {name: dict(implemented=False, enabled=False, variant=None) for name in ('f1', 'f2', 'f3')}
+def capabilities(descriptors=None):
+    # No descriptors means unknown capabilities, used before a client's hello.
+    if descriptors is None:
+        descriptors = tuple(FeatureDescriptor(name) for name in ('f1', 'f2', 'f3'))
+    return {d.id: dict(implemented=d.implemented, enabled=d.enabled, variant=d.variant)
+            for d in descriptors}
 
 
 def valid_id(value):

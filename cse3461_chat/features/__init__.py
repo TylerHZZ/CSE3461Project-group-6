@@ -1,4 +1,4 @@
-"""Explicit immutable skeleton wiring; no dynamic plugin mechanism."""
+"""Explicit immutable feature wiring; no dynamic plugin mechanism."""
 from dataclasses import dataclass
 from typing import Callable
 
@@ -13,8 +13,11 @@ class HandlerTable:
     broadcast: Callable = handle_broadcast
     private: Callable = handle_private
     enhancement: Callable = handle_enhancement
-    descriptors: tuple[FeatureDescriptor, ...] = tuple(FeatureDescriptor(f) for f in ('f1','f2','f3'))
+    descriptors: tuple[FeatureDescriptor, ...] = (FeatureDescriptor('f1'), FeatureDescriptor('f2', True, False), FeatureDescriptor('f3'))
 
 
-def build_handlers() -> HandlerTable:
-    return HandlerTable()
+def build_handlers(features='none') -> HandlerTable:
+    if features not in ('none', 'f2'):
+        raise ValueError('Only none or f2 can be enabled.')
+    return HandlerTable(descriptors=(FeatureDescriptor('f1'),
+        FeatureDescriptor('f2', True, features == 'f2'), FeatureDescriptor('f3')))

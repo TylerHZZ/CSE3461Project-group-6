@@ -1,20 +1,18 @@
 # CSE3461 | Feature 1 / Feature 2 Integration Brief
 
-Version 1.1 (English; delivery status and import locations updated) | 2026-10-21 | Based on `CSE3461_ARCHITECTURE_PROPOSAL.md` v0.2; wire protocol v1.
+Version 1.2 (F2 integrated; protocol unchanged) | 2026-10-21 | Based on `CSE3461_ARCHITECTURE_PROPOSAL.md` v0.2; wire protocol v1.
 
-**Status: the connectable skeleton is delivered and passed S01–S14 after the user reported final coordinator confirmation. Shared types, directory APIs and handler entry points now exist. F1/F2 handlers, the shared chat publisher and F3 A remain unimplemented.** See the [English framework handoff](CSE3461_FRAMEWORK_HANDOFF.md) and [acceptance evidence](CSE3461_FRAMEWORK_ACCEPTANCE.md). Later feature integration is a separate authorization stage.
+**Current status: F2 and shared publication are implemented and locally verified. F1 and F3 A remain unimplemented.** Use `--features f2`; default `none` disables F2. See [F2 acceptance](CSE3461_F2_ACCEPTANCE.md) and [F2 handoff](CSE3461_F2_HANDOFF.md). Earlier skeleton evidence is historical.
 
 ## 1. Architecture and ownership
 
-**Current: terminal client → framed TCP → registration/validation/feature gate → control queue/writer → client.**
-
-Later chat path: dispatcher → F1/F2 recipient plan → shared publisher → recipient queue/writer → receiving client. Recipient planning and chat publication are still stubs.
+**Current: terminal client → framed TCP → registration/validation/feature gate → F2 recipient plan → shared publisher → recipient queue/writer → receiving client.** Control replies use the same per-connection queue. F1 recipient planning is still a stub.
 
 Baseline: Python 3.12+ standard library, IPv4 TCP, one receiver thread and one writer thread with a bounded FIFO per server connection. Clients never connect directly to each other.
 
 | Owner | Deliverable and boundary |
 | --- | --- |
-| Foundation | Protocol/validation, connections/registration, online directory, dispatch, queues, threads, logs, and client commands; shared chat publication in a later stage |
+| Foundation | Protocol/validation, connections/registration, online directory, dispatch, queues, threads, logs, and client commands; shared chat publication (now implemented) |
 | F1 | Broadcast handler in `cse3461_chat/features/broadcast.py` and its tests; select recipients or return an error |
 | F2 | Private-message handler in `cse3461_chat/features/private_chat.py` and its tests; select one recipient or return an error |
 
@@ -22,7 +20,7 @@ F1/F2 **must not access sockets, maintain separate online-user maps, create I/O 
 
 ## 2. F1/F2 function contracts
 
-Available entry-point signatures; both currently return `FEATURE_NOT_IMPLEMENTED`:
+Entry-point signatures; F1 remains a stub and F2 now implements the recipient contract:
 
 ```text
 handle_broadcast(ctx: RequestContext, request: BroadcastRequest) -> FeatureOutcome
@@ -84,7 +82,7 @@ Commands: plain text or `/all <text>` → F1; `@bob <text>` → F2; `/quit` → 
 
 ## 4. Publication, responses, and errors
 
-**Later-stage contract:** the dispatcher will call `cse3461_chat.dispatch.Publisher.publish(ctx, request, plan) -> PublishResult | AppError`; feature handlers must not. That publisher currently returns `FEATURE_NOT_IMPLEMENTED`, including direct fixture calls. In the later stage the shared layer must assign the message ID, build chat events, attempt each recipient queue, and respond to the sender.
+**Implemented shared contract:** the dispatcher calls `cse3461_chat.dispatch.Publisher.publish(ctx, request, plan) -> PublishResult | AppError`; feature handlers must not. The publisher is constructed with the existing SessionManager, assigns a UUID, validates the recipient plan, builds a chat event and attempts each captured session queue. The dispatcher emits the correlated `send_result`. Future broadcast plans use the same shared implementation; the F1 handler and availability gate remain unimplemented.
 
 - **F1:** send the same message ID to every captured recipient; `mode="broadcast", recipient=null`. The origin receives only a control response, not its own chat event.
 - **F2:** send to exactly the captured target; `mode="private", recipient=<target username>`. Bystanders receive neither the body nor a private-message notification. Missing targets never trigger broadcast.
@@ -103,15 +101,15 @@ Validation order: frame/JSON → envelope/version/ID → direction/type → fiel
 
 ## 5. Integration stages and acceptance
 
-**The delivered stage is the connectable skeleton only: F1/F2/F3 and Publisher remain unimplemented. Every feature advertises `{implemented:false, enabled:false, variant:null}`.** Valid feature requests return a correlated nonfatal `error` with `code="FEATURE_NOT_IMPLEMENTED"` and the matching `feature="f1"` or `"f2"`; there are no chat events or send results. This delivery does not authorize later feature implementation.
+**The current delivered stage is F2 plus the existing framework.** F2 advertises `{implemented:true, enabled:<startup setting>, variant:null}`. F1/F3 advertise `{implemented:false, enabled:false, variant:null}` and still return `FEATURE_NOT_IMPLEMENTED`. Disabled F2 returns `FEATURE_DISABLED`. `build_handlers(config.features)` is the CLI binding; hello, registration and server metadata derive their capability snapshot from those descriptors.
 
-Shared types and directory APIs are already supplied. During later feature integration, the foundation owner must implement a working Publisher. F1/F2 supply their handlers; the foundation owner coordinates bindings and capability flags in `features/__init__.py`. Isolated handler tests prove recipient selection, not actual socket integration.
+F2 performs exact directory lookup and returns one captured session. Shared publication and actual socket/CLI tests are included. F1 remains an independent handler task. No wire/schema change or standalone protocol adapter was introduced. The old `origin/one-one` branch remains unfixed reference only, never a supported entry point for this delivery.
 
 | Acceptance level | Required evidence |
 | --- | --- |
-| Skeleton | Real concurrent connections/registration, duplicate names, fragmented/coalesced frames and multibyte text, invalid requests, concurrency/cleanup, logs; explicit unavailable responses, zero chat events and zero successful send results |
+| Historical skeleton | Real concurrent connections/registration, duplicate names, fragmented/coalesced frames and multibyte text, invalid requests, concurrency/cleanup, logs; explicit unavailable responses, zero chat events and zero successful send results |
 | Later F1 | Alice sends; Bob and Carol receive; Alice receives no echo. Explicit no-recipient error; disconnected/slow recipients do not stall healthy connections |
-| Later F2 | Alice → Bob reaches only Bob; Carol sees no private event. Missing/self targets, malformed input, and same-name reconnection follow the contract |
+| Current F2 | Alice → Bob reaches only Bob; Carol sees no private event. Missing/self targets, malformed input, and same-name reconnection follow the contract |
 | Course evidence | Separate localhost and real-device results for both F1 and F2. F3 A implementation and actual measurements remain separate; skeleton tests cannot substitute for them |
 
-**F1/F2 developers should return:** existing language/interface compatibility, adapter needs or deviations, owned functions/files, actual validation environment/results, and untested cases. Coordinate any shared message, field, or function-contract change with the foundation owner and coordinator before changing it. Do not independently modify registration or delivery semantics. This brief does not expand baseline v0.2.
+**Future feature developers should return:** existing language/interface compatibility, adapter needs or deviations, owned functions/files, actual validation environment/results, and untested cases. Coordinate any shared message, field, or function-contract change with the foundation owner and coordinator before changing it. Do not independently modify registration or delivery semantics. This brief does not expand baseline v0.2.

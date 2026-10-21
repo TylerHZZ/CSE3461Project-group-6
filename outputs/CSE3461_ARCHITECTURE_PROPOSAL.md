@@ -1,5 +1,7 @@
 # CSE3461 Unified Chat Platform: Architecture and Interface Baseline
 
+> **Historical baseline:** this document records the earlier skeleton stage. Current F2 implementation, publisher and capability status supersede its unavailable-feature statements; see [F2 acceptance](CSE3461_F2_ACCEPTANCE.md) and [F2 handoff](CSE3461_F2_HANDOFF.md). Protocol v1 and the shared contracts are unchanged.
+
 **Execution update, 2026-10-21:** The user subsequently confirmed final coordinator agreement and authorized Native skeleton development. This v0.2 document preserves the original design-stage statements below; current implementation and acceptance status are in [the framework handoff](CSE3461_FRAMEWORK_HANDOFF.md). Wire/interface semantics remain v0.2 / protocol v1.
 
 **Status: public skeleton design confirmed by the user; Feature 3 direction A selected; implementation awaits subsequent user-and-coordinator confirmation.**  

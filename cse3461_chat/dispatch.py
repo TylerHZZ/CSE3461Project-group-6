@@ -1,20 +1,50 @@
-"""Request validation and control replies. Chat publication remains a stub."""
+"""Request validation, feature dispatch and shared queued chat publication."""
+import time
+from dataclasses import asdict
+from uuid import uuid4
 from .protocol import (AppError, BroadcastRequest, PrivateRequest, EmptyEnhancementRequest,
-                       RequestContext, RoutePlan, PublishResult, Envelope, FEATURE_TYPES,
+                       RequestContext, RoutePlan, PublishResult, DeliveryMeta, Envelope, FEATURE_TYPES,
                        valid_id, valid_username, validate_message, capabilities, make_message, error_message)
 
 
 class Publisher:
+    def __init__(self, manager):
+        self.manager = manager
+
     def publish(self, ctx: RequestContext, request: BroadcastRequest | PrivateRequest,
                 plan: RoutePlan) -> PublishResult | AppError:
-        feature = 'f1' if isinstance(request, BroadcastRequest) else 'f2'
-        return AppError('FEATURE_NOT_IMPLEMENTED', 'Chat publication is not implemented.', feature=feature)
+        private = isinstance(request, PrivateRequest)
+        feature = 'f2' if private else 'f1'
+        if (any(target.session_id == ctx.sender.session_id for target in plan.recipients) or
+                (private and (len(plan.recipients) != 1 or plan.recipients[0].username != request.to))):
+            return AppError('INTERNAL_ERROR', 'Invalid recipient plan.', True, feature)
+        message_id = str(uuid4())
+        selected = len(plan.recipients)
+        self.manager._emit('route_selected', dict(message_id=message_id, feature=feature,
+            origin_session_id=ctx.sender.session_id, origin_request_id=ctx.request_id,
+            selected_count=selected, target_session_ids=tuple(t.session_id for t in plan.recipients)))
+        message = make_message('chat_message', None, dict(message_id=message_id,
+            mode='private' if private else 'broadcast', sender=ctx.sender.username,
+            recipient=request.to if private else None, text=request.text))
+        queued = 0
+        for target in plan.recipients:
+            meta = DeliveryMeta(message_id, ctx.sender.session_id, ctx.request_id,
+                                feature, target.session_id, time.monotonic_ns())
+            admission = self.manager.enqueue(target.session_id, message, meta)
+            if admission.queued:
+                queued += 1
+            elif admission.reason == 'full':
+                # Close outside the queue/registry critical section, then continue.
+                self.manager.close(target.session_id, 'recipient_queue_full', None, False)
+        status = 'queued' if queued == selected else ('partial' if queued else 'not_queued')
+        return PublishResult(message_id, status, selected, queued, selected-queued)
 
 
 class Dispatcher:
     def __init__(self, manager, handlers, events):
         self.manager, self.handlers, self.events = manager, handlers, events
-        self.publisher = Publisher()
+        self.publisher = Publisher(manager)
+        self.capabilities = capabilities(handlers.descriptors)
         self._descriptors = {d.id: d for d in handlers.descriptors}
 
     def reject(self, session_id, error, request_id=None, kind=None, drain=True):
@@ -52,7 +82,7 @@ class Dispatcher:
             self.manager.close(session_id, 'client_request', make_message('bye', rid, {'reason':'client_request'}), True)
             return
         if kind == 'register':
-            reply = make_message('registered', rid, dict(session_id=session_id, username=message.data['username'], features=capabilities()))
+            reply = make_message('registered', rid, dict(session_id=session_id, username=message.data['username'], features=self.capabilities))
             result = self.manager.register(session_id, message.data['username'], reply)
             if isinstance(result, AppError):
                 self.reject(session_id, result, None if result.code == 'REGISTRATION_TIMEOUT' else rid, kind)
@@ -81,6 +111,12 @@ class Dispatcher:
             outcome = self.handlers.enhancement(ctx, request)
         if isinstance(outcome, RoutePlan) and isinstance(request, (BroadcastRequest, PrivateRequest)):
             outcome = self.publisher.publish(ctx, request, outcome)
+        if isinstance(outcome, PublishResult):
+            reply = make_message('send_result', rid, asdict(outcome))
+            admission = self.manager.enqueue(session_id, reply, None)
+            if not admission.queued:
+                self.manager.close(session_id, 'control_queue_'+admission.reason, None, False)
+            return
         if not isinstance(outcome, AppError):
             outcome = AppError('INTERNAL_ERROR', 'Invalid feature outcome.', True, feature)
         self.reject(session_id, outcome, rid, kind)

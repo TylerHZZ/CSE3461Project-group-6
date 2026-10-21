@@ -1,4 +1,4 @@
-"""Immutable startup configuration; skeleton features cannot be enabled."""
+"""Immutable startup configuration; only implemented features can be enabled."""
 import argparse
 import socket
 from dataclasses import dataclass
@@ -46,8 +46,8 @@ def validate_config(config):
     if isinstance(config, ServerConfig):
         if type(config.max_clients) is not int or config.max_clients <= 0:
             raise ValueError('max-clients must be positive.')
-        if config.features != 'none':
-            raise ValueError('F1/F2/F3 are not implemented; use --features none.')
+        if config.features not in ('none', 'f2'):
+            raise ValueError('Use --features none or --features f2; F1/F3 are not implemented.')
     else:
         if any(row[4][0] == '0.0.0.0' for row in addresses):
             raise ValueError('Use the actual server address, not 0.0.0.0.')
@@ -56,14 +56,14 @@ def validate_config(config):
 
 
 def _parse(argv, server):
-    parser = argparse.ArgumentParser(description='CSE3461 connectable skeleton; F1/F2/F3 unavailable.')
+    parser = argparse.ArgumentParser(description='CSE3461 framed TCP chat; F2 available, F1/F3 unimplemented.')
     parser.add_argument('--host', default='127.0.0.1')
     parser.add_argument('--port', type=int, default=3461)
     parser.add_argument('--run-id')
     parser.add_argument('--log-file', help='New per-process JSONL file; parent directory must exist.')
     if server:
         parser.add_argument('--max-clients', type=int, default=16)
-        parser.add_argument('--features', default='none', help='Only none is available in the skeleton.')
+        parser.add_argument('--features', default='none', help='none (default) disables chat; f2 enables private messaging.')
     else:
         parser.add_argument('--username')
     config = (ServerConfig if server else ClientConfig)(**vars(parser.parse_args(argv)))

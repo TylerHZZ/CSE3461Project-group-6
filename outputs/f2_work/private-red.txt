@@ -1,0 +1,45 @@
+test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private) ... FAIL
+test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame) ... FAIL
+
+======================================================================
+FAIL: test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 63, in test_300_byte_body_is_complete_and_private
+    self.message(bob, self.result(alice, 2), 'x'*300)
+                      ~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 44, in result
+    self.assertEqual((reply.type, reply.request_id), ('send_result', rid))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('error', 2) != ('send_result', 2)
+
+First differing element 0:
+'error'
+'send_result'
+
+- ('error', 2)
++ ('send_result', 2)
+
+======================================================================
+FAIL: test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 77, in test_fragmented_body_waits_for_complete_frame
+    self.message(bob, self.result(alice, 2), 'fragmented')
+                      ~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/nira_def/Documents/ChatGPT/3541 Project 1/work/f2-integration/tests/test_private.py", line 44, in result
+    self.assertEqual((reply.type, reply.request_id), ('send_result', rid))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('error', 2) != ('send_result', 2)
+
+First differing element 0:
+'error'
+'send_result'
+
+- ('error', 2)
++ ('send_result', 2)
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.375s
+
+FAILED (failures=2)

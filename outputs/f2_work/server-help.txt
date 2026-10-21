@@ -1,0 +1,17 @@
+usage: python3 -m cse3461_chat.server [-h] [--host HOST] [--port PORT]
+                                      [--run-id RUN_ID] [--log-file LOG_FILE]
+                                      [--max-clients MAX_CLIENTS]
+                                      [--features FEATURES]
+
+CSE3461 framed TCP chat; F2 available, F1/F3 unimplemented.
+
+options:
+  -h, --help            show this help message and exit
+  --host HOST
+  --port PORT
+  --run-id RUN_ID
+  --log-file LOG_FILE   New per-process JSONL file; parent directory must
+                        exist.
+  --max-clients MAX_CLIENTS
+  --features FEATURES   none (default) disables chat; f2 enables private
+                        messaging.
