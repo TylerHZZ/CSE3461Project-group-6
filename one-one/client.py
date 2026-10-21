@@ -46,6 +46,10 @@ receiving.start()
 still_open = 1
 while(still_open != 0):
     message = input()
+    if len(message) == 0:
+        print("Exiting")
+        break
     still_open = client_socket.send(message.encode())
+client_socket.close()
 # close receiving thread
 receiving.join()

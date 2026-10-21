@@ -11,8 +11,8 @@ dict_lock = threading.Lock()
 class HandleClient(socketserver.BaseRequestHandler):
     # gets client username and adds to dict
     def setup(self):
-        self.request.send("Enter username".encode())
-        self.username = self.request.recv(buff_size)
+        self.request.send("Enter username: ".encode())
+        self.username = self.request.recv(buff_size).decode()
         print(self.username)
         with dict_lock:
             user_dict[self.username] = self.request
@@ -23,13 +23,15 @@ class HandleClient(socketserver.BaseRequestHandler):
             while(True):
                 message = self.request.recv(buff_size).decode()
                 print(message)
+                if len(message) == 0:
+                    break
                 if message.startswith("@"):
                     print("Proper format, client: " + self.username)
                     rec_user = message.split(None, 1)[0]
                     rec_user = rec_user[1:]
                     if rec_user in user_dict:
                         print("Receiver exists, client: " + self.username)
-                        message = message[len(rec_user) + 2:]
+                        message = "FROM: " + self.username + "\n" + message[len(rec_user) + 2:]
                         user_dict[rec_user].send(message.encode())
                     else:
                      print("Invalid username, client: " + self.username)
@@ -38,11 +40,15 @@ class HandleClient(socketserver.BaseRequestHandler):
                      print("Invalid format, client: " + self.username)
                      self.request.send("Server: ERROR format message @username [message]".encode())
 
+
     # once connection closes removes client from dict
     def finish(self):
         with dict_lock:
             user_dict.pop(self.username)
         print(user_dict)
+        if not user_dict:
+            print("Shutting down")
+            self.server.shutdown()
 
 
 
