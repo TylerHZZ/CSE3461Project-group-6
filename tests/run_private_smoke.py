@@ -69,7 +69,7 @@ def main():
         alice.wait_for('[private] bob: 中文回复')
         check('reverse Unicode private message in actual CLI',True)
         for command,expected in [('@missing hello','USER_NOT_FOUND'),('@alice hello','SELF_TARGET'),
-                                  ('@broken','[usage]'),('broadcast remains unavailable','FEATURE_NOT_IMPLEMENTED'),
+                                  ('@broken','[usage]'),('broadcast stays disabled under f2','FEATURE_DISABLED'),
                                   ('/enhance','FEATURE_NOT_IMPLEMENTED')]:
             send('alice',command)
             alice.wait_for(expected)

@@ -28,14 +28,14 @@ class SkeletonTests(unittest.TestCase):
             self.assertTrue(hello.data['registration_required'])
             self.assertEqual(len(server.manager.directory.others('none')),2)
             for name,state in hello.data['features'].items():
-                self.assertEqual(state,dict(implemented=name == 'f2',enabled=False,variant=None))
+                self.assertEqual(state,dict(implemented=name != 'f3',enabled=False,variant=None))
             for rid,kind,data,feature in [(2,'broadcast_send',{'text':'hello'},'f1'),
                                           (3,'private_send',{'to':'bob','text':'hi'},'f2'),
                                           (4,'enhancement_request',{},'f3')]:
                 raw_send(alice,kind,rid,data)
                 reply=receive(alice)
                 self.assertEqual((reply.type,reply.request_id,reply.data['code'],reply.data['feature']),
-                                 ('error',rid,'FEATURE_DISABLED' if feature == 'f2' else 'FEATURE_NOT_IMPLEMENTED',feature))
+                                 ('error',rid,'FEATURE_NOT_IMPLEMENTED' if feature == 'f3' else 'FEATURE_DISABLED',feature))
             self.assertFalse(select.select([bob.socket,waiting.socket,alice.socket],[],[],.05)[0])
 
     def test_capacity_rejection_before_workers(self):
@@ -115,7 +115,7 @@ class SkeletonTests(unittest.TestCase):
             with running_server(events=sink) as (_,connect):
                 client,_=connect('alice')
                 raw_send(client,'broadcast_send',2,{'text':'DISTINCTIVE_BODY_7ccf'})
-                self.assertEqual(receive(client).data['code'],'FEATURE_NOT_IMPLEMENTED')
+                self.assertEqual(receive(client).data['code'],'FEATURE_DISABLED')
             content=path.read_text()
             self.assertNotIn('DISTINCTIVE_BODY_7ccf',content)
             rows=[json.loads(line) for line in content.splitlines()]
@@ -125,7 +125,7 @@ class SkeletonTests(unittest.TestCase):
             self.assertFalse({'route_selected','chat_received'} & names)
             self.assertEqual([r['seq'] for r in rows],list(range(1,len(rows)+1)))
 
-    def test_cli_f2_disabled_and_other_features_unimplemented(self):
+    def test_cli_f1_f2_disabled_and_f3_unimplemented(self):
         with running_server() as (server,connect):
             peer,_=connect('bob')
             client=ProcessClient(server.address[1])
@@ -133,14 +133,14 @@ class SkeletonTests(unittest.TestCase):
             client.wait_for('[registered]')
             for command,feature in [('hello','f1'),('@bob secret','f2'),('/enhance','f3')]:
                 client.send(command)
-                line=client.wait_for('FEATURE_DISABLED' if feature == 'f2' else 'FEATURE_NOT_IMPLEMENTED')
+                line=client.wait_for('FEATURE_NOT_IMPLEMENTED' if feature == 'f3' else 'FEATURE_DISABLED')
                 self.assertIn('feature='+feature,line)
             client.send('@broken')
             client.wait_for('[usage]')
             client.send('/unknown')
             client.wait_for('[usage]')
             client.send('/all @literal')
-            client.wait_for('FEATURE_NOT_IMPLEMENTED')
+            client.wait_for('FEATURE_DISABLED')
             self.assertFalse(select.select([peer.socket],[],[],.05)[0])
             self.assertNotIn('[queue result]',''.join(client.lines))
             client.send('/quit')
