@@ -8,6 +8,7 @@ buff_size = 200
 # deals with receiving messages
 def receive(rec_socket: socket):
     while(True):
+        # ensures connection is open
         try:
             open = rec_socket.recv(buff_size, MSG_PEEK | MSG_DONTWAIT)
             if len(open) == 0:
@@ -41,7 +42,7 @@ data = client_socket.recv(buff_size).decode()
 # prompt for username
 username = input(data)
 # send username to server
-try:
+try: # ensures connection is open
     client_socket.send(username.encode())
 except BrokenPipeError:
     print("Connection failed")
@@ -56,7 +57,7 @@ while(True):
     if len(message) == 0: #empty message closes connection (and potentially server)
         print("Exiting")
         break
-    try:
+    try: # ensures connection is open
         client_socket.send(message.encode())
     except BrokenPipeError:
         print("Connection failed")
