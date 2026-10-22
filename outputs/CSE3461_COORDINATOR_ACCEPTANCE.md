@@ -1,5 +1,7 @@
 # Independent F2 and F3 Acceptance
 
+> Historical F2/F3 acceptance. For the subsequent full F1/F2/F3 main integration, use [current coordinator acceptance](CSE3461_F1_COORDINATOR_ACCEPTANCE.md).
+
 2026-10-21 | Accepted for the implemented localhost scope and integration into main.
 
 ## Reviewed revisions and integration

@@ -16,6 +16,7 @@ OUTBOUND_CAPACITY = 64
 EVENT_CAPACITY = 64
 COMMAND_CAPACITY = 16
 MAX_PENDING = 32
+FEATURE_CHOICES = ('none', 'f1', 'f2', 'f3', 'f1,f2', 'f1,f3', 'f2,f3', 'f1,f2,f3')
 
 
 @dataclass(frozen=True)
@@ -51,8 +52,8 @@ def validate_config(config):
     if isinstance(config, ServerConfig):
         if type(config.max_clients) is not int or config.max_clients <= 0:
             raise ValueError('max-clients must be positive.')
-        if config.features not in ('none', 'f2', 'f3', 'f2,f3'):
-            raise ValueError('Use --features none, f2, f3 or f2,f3; F1 is not implemented.')
+        if config.features not in FEATURE_CHOICES:
+            raise ValueError('Use --features '+', '.join(FEATURE_CHOICES)+'.')
         if config.delay_mode not in ('off', 'fixed', 'jitter'):
             raise ValueError('delay-mode must be off, fixed or jitter.')
         if any(type(v) not in (int, float) or not math.isfinite(v) for v in (config.delay_ms, config.jitter_ms)):
@@ -75,14 +76,14 @@ def validate_config(config):
 
 
 def _parse(argv, server):
-    parser = argparse.ArgumentParser(description='CSE3461 framed TCP chat; F2 private chat and F3 A delay/jitter available; F1 unimplemented.')
+    parser = argparse.ArgumentParser(description='CSE3461 framed TCP chat; F1 broadcast, F2 private chat and F3 A delay/jitter available.')
     parser.add_argument('--host', default='127.0.0.1')
     parser.add_argument('--port', type=int, default=3461)
     parser.add_argument('--run-id')
     parser.add_argument('--log-file', help='New per-process JSONL file; parent directory must exist.')
     if server:
         parser.add_argument('--max-clients', type=int, default=16)
-        parser.add_argument('--features', default='none', help='none (default), f2, f3 or f2,f3; F3 requires fixed/jitter mode.')
+        parser.add_argument('--features', default='none', help='none (default) or an ascending comma-separated subset of f1,f2,f3; F3 requires fixed/jitter mode.')
         parser.add_argument('--delay-mode', default='off', help='off, fixed or jitter; chat frames only, FIFO controls can queue behind chat.')
         parser.add_argument('--delay-ms', type=float, default=0.0, help='Fixed delay or jitter center in ms, 0..1000.')
         parser.add_argument('--jitter-ms', type=float, default=0.0, help='Uniform half-width in ms: [delay-jitter, delay+jitter] within 0..1000.')

@@ -1,0 +1,218 @@
+test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) ... 
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='none') ... FAIL
+usage: python3 -m unittest [-h] [--host HOST] [--port PORT] [--run-id RUN_ID]
+                           [--log-file LOG_FILE] [--max-clients MAX_CLIENTS]
+                           [--features FEATURES] [--delay-mode DELAY_MODE]
+                           [--delay-ms DELAY_MS] [--jitter-ms JITTER_MS]
+                           [--delay-seed DELAY_SEED]
+python3 -m unittest: error: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1') ... ERROR
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f2') ... FAIL
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f3') ... FAIL
+usage: python3 -m unittest [-h] [--host HOST] [--port PORT] [--run-id RUN_ID]
+                           [--log-file LOG_FILE] [--max-clients MAX_CLIENTS]
+                           [--features FEATURES] [--delay-mode DELAY_MODE]
+                           [--delay-ms DELAY_MS] [--jitter-ms JITTER_MS]
+                           [--delay-seed DELAY_SEED]
+python3 -m unittest: error: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1,f2') ... ERROR
+usage: python3 -m unittest [-h] [--host HOST] [--port PORT] [--run-id RUN_ID]
+                           [--log-file LOG_FILE] [--max-clients MAX_CLIENTS]
+                           [--features FEATURES] [--delay-mode DELAY_MODE]
+                           [--delay-ms DELAY_MS] [--jitter-ms JITTER_MS]
+                           [--delay-seed DELAY_SEED]
+python3 -m unittest: error: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1,f3') ... ERROR
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f2,f3') ... FAIL
+usage: python3 -m unittest [-h] [--host HOST] [--port PORT] [--run-id RUN_ID]
+                           [--log-file LOG_FILE] [--max-clients MAX_CLIENTS]
+                           [--features FEATURES] [--delay-mode DELAY_MODE]
+                           [--delay-ms DELAY_MS] [--jitter-ms JITTER_MS]
+                           [--delay-seed DELAY_SEED]
+python3 -m unittest: error: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+  test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1,f2,f3') ... ERROR
+
+======================================================================
+ERROR: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 94, in _parse
+    validate_config(config)
+    ~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 55, in validate_config
+    raise ValueError('Use --features none, f2, f3 or f2,f3; F1 is not implemented.')
+ValueError: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 191, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    config = replace(parse_server_args(args), port=free_port())
+                     ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 101, in parse_server_args
+    return _parse(argv, True)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 96, in _parse
+    parser.error(str(exc))
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1,f2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 94, in _parse
+    validate_config(config)
+    ~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 55, in validate_config
+    raise ValueError('Use --features none, f2, f3 or f2,f3; F1 is not implemented.')
+ValueError: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 191, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    config = replace(parse_server_args(args), port=free_port())
+                     ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 101, in parse_server_args
+    return _parse(argv, True)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 96, in _parse
+    parser.error(str(exc))
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1,f3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 94, in _parse
+    validate_config(config)
+    ~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 55, in validate_config
+    raise ValueError('Use --features none, f2, f3 or f2,f3; F1 is not implemented.')
+ValueError: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 191, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    config = replace(parse_server_args(args), port=free_port())
+                     ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 101, in parse_server_args
+    return _parse(argv, True)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 96, in _parse
+    parser.error(str(exc))
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f1,f2,f3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 94, in _parse
+    validate_config(config)
+    ~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 55, in validate_config
+    raise ValueError('Use --features none, f2, f3 or f2,f3; F1 is not implemented.')
+ValueError: Use --features none, f2, f3 or f2,f3; F1 is not implemented.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 191, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    config = replace(parse_server_args(args), port=free_port())
+                     ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 101, in parse_server_args
+    return _parse(argv, True)
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/cse3461_chat/config.py", line 96, in _parse
+    parser.error(str(exc))
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+FAIL: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='none')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 195, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    self.assertEqual(hello.data['features'][f], dict(implemented=True, enabled=f in selected, variant='A' if f=='f3' else None))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'implemented': False, 'enabled': False, 'variant': None} != {'implemented': True, 'enabled': False, 'variant': None}
+- {'enabled': False, 'implemented': False, 'variant': None}
+?                                   ^^^^
+
++ {'enabled': False, 'implemented': True, 'variant': None}
+?                                   ^^^
+
+
+======================================================================
+FAIL: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 195, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    self.assertEqual(hello.data['features'][f], dict(implemented=True, enabled=f in selected, variant='A' if f=='f3' else None))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'implemented': False, 'enabled': False, 'variant': None} != {'implemented': True, 'enabled': False, 'variant': None}
+- {'enabled': False, 'implemented': False, 'variant': None}
+?                                   ^^^^
+
++ {'enabled': False, 'implemented': True, 'variant': None}
+?                                   ^^^
+
+
+======================================================================
+FAIL: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 195, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    self.assertEqual(hello.data['features'][f], dict(implemented=True, enabled=f in selected, variant='A' if f=='f3' else None))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'implemented': False, 'enabled': False, 'variant': None} != {'implemented': True, 'enabled': False, 'variant': None}
+- {'enabled': False, 'implemented': False, 'variant': None}
+?                                   ^^^^
+
++ {'enabled': False, 'implemented': True, 'variant': None}
+?                                   ^^^
+
+
+======================================================================
+FAIL: test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities (tests.test_broadcast_integration.FeatureCombinationTests.test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities) (features='f2,f3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_broadcast_integration.py", line 195, in test_all_eight_combinations_gate_requests_and_advertise_actual_capabilities
+    self.assertEqual(hello.data['features'][f], dict(implemented=True, enabled=f in selected, variant='A' if f=='f3' else None))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'implemented': False, 'enabled': False, 'variant': None} != {'implemented': True, 'enabled': False, 'variant': None}
+- {'enabled': False, 'implemented': False, 'variant': None}
+?                                   ^^^^
+
++ {'enabled': False, 'implemented': True, 'variant': None}
+?                                   ^^^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.243s
+
+FAILED (failures=4, errors=4)

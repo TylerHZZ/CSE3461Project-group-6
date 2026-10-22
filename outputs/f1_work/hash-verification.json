@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "run": "outputs/f1_work/broadcast-smoke-pilot-02/baseline",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/broadcast-smoke-pilot-02/fixed",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/broadcast-smoke-pilot-02/jitter",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/01-baseline",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/01-fixed",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/01-jitter",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/02-baseline",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/02-fixed",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/02-jitter",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/03-baseline",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/03-fixed",
+      "source_match": true,
+      "log_hash_match": true
+    },
+    {
+      "run": "outputs/f1_work/f3-experiment/03-jitter",
+      "source_match": true,
+      "log_hash_match": true
+    }
+  ],
+  "all_passed": true
+}

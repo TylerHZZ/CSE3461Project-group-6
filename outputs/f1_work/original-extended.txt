@@ -1,0 +1,11 @@
+test_all_captured_sessions_depart_returns_not_queued (tests.test_broadcast_integration.BroadcastIntegrationTests.test_all_captured_sessions_depart_returns_not_queued) ... ok
+test_enabled_broadcast_does_not_turn_private_errors_into_broadcasts (tests.test_broadcast_integration.BroadcastIntegrationTests.test_enabled_broadcast_does_not_turn_private_errors_into_broadcasts) ... ok
+test_full_broadcast_queue_closes_only_slow_recipient_and_reports_partial (tests.test_broadcast_integration.BroadcastIntegrationTests.test_full_broadcast_queue_closes_only_slow_recipient_and_reports_partial) ... ok
+test_long_unicode_split_header_payload_and_coalesced_frames (tests.test_broadcast_integration.BroadcastIntegrationTests.test_long_unicode_split_header_payload_and_coalesced_frames) ... ok
+test_lookup_snapshot_excludes_later_join_and_same_name_reconnect (tests.test_broadcast_integration.BroadcastIntegrationTests.test_lookup_snapshot_excludes_later_join_and_same_name_reconnect) ... ok
+test_simultaneous_senders_preserve_each_sender_fifo_without_global_order (tests.test_broadcast_integration.BroadcastIntegrationTests.test_simultaneous_senders_preserve_each_sender_fifo_without_global_order) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.443s
+
+OK

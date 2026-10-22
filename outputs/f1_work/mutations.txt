@@ -1,0 +1,41 @@
+truncate body at 195 characters : DETECTED
+test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private) ... FAIL
+
+======================================================================
+FAIL: test_300_byte_body_is_complete_and_private (tests.test_private.PrivateWireTests.test_300_byte_body_is_complete_and_private)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 61, in test_300_byte_body_is_complete_and_private
+    self.message(bob, self.result(alice, 2), 'x'*300)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 51, in message
+    self.assertEqual(dict(msg.data), dict(message_id=message_id, mode='private',
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        sender=sender, recipient=target, text=text))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'mes[307 chars]xxxxx'} != {'mes[307 chars]xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx[61 chars]xxx'}
+Diff is 768 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.069s
+
+FAILED (failures=1)
+
+dispatch one recv as a complete payload : DETECTED
+test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame) ... FAIL
+
+======================================================================
+FAIL: test_fragmented_body_waits_for_complete_frame (tests.test_private.PrivateWireTests.test_fragmented_body_waits_for_complete_frame)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/tests/test_private.py", line 73, in test_fragmented_body_waits_for_complete_frame
+    self.assertFalse(select.select([alice.socket,bob.socket,carol.socket],[],[],.25)[0])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [<socket.socket fd=4, family=2, type=1, proto=6, laddr=('127.0.0.1', 63456), raddr=('127.0.0.1', 63455)>] is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.056s
+
+FAILED (failures=1)
+
+Both mutations detected: True

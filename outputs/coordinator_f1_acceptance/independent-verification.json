@@ -1,0 +1,59 @@
+{
+  "broadcast": {
+    "baseline": {
+      "selected_pairs": 29,
+      "received_pairs": 29,
+      "wait_mean_ms": 0.00048510714285714287
+    },
+    "fixed": {
+      "selected_pairs": 29,
+      "received_pairs": 29,
+      "wait_mean_ms": 23.17919057142857
+    },
+    "jitter": {
+      "selected_pairs": 29,
+      "received_pairs": 29,
+      "wait_mean_ms": 21.98593017857143
+    }
+  },
+  "private_experiment": {
+    "01-baseline": {
+      "selected": 60,
+      "received": 60
+    },
+    "01-fixed": {
+      "selected": 60,
+      "received": 60
+    },
+    "01-jitter": {
+      "selected": 60,
+      "received": 60
+    },
+    "02-baseline": {
+      "selected": 60,
+      "received": 60
+    },
+    "02-fixed": {
+      "selected": 60,
+      "received": 60
+    },
+    "02-jitter": {
+      "selected": 60,
+      "received": 60
+    },
+    "03-baseline": {
+      "selected": 60,
+      "received": 60
+    },
+    "03-fixed": {
+      "selected": 60,
+      "received": 60
+    },
+    "03-jitter": {
+      "selected": 60,
+      "received": 60
+    }
+  },
+  "original_handler_blob": "95968a4c7cf5ff71b995c80fce90c17a62645f5f",
+  "original_history_preserved": true
+}

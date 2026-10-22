@@ -1,0 +1,1 @@
+{"output": "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/outputs/coordinator_f1_acceptance/private-smoke", "passed": true, "checks": 32, "error": null}

@@ -50,7 +50,8 @@ class DelayPolicyTests(unittest.TestCase):
         descriptors = {d.id:d for d in build_handlers(cfg.features).descriptors}
         self.assertTrue(descriptors['f3'].implemented and descriptors['f3'].enabled)
         self.assertEqual(descriptors['f3'].variant, 'A')
-        self.assertFalse(descriptors['f1'].implemented)
+        self.assertTrue(descriptors['f1'].implemented)
+        self.assertFalse(descriptors['f1'].enabled)
         self.assertFalse({d.id:d for d in build_handlers().descriptors}['f3'].enabled)
 
     def test_invalid_configs_fail_before_listening(self):

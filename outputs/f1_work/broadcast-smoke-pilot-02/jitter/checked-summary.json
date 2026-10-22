@@ -1,0 +1,217 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "test": "body 0 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 1 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 2 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 3 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 4 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 5 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 6 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 7 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 8 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 9 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 10 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 11 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "all 12 full Unicode broadcasts displayed on both recipients",
+      "passed": true
+    },
+    {
+      "test": "no recipients is nonfatal",
+      "passed": true
+    },
+    {
+      "test": "all processes exit zero",
+      "passed": true
+    },
+    {
+      "test": "server log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "server final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "alice log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "alice final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "bob log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "bob final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "carol log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "carol final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "exact selected target pairs received once, no unexpected or echo",
+      "passed": true
+    },
+    {
+      "test": "14 broadcasts and one isolated private route",
+      "passed": true
+    },
+    {
+      "test": "broadcast recipient count two; private one",
+      "passed": true
+    },
+    {
+      "test": "origin not a broadcast recipient",
+      "passed": true
+    },
+    {
+      "test": "alice one receiving session",
+      "passed": true
+    },
+    {
+      "test": "alice per-sender FIFO ad4968ef-d193-4656-ac2b-ba3f5f91b547",
+      "passed": true
+    },
+    {
+      "test": "alice per-sender FIFO 09a9dfad-98ab-4dea-8ee2-05363bc2486c",
+      "passed": true
+    },
+    {
+      "test": "bob one receiving session",
+      "passed": true
+    },
+    {
+      "test": "bob per-sender FIFO ad4968ef-d193-4656-ac2b-ba3f5f91b547",
+      "passed": true
+    },
+    {
+      "test": "bob per-sender FIFO 09a9dfad-98ab-4dea-8ee2-05363bc2486c",
+      "passed": true
+    },
+    {
+      "test": "carol one receiving session",
+      "passed": true
+    },
+    {
+      "test": "carol per-sender FIFO ad4968ef-d193-4656-ac2b-ba3f5f91b547",
+      "passed": true
+    },
+    {
+      "test": "carol per-sender FIFO 09a9dfad-98ab-4dea-8ee2-05363bc2486c",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected one receiving session",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected per-sender FIFO ad4968ef-d193-4656-ac2b-ba3f5f91b547",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected per-sender FIFO 09a9dfad-98ab-4dea-8ee2-05363bc2486c",
+      "passed": true
+    },
+    {
+      "test": "replacement sees only new broadcast",
+      "passed": true
+    },
+    {
+      "test": "Carol has no private display",
+      "passed": true
+    },
+    {
+      "test": "sender has no own broadcast display",
+      "passed": true
+    },
+    {
+      "test": "admission and completed writes match observed target pairs",
+      "passed": true
+    },
+    {
+      "test": "28 broadcast wait observations; no cancellation",
+      "passed": true
+    },
+    {
+      "test": "selected delays in configured interval",
+      "passed": true
+    },
+    {
+      "test": "actual waits computed from local timestamps",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "selected_pairs": 29,
+    "received_pairs": 29,
+    "broadcast_pairs": 28,
+    "private_pairs": 1,
+    "broadcast_wait_samples": 28,
+    "selected_min_ms": 6.2107104254743914,
+    "selected_max_ms": 33.93518017203544,
+    "actual_wait_mean_ms": 22.2220595,
+    "queue_mean_ms": 0.1030075
+  },
+  "error": null,
+  "exit_codes": {
+    "bob": 0,
+    "bob-reconnected": 0,
+    "carol": 0,
+    "server": 0,
+    "alice": 0
+  },
+  "real_devices": false
+}

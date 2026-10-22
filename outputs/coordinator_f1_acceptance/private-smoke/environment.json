@@ -1,0 +1,52 @@
+{
+  "python": "3.14.5 (v3.14.5:5607950ef23, May 10 2026, 07:38:09) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "executable": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "mode": "localhost",
+  "server_command": [
+    "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+    "-u",
+    "-m",
+    "cse3461_chat.server",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "64731",
+    "--features",
+    "f2",
+    "--run-id",
+    "private-smoke",
+    "--log-file",
+    "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/outputs/coordinator_f1_acceptance/private-smoke/server.jsonl"
+  ],
+  "client_command_template": [
+    "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+    "-u",
+    "-m",
+    "cse3461_chat.client",
+    "--port",
+    "64731",
+    "--username",
+    "<username>",
+    "--run-id",
+    "private-smoke",
+    "--log-file",
+    "<new-file>"
+  ],
+  "source_sha256": {
+    "cse3461_chat/__init__.py": "a5c01278d17635b88b725d2880dbc777b7674028c921a6aef39da6e9a22dba16",
+    "cse3461_chat/client.py": "17e6fc041358f992f812e1b3ff9796f3e668c11685a17792667e6934613697c6",
+    "cse3461_chat/commands.py": "d3ae49a1ec7f3a42b3c3fbf1f691bdf681c9eef32acf25f881d58c8743fe8aed",
+    "cse3461_chat/config.py": "3a99f619500f4072e38bdd91c80cc52e17abb982bc495290a3713991ccc44505",
+    "cse3461_chat/dispatch.py": "dbc7d2d99b97023aed9617d7fb3250c456fe3c4c3695914e3da0da458722a1a9",
+    "cse3461_chat/features/__init__.py": "1df335c40a1600e2b3b8a693495124bb3bdf7d752bb8d2ddb378b9f01d5237ce",
+    "cse3461_chat/features/broadcast.py": "c5e1a88ebca4b70dde559e7c7a7cca21f14fc30946f7970c709058aa912717da",
+    "cse3461_chat/features/enhancement.py": "b221bb80c0fcd98b66eda168074a16344ad348d0c1bcb9376bcc4faa3a09c566",
+    "cse3461_chat/features/private_chat.py": "7281bbbc07ba8839c19709c339ce46ddcb3a67a0dd427748929e58be5a5e8231",
+    "cse3461_chat/protocol.py": "51dde259728d857af7077de7e7e0ad2930db5d5bae1909c3449b22072607d5a5",
+    "cse3461_chat/server.py": "b08bf33a16a4613b9ba46f6c51b8b964c4d902bb22bccfbf1290d6eaae435aad",
+    "cse3461_chat/sessions.py": "b2d8d5d32a45d45fff533425e81e1dafbe758cc328678cd9f01df1c8001af383",
+    "cse3461_chat/telemetry.py": "6a60cda59b368d2ff6b85677541ce4a71abe35824692de907f8a96c8beaf6f42",
+    "cse3461_chat/transport.py": "7d7f65e08f80f78b5b706cecf8b070c786899bc510a7e96ab702ad213826fa6d"
+  }
+}

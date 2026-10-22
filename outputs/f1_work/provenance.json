@@ -1,0 +1,53 @@
+{
+  "original_commit": "ee35fe66e0a621750148309c0bdea262cdaca5ef",
+  "base_commit": "8eee99616500ec9eed92b869a2b5f0544ce78597",
+  "original_author": "Aaditya (Git commit attribution)",
+  "original_test_environment": {
+    "python": "3.14.5 (v3.14.5:5607950ef23, May 10 2026, 07:38:09) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "mode": "localhost",
+    "real_devices": false
+  },
+  "original_source_sha256": {
+    "cse3461_chat/__init__.py": "a5c01278d17635b88b725d2880dbc777b7674028c921a6aef39da6e9a22dba16",
+    "cse3461_chat/client.py": "1ddb5f297e98ad2e8ac0e9680298d60d6013c280d066fce347aff9b94b868a9b",
+    "cse3461_chat/commands.py": "c34998474237c91f1e240bad6f1eefe3189db9e13bf2a1063a8b7ff7a04aa882",
+    "cse3461_chat/config.py": "ca3d38f6a1dc47e0b60e9ececb9e0e11de786259e9cf9a03af56cd111c9bfee7",
+    "cse3461_chat/dispatch.py": "dbc7d2d99b97023aed9617d7fb3250c456fe3c4c3695914e3da0da458722a1a9",
+    "cse3461_chat/features/__init__.py": "1ed680164d1230f90ac9194fa4e33a8f7baf951da0e802e3fa011b84f4bcfe76",
+    "cse3461_chat/features/broadcast.py": "c5e1a88ebca4b70dde559e7c7a7cca21f14fc30946f7970c709058aa912717da",
+    "cse3461_chat/features/enhancement.py": "b368ce66d94ae39d1b2f4562a7b59fb66b592f12b8ffd8e8fb70fe4db6872505",
+    "cse3461_chat/features/private_chat.py": "7281bbbc07ba8839c19709c339ce46ddcb3a67a0dd427748929e58be5a5e8231",
+    "cse3461_chat/protocol.py": "51dde259728d857af7077de7e7e0ad2930db5d5bae1909c3449b22072607d5a5",
+    "cse3461_chat/server.py": "0872cfc14f37335140e0b6b09d2ed29591a773e05a3f1eaefd0e5027c30ab239",
+    "cse3461_chat/sessions.py": "d82d7503c76e409e805f8ec36293a2a3fc1b2fc28abc95a9f16fb0f98be15879",
+    "cse3461_chat/telemetry.py": "6a60cda59b368d2ff6b85677541ce4a71abe35824692de907f8a96c8beaf6f42",
+    "cse3461_chat/transport.py": "7d7f65e08f80f78b5b706cecf8b070c786899bc510a7e96ab702ad213826fa6d"
+  },
+  "original_suite": {
+    "tests": 69,
+    "passed": true
+  },
+  "original_extended_suite": {
+    "tests": 6,
+    "passed": true
+  },
+  "independent_added_test_sha256": "f8d245ecab43243de118435b5d76aafe6d03e936d483a7ddc7b54ed50fef7caa",
+  "original_handler_identical": true,
+  "main_files_unchanged": [
+    "cse3461_chat/dispatch.py",
+    "cse3461_chat/sessions.py",
+    "cse3461_chat/protocol.py",
+    "cse3461_chat/transport.py",
+    "cse3461_chat/client.py",
+    "cse3461_chat/commands.py",
+    "cse3461_chat/features/private_chat.py",
+    "cse3461_chat/features/enhancement.py",
+    "experiments/analyze_delay.py",
+    "experiments/run_delay.py",
+    "experiments/sender.py"
+  ],
+  "method": "git archive exact original commit into isolated temporary directory; original production files were not modified. Later independent tests added to isolated tests directory.",
+  "retention": "Merge original commit as second parent; archive/f1-original points to exact source; brodcast-feature retained unchanged."
+}
