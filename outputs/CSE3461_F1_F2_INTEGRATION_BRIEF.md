@@ -103,7 +103,7 @@ Validation order: frame/JSON → envelope/version/ID → direction/type → fiel
 
 **The current feature-branch stage is F1/F2 plus F3 A in the existing framework.** F1 and F2 each advertise `{implemented:true, enabled:<startup setting>, variant:null}`; F3 advertises `{implemented:true, enabled:<startup setting>, variant:"A"}`. All three are implemented; disabled F1/F2/F3 return `FEATURE_DISABLED`; enabled `/enhance` explains `STARTUP_CONFIG_ONLY`. `build_handlers(config.features)` is the CLI binding; hello, registration and server metadata derive their capability snapshot from those descriptors.
 
-F2 performs exact directory lookup and returns one captured session. Shared publication and actual socket/CLI tests are included. F1 returns the immutable `others()` snapshot or `NO_RECIPIENTS`. Its integration preserves the exact teammate handler and existing F2/F3 runtime behavior. No wire/schema change or standalone protocol adapter was introduced. The old `origin/archive/f2-standalone` branch remains unfixed reference only, never a supported entry point for this delivery.
+F2 performs exact directory lookup and returns one captured session. Shared publication and actual socket/CLI tests are included. F1 returns the immutable `others()` snapshot or `NO_RECIPIENTS`. Its integration preserves the exact teammate handler and existing F2/F3 runtime behavior. No wire/schema change or standalone protocol adapter was introduced. The old `origin/archive/f2-private-chat` branch remains unfixed reference only, never a supported entry point for this delivery.
 
 | Acceptance level | Required evidence |
 | --- | --- |

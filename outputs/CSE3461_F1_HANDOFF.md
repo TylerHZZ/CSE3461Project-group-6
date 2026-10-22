@@ -1,5 +1,7 @@
 # F1 broadcast integration handoff
 
+> Branch naming update: current source archives are `archive/f1-broadcast` and `archive/f2-private-chat`. Old archive names and `brodcast-feature` were removed after verifying identical preserved tips. Earlier names below are historical provenance, not current checkout instructions. See [repository guide](../REPOSITORY_GUIDE.md).
+
 > Coordinator update, 2026-10-21: independent F1/F2/F3 localhost acceptance passed; the merge containing this update integrates F1 into main. See [fresh verification](CSE3461_F1_COORDINATOR_ACCEPTANCE.md). Pending-review and branch-only statements below describe the earlier implementer handoff.
 
 2026-10-21 | Implementer delivery for independent coordinator acceptance. Work remains on `feature/f1-broadcast`; no main merge or course submission.

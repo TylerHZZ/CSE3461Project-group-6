@@ -8,13 +8,12 @@ Feature numbers follow the course assignment: **F1 = broadcast**, **F2 = private
 | --- | --- | --- |
 | `main` | Integrated shared framework, F1 broadcast, F2 private messaging and F3 delay/jitter | F1 integration `e21eb9a`, F2 baseline `64a0459` and F3 baseline `7fbdbbb`; independently accepted and integrated |
 | `feature/f1-broadcast` | Teammate F1 integrated with current F2/F3 | Independently accepted and integrated into main; branch retained for traceability |
-| `archive/f1-original` | Exact original teammate F1 commit `ee35fe6` | Source backup with full history; no defect or obsolescence claim |
-| `brodcast-feature` | Original teammate branch (original spelling) | Retained unchanged; any removal requires coordinator/team confirmation and a fresh tip check |
 | `feature/f2-private-chat` | Clearly named branch for the integrated F2 delivery | Created from the documented F2 baseline; no separate reimplementation or pending F2 merge |
 | `feature/f3-delay-jitter` | F3 implementation and experiment delivery | F3 implementation baseline: `7fbdbbb`; retained after integration into main |
-| `archive/f2-standalone` | Original standalone private messaging prototype | Same original commit `1069ff5`; contains known framing bugs; reference only |
+| `archive/f1-broadcast` | Exact original teammate F1 commit `ee35fe6` | Source backup with full history; no defect or obsolescence claim |
+| `archive/f2-private-chat` | Original standalone private messaging prototype | Same original commit `1069ff5`; contains known framing bugs; reference only |
 
-`archive/f2-standalone` replaces remote `one-one` and local `f1-one-one`. All original commits are retained. Use the integrated package, not the prototype, for demonstrations and further development.
+Archive names use the same feature suffix as development branches. `archive/f1-broadcast` replaces `archive/f1-original` and the misspelled duplicate `brodcast-feature`; all three referred to original commit `ee35fe6`. `archive/f2-private-chat` replaces `archive/f2-standalone` and retains `1069ff5`. Only branch names changed; no source history was deleted. Historical evidence keeps the names recorded at execution time.
 
 The F2 branch was created after integration to clarify repository navigation. Its name does not imply F2 still needs merging. Feature completion and course acceptance are separate: physical-device verification and other course deliverables must retain their own evidence.
 
@@ -61,20 +60,18 @@ On main and `feature/f3-delay-jitter`, also read `outputs/CSE3461_F3_PLAN.md`, `
 
 ## Updating an older local checkout
 
-After the remote rename, fetch current branch names:
+Run `git fetch origin --prune` to refresh remote names and remove stale remote-tracking references. Local feature branches track their identically named `origin/feature/...` branches. Local archive branches track their identically named `origin/archive/...` branches. The `origin/` prefix indicates a remote-tracking reference, not a second naming convention.
+
+If you still have the old local archive names, and no branch already uses the new name:
 
 ```sh
-git fetch origin --prune
+git branch -m archive/f1-original archive/f1-broadcast
+git branch --set-upstream-to=origin/archive/f1-broadcast archive/f1-broadcast
+git branch -m archive/f2-standalone archive/f2-private-chat
+git branch --set-upstream-to=origin/archive/f2-private-chat archive/f2-private-chat
 ```
 
-If your old local prototype branch is named `f1-one-one`, rename it without changing its commits:
-
-```sh
-git branch -m f1-one-one archive/f2-standalone
-git branch --set-upstream-to=origin/archive/f2-standalone archive/f2-standalone
-```
-
-If it is instead named `one-one`, substitute that old local name. Check existing local branches first; do not overwrite an existing archive branch. To work on the corrected F2 version, use `feature/f2-private-chat`, not the archived prototype.
+An older `f1-one-one` or `one-one` local branch is the F2 prototype, not F1. Check its commit before renaming it to `archive/f2-private-chat`; do not overwrite an existing local branch. Use main for the current integrated product, feature branches for retained delivery checkpoints, and archives for source history.
 
 ## Independent acceptance
 

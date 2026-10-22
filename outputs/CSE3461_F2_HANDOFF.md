@@ -1,5 +1,7 @@
 # CSE3461 F2 Integration Handoff
 
+> Branch naming update: current source archives are `archive/f1-broadcast` and `archive/f2-private-chat`. Old archive names and `brodcast-feature` were removed after verifying identical preserved tips. Earlier names below are historical provenance, not current checkout instructions. See [repository guide](../REPOSITORY_GUIDE.md).
+
 > Current F3 update (2026-10-21): F3 A implementation was subsequently authorized and completed in the dedicated `feature/f3-delay-jitter` working branch. Earlier skeleton/F2-only restrictions and unimplemented-F3 statements below are historical. See [F3 plan](CSE3461_F3_PLAN.md) and [F3 acceptance](CSE3461_F3_ACCEPTANCE.md) for the current scope and evidence.
 
 > **Subsequent authorization, 2026-10-21:** the user requested a local commit using the supplied English message and a direct push to `origin/main`. Statements below about unstaged/uncommitted work record the initial handoff snapshot. Use Git history and the current remote state for the resulting commit/push status.

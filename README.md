@@ -131,7 +131,7 @@ The wire format remains four-byte unsigned big-endian length plus strict UTF-8 J
 
 See the [integration brief](outputs/CSE3461_F1_F2_INTEGRATION_BRIEF.md) and [architecture baseline](outputs/CSE3461_ARCHITECTURE_PROPOSAL.md) for exact contracts.
 
-**The standalone `origin/archive/f2-standalone` branch at `1069ff5` is historical reference and still contains the demonstrated framing bugs. It was not repaired or merged.** Its bare-string `server.py` / `client.py` protocol is incompatible with this package. Use only the package entry points above for the integrated product; no duplicate legacy entry point is shipped here.
+**The standalone `origin/archive/f2-private-chat` branch at `1069ff5` is historical reference and still contains the demonstrated framing bugs. It was not repaired or merged.** Its bare-string `server.py` / `client.py` protocol is incompatible with this package. Use only the package entry points above for the integrated product; no duplicate legacy entry point is shipped here.
 
 For future real-device checks, bind the server to its reachable IPv4 address (or `0.0.0.0`) and set each client's `--host` to the server's actual LAN address. Remote clients must not use their own loopback address or `0.0.0.0`. Real-device over-the-air F1/F2 testing, team demonstrations/video, the report and course submission are still pending. F1 coordinator independent acceptance is separate from the implementer checks delivered here. No authentication, encryption, persistent history or public deployment is included.
 
