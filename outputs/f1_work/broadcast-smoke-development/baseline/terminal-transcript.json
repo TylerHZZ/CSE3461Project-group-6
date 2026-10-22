@@ -1,0 +1,184 @@
+{
+  "commands": [
+    {
+      "client": "alice",
+      "input": "B00 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "/all B01 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "B02 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "/all B03 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "B04 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "/all B05 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "B06 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "/all B07 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "B08 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "/all B09 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "B10 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "alice",
+      "input": "/all B11 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy"
+    },
+    {
+      "client": "bob",
+      "input": "/all reverse 中文"
+    },
+    {
+      "client": "alice",
+      "input": "@bob PRIVATE_ONLY_123"
+    },
+    {
+      "client": "alice",
+      "input": "@missing secret"
+    },
+    {
+      "client": "alice",
+      "input": "@alice secret"
+    },
+    {
+      "client": "alice",
+      "input": "@broken"
+    },
+    {
+      "client": "bob",
+      "input": "/quit"
+    },
+    {
+      "client": "alice",
+      "input": "/all after reconnect"
+    },
+    {
+      "client": "bob-reconnected",
+      "input": "/quit"
+    },
+    {
+      "client": "carol",
+      "input": "/quit"
+    },
+    {
+      "client": "alice",
+      "input": "alone"
+    }
+  ],
+  "output": {
+    "alice": [
+      "Connected: local=127.0.0.1:63002 server=127.0.0.1:63000\n",
+      "[hello] session=c52e7cd5-1965-4dba-a8cb-11f28dc3445c; registration required.\n",
+      "[registered] alice; session=c52e7cd5-1965-4dba-a8cb-11f28dc3445c; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F3 A is configured at server startup; /enhance cannot change it. F1=enabled, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[submitted] request=2; pending, not delivered.\n",
+      "[queue result] request=2 queued; queue admission is not receipt.\n",
+      "[submitted] request=3; pending, not delivered.\n",
+      "[queue result] request=3 queued; queue admission is not receipt.\n",
+      "[submitted] request=4; pending, not delivered.\n",
+      "[queue result] request=4 queued; queue admission is not receipt.\n",
+      "[submitted] request=5; pending, not delivered.\n",
+      "[queue result] request=5 queued; queue admission is not receipt.\n",
+      "[submitted] request=6; pending, not delivered.\n",
+      "[queue result] request=6 queued; queue admission is not receipt.\n",
+      "[submitted] request=7; pending, not delivered.\n",
+      "[queue result] request=7 queued; queue admission is not receipt.\n",
+      "[submitted] request=8; pending, not delivered.\n",
+      "[queue result] request=8 queued; queue admission is not receipt.\n",
+      "[submitted] request=9; pending, not delivered.\n",
+      "[queue result] request=9 queued; queue admission is not receipt.\n",
+      "[submitted] request=10; pending, not delivered.\n",
+      "[queue result] request=10 queued; queue admission is not receipt.\n",
+      "[submitted] request=11; pending, not delivered.\n",
+      "[queue result] request=11 queued; queue admission is not receipt.\n",
+      "[submitted] request=12; pending, not delivered.\n",
+      "[queue result] request=12 queued; queue admission is not receipt.\n",
+      "[submitted] request=13; pending, not delivered.\n",
+      "[queue result] request=13 queued; queue admission is not receipt.\n",
+      "[broadcast] bob: reverse 中文\n",
+      "[submitted] request=14; pending, not delivered.\n",
+      "[queue result] request=14 queued; queue admission is not receipt.\n",
+      "[submitted] request=15; pending, not delivered.\n",
+      "[error] request=15 USER_NOT_FOUND feature=f2: The target user is not connected.\n",
+      "[submitted] request=16; pending, not delivered.\n",
+      "[error] request=16 SELF_TARGET feature=f2: Choose another user for a private message.\n",
+      "[usage] Use @username <text>; invalid private input is never broadcast.\n",
+      "[submitted] request=17; pending, not delivered.\n",
+      "[queue result] request=17 queued; queue admission is not receipt.\n",
+      "[submitted] request=18; pending, not delivered.\n",
+      "[error] request=18 NO_RECIPIENTS feature=f1: No other users are connected.\n",
+      "[bye] server_shutdown\n"
+    ],
+    "bob": [
+      "Connected: local=127.0.0.1:63003 server=127.0.0.1:63000\n",
+      "[hello] session=dc50544d-a885-4df8-bd02-aa59a79b31d6; registration required.\n",
+      "[registered] bob; session=dc50544d-a885-4df8-bd02-aa59a79b31d6; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F3 A is configured at server startup; /enhance cannot change it. F1=enabled, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[broadcast] alice: B00 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B01 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B02 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B03 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B04 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B05 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B06 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B07 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B08 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B09 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B10 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B11 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[submitted] request=2; pending, not delivered.\n",
+      "[queue result] request=2 queued; queue admission is not receipt.\n",
+      "[private] alice: PRIVATE_ONLY_123\n",
+      "[bye] client_request\n"
+    ],
+    "carol": [
+      "Connected: local=127.0.0.1:63004 server=127.0.0.1:63000\n",
+      "[hello] session=a77a5175-e816-4d7a-90bd-ae72a1946d45; registration required.\n",
+      "[registered] carol; session=a77a5175-e816-4d7a-90bd-ae72a1946d45; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F3 A is configured at server startup; /enhance cannot change it. F1=enabled, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[broadcast] alice: B00 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B01 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B02 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B03 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B04 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B05 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B06 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B07 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B08 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B09 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B10 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] alice: B11 你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂你好🙂xy\n",
+      "[broadcast] bob: reverse 中文\n",
+      "[broadcast] alice: after reconnect\n",
+      "[bye] client_request\n"
+    ],
+    "bob-reconnected": [
+      "Connected: local=127.0.0.1:63008 server=127.0.0.1:63000\n",
+      "[hello] session=d0a891b3-6331-4b1a-a3a3-e33b0cdfef0d; registration required.\n",
+      "[registered] bob; session=d0a891b3-6331-4b1a-a3a3-e33b0cdfef0d; Commands: text or /all <text>; @username <text>; /enhance; /help; /quit. Use /all @literal for literal leading @. F3 A is configured at server startup; /enhance cannot change it. F1=enabled, F2=enabled, F3=unavailable. Submitted is not delivered.\n",
+      "[broadcast] alice: after reconnect\n",
+      "[bye] client_request\n"
+    ]
+  }
+}

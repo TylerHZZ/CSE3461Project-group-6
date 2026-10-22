@@ -1,0 +1,10 @@
+{"run": "01-baseline", "passed": true, "error": null}
+{"run": "01-fixed", "passed": true, "error": null}
+{"run": "01-jitter", "passed": true, "error": null}
+{"run": "02-fixed", "passed": true, "error": null}
+{"run": "02-jitter", "passed": true, "error": null}
+{"run": "02-baseline", "passed": true, "error": null}
+{"run": "03-jitter", "passed": true, "error": null}
+{"run": "03-baseline", "passed": true, "error": null}
+{"run": "03-fixed", "passed": true, "error": null}
+{"runs": 9, "summary": "/Users/nira_def/Documents/GitHub/CSE3461Project-group-6/outputs/f1_work/f3-experiment/summary.csv"}

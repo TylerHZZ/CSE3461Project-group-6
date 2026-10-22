@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "test": "300-byte complete body in actual CLI",
+      "passed": true
+    },
+    {
+      "test": "reverse Unicode private message in actual CLI",
+      "passed": true
+    },
+    {
+      "test": "@missing -> USER_NOT_FOUND",
+      "passed": true
+    },
+    {
+      "test": "@alice -> SELF_TARGET",
+      "passed": true
+    },
+    {
+      "test": "@broken -> [usage]",
+      "passed": true
+    },
+    {
+      "test": "broadcast -> FEATURE_DISABLED",
+      "passed": true
+    },
+    {
+      "test": "/enhance -> FEATURE_DISABLED",
+      "passed": true
+    },
+    {
+      "test": "original Bob exits cleanly",
+      "passed": true
+    },
+    {
+      "test": "disconnected target is absent",
+      "passed": true
+    },
+    {
+      "test": "same-name reconnect receives new traffic",
+      "passed": true
+    },
+    {
+      "test": "all processes exit zero",
+      "passed": true
+    },
+    {
+      "test": "Carol receives no private event",
+      "passed": true
+    },
+    {
+      "test": "Alice receives no own private echo",
+      "passed": true
+    },
+    {
+      "test": "replacement Bob receives no previous session body",
+      "passed": true
+    },
+    {
+      "test": "server telemetry sequence valid",
+      "passed": true
+    },
+    {
+      "test": "server final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "server logs omit private bodies",
+      "passed": true
+    },
+    {
+      "test": "alice telemetry sequence valid",
+      "passed": true
+    },
+    {
+      "test": "alice final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "alice logs omit private bodies",
+      "passed": true
+    },
+    {
+      "test": "bob telemetry sequence valid",
+      "passed": true
+    },
+    {
+      "test": "bob final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "bob logs omit private bodies",
+      "passed": true
+    },
+    {
+      "test": "carol telemetry sequence valid",
+      "passed": true
+    },
+    {
+      "test": "carol final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "carol logs omit private bodies",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected telemetry sequence valid",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected logs omit private bodies",
+      "passed": true
+    },
+    {
+      "test": "server logged enabled F2",
+      "passed": true
+    },
+    {
+      "test": "exactly three successful one-target routes",
+      "passed": true
+    },
+    {
+      "test": "no bystander route or origin echo",
+      "passed": true
+    }
+  ],
+  "exit_codes": {
+    "bob": 0,
+    "server": 0,
+    "alice": 0,
+    "carol": 0,
+    "bob-reconnected": 0
+  },
+  "error": null,
+  "mode": "localhost",
+  "real_device_verified": false
+}

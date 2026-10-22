@@ -85,8 +85,10 @@ class ServerRuntime:
             listener.listen(config.max_clients)
             listener.settimeout(.05)
             self.address = listener.getsockname()
-            self.output(f'Listening on {self.address[0]}:{self.address[1]}; '
-                        f'F2={"enabled" if dispatcher.capabilities["f2"]["enabled"] else "disabled"}; F3 A={config.delay_mode} ({config.delay_ms} +/- {config.jitter_ms} ms); F1 not implemented.')
+            states = '; '.join(f'{f.upper()}={"enabled" if dispatcher.capabilities[f]["enabled"] else "disabled"}'
+                               for f in ('f1', 'f2'))
+            self.output(f'Listening on {self.address[0]}:{self.address[1]}; {states}; '
+                        f'F3 A={config.delay_mode} ({config.delay_ms} +/- {config.jitter_ms} ms).')
             self.ready.set()
             while not self._stop.is_set():
                 self.manager.maintain()

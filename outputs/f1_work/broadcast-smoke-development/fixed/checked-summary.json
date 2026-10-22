@@ -1,0 +1,115 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "test": "body 0 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 1 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 2 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 3 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 4 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 5 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 6 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 7 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 8 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 9 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 10 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "body 11 is 256 bytes",
+      "passed": true
+    },
+    {
+      "test": "all 12 full Unicode broadcasts displayed on both recipients",
+      "passed": true
+    },
+    {
+      "test": "no recipients is nonfatal",
+      "passed": true
+    },
+    {
+      "test": "all processes exit zero",
+      "passed": true
+    },
+    {
+      "test": "server log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "server final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "alice log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "alice final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "bob log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "bob final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "carol log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "carol final telemetry valid",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected log sequence complete",
+      "passed": true
+    },
+    {
+      "test": "bob-reconnected final telemetry valid",
+      "passed": true
+    }
+  ],
+  "metrics": {},
+  "error": "KeyError('session_id')",
+  "exit_codes": {
+    "bob": 0,
+    "bob-reconnected": 0,
+    "carol": 0,
+    "server": 0,
+    "alice": 0
+  },
+  "real_devices": false
+}

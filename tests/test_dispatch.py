@@ -73,7 +73,7 @@ class DispatchTests(unittest.TestCase):
             raw_send(c,'broadcast_send',2,{'text':'hi','sender':'bob'})
             self.assertEqual(receive(c).data['code'],'BAD_REQUEST')
             raw_send(c,'broadcast_send',3,{'text':'hi'})
-            self.assertEqual(receive(c).data['code'],'FEATURE_NOT_IMPLEMENTED')
+            self.assertEqual(receive(c).data['code'],'FEATURE_DISABLED')
             self.assertEqual(calls,[])
             self.assertFalse(select.select([peer.socket],[],[],.05)[0])
 

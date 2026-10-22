@@ -9,13 +9,11 @@ from dataclasses import replace
 
 from cse3461_chat.features import build_handlers
 from cse3461_chat.features.private_chat import handle_private
-from cse3461_chat.protocol import FeatureDescriptor
 from tests.support import running_server, raw_send, receive, ProcessClient
 
 
 def enabled_handlers(**overrides):
-    return replace(build_handlers(), descriptors=(FeatureDescriptor('f1'),
-        FeatureDescriptor('f2', True, True), FeatureDescriptor('f3')), **overrides)
+    return replace(build_handlers('f2'), **overrides)
 
 
 def private_frame(rid, text, target='bob'):
@@ -146,7 +144,7 @@ class PrivateWireTests(unittest.TestCase):
                                           (13,'enhancement_request',{},'f3')]:
                 raw_send(alice,kind,rid,data)
                 reply=receive(alice)
-                self.assertEqual((reply.data['code'],reply.data['feature']),('FEATURE_NOT_IMPLEMENTED',feature))
+                self.assertEqual((reply.data['code'],reply.data['feature']),('FEATURE_DISABLED',feature))
             self.assert_quiet(alice,bob,carol)
             alice.socket.sendall(private_frame(14,'after errors'))
             self.message(bob,self.result(alice,14),'after errors')

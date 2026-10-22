@@ -1,0 +1,9 @@
+test_broadcast_disconnect_cancels_only_departed_recipient_and_no_replay (tests.test_broadcast_delay.BroadcastDelayTests.test_broadcast_disconnect_cancels_only_departed_recipient_and_no_replay) ... ok
+test_f1_only_with_delay_off_fixed_jitter_and_zero_preserves_recipient_fifo (tests.test_broadcast_delay.BroadcastDelayTests.test_f1_only_with_delay_off_fixed_jitter_and_zero_preserves_recipient_fifo) ... ok
+test_f3_full_private_queue_does_not_block_healthy_broadcast_recipient (tests.test_broadcast_delay.BroadcastDelayTests.test_f3_full_private_queue_does_not_block_healthy_broadcast_recipient) ... ok
+test_shutdown_cancels_both_broadcast_waits_and_drains_bye (tests.test_broadcast_delay.BroadcastDelayTests.test_shutdown_cancels_both_broadcast_waits_and_drains_bye) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.229s
+
+OK
