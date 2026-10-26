@@ -135,23 +135,24 @@ See the [integration brief](outputs/CSE3461_F1_F2_INTEGRATION_BRIEF.md) and [arc
 
 For future real-device checks, bind the server to its reachable IPv4 address (or `0.0.0.0`) and set each client's `--host` to the server's actual LAN address. Remote clients must not use their own loopback address or `0.0.0.0`. Real-device over-the-air F1/F2 testing, team demonstrations/video, the report and course submission are still pending. F1 coordinator independent acceptance is separate from the implementer checks delivered here. No authentication, encryption, persistent history or public deployment is included.
 
-## Course and team
+## Team contributions and source provenance
 
-**CSE 3461 — Computer Networking and Internet Technologies**
-The Ohio State University · Autumn 2026
+| Student | Main assignment | GitHub evidence / qualification |
+| --- | --- | --- |
+| **Aaditya Gupta** (`Aaditya115`) | **F1 Broadcast**: original handler and feature tests. | Authored [`ee35fe6`](https://github.com/TylerHZZ/CSE3461Project-group-6/commit/ee35fe66e0a621750148309c0bdea262cdaca5ef), retained in integrated history. |
+| **Luca Sivilotti** (`lsivilotti`) | **F2 One-to-One prototype**: standalone client/server, threading, debugging, error recovery and comments. | Authored commits in [`archive/f2-private-chat`](https://github.com/TylerHZZ/CSE3461Project-group-6/tree/archive/f2-private-chat). This archived raw-string prototype **is not** the final F2 implementation in `main`. |
+| **Tianrun Lin** (`Def-Nira-H`) | **F3 Delay/Jitter** and shared application implementation/integration work, including the production F2 path. | Account's commits include [`8881b80`](https://github.com/TylerHZZ/CSE3461Project-group-6/commit/8881b8064e6e11005a5a2a9e7a70b5dedd3b161a), [`64a0459`](https://github.com/TylerHZZ/CSE3461Project-group-6/commit/64a0459bbb2a79745574be629093b82d83dcf7ae) and [`7fbdbbb`](https://github.com/TylerHZZ/CSE3461Project-group-6/commit/7fbdbbba413e15530a40632d8cb8ee12846f34f1). Documentation identifies Codex assistance on some implementation and testing. |
+| **Tyler Zhuangzhuang He** (`TylerHZZ`) | **Testing, final report and demo coordination**: student-run checks, issue reporting/retesting, collecting documentation, editing the Teams video and preparing submission links. | Team-assigned responsibilities; do not claim OTA or manual testing complete until verified and recorded. Initial repository/README commits are under `TylerHZZ`. **Production code integration is not attributed to Tyler.** |
 
-### Team Members
+Git identities show commits and provenance, but do **not** alone establish that every change or test was personally performed by a student. Confirm individual contributions and disclose AI assistance according to course rules; see the F3 and F1 handoff documents in `outputs/`.
 
-- Luca Sivilotti
-- Tianrun Lin
-- Aaditya Gupta
-- Tyler Zhuangzhuang He
+## Course submission checklist
 
-### Team Roles
+- Complete required **F1/F2 localhost and real-device** demonstrations; show F3 appropriately.
+- Four students participate in a **Microsoft Teams recording**, introduce themselves, and run code live. Target <6 minutes.
+- Upload the final MP4 to a drive with **anyone-with-link access**.
+- ZIP the current `main` source with this README; name the ZIP **exactly the Carmen group name** and share a downloadable link.
+- Fill the instructor's short PDF report template: video link, ZIP link, F3 description (75–100 words), actual individual contributions and peer-evaluation confirmation.
+- Each student sends peer evaluation to the instructor using **Carmen messages**.
 
-- **Luca Sivilotti** — Feature
-- **Tianrun Lin** — Feature
-- **Aaditya Gupta** — Feature
-- **Tyler Zhuangzhuang He** — Integration, Debugging, Localhost Testing, and Over-the-Air Testing
-
-Detailed contributions will be recorded separately in `CONTRIBUTIONS.md`. Feature assignments remain subject to team confirmation.
+**Project deadline: October 27, 2026.**
