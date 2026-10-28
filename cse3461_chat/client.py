@@ -341,7 +341,7 @@ def main(argv=None):
                         print('[usage] '+command.message,flush=True)
                     else:
                         rid = client.send(command.type,command.data)
-                        print(f'[submitted] request={rid}; pending, not delivered.',flush=True)
+                        print(f'[sent] request={rid}',flush=True)
             except LocalClientError as exc:
                 print('[local] '+safe_display(exc),flush=True)
     except KeyboardInterrupt:
